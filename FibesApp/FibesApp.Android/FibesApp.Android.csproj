@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -115,7 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FibesApp\FibesApp.csproj">
-      <Project>{9ED083B4-938F-43E0-8EBC-0386621F0476}</Project>
+      <Project>{B6D43096-2CCF-4140-929F-D326F6CE0728}</Project>
       <Name>FibesApp</Name>
     </ProjectReference>
   </ItemGroup>
