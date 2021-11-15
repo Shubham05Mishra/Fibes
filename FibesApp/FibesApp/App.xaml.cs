@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FibesApp.Views.Accounts;
+using System;
 using FibesApp.Views.Accounts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace FibesApp
         {
             InitializeComponent();
 
-            MainPage = new LoginView();
+            MainPage = new ForgotPasswordView();
         }
 
         protected override void OnStart()
