@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FibesApp.Views.Accounts.LoginView">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="55*"/>
+            </Grid.RowDefinitions>
+            <!--Image Section Grid-->
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Red">
+                
+            </Grid>
+            <!--Login Detail Section Grid-->
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Blue" Margin="35" RowDefinitions="Auto,Auto,Auto,Auto,50,Auto">
+                <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
