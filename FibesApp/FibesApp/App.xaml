@@ -3,6 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FibesApp.App">
     <Application.Resources>
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
+            <!--#region Colors-->
 
+            <Color x:Key="AppGrayColor">#7f7f7f</Color>
+            <Color x:Key="AppBlackColor">#000000</Color>
+            <Color x:Key="AppPurpleColor">#a07cde</Color>
+            <Color x:Key="AppBlueColor">#5f33be</Color>
+            <Color x:Key="AppSkyBlueColor">#1F72C6</Color>
+            <!--#endregion-->
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
