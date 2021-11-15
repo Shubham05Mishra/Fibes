@@ -6,7 +6,7 @@
         <!--  Application resource dictionary  -->
         <ResourceDictionary>
             <!--#region Colors-->
-
+            <Color x:Key="AppBackgroundColor">#ffffff</Color>
             <Color x:Key="AppGrayColor">#7f7f7f</Color>
             <Color x:Key="AppBlackColor">#000000</Color>
             <Color x:Key="AppPurpleColor">#a07cde</Color>

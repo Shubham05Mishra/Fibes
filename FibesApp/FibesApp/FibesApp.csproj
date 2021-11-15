@@ -24,11 +24,13 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="CustomControls\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="CustomControls\CustomFloatingEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Accounts\LoginView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
