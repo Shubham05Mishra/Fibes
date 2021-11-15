@@ -26,6 +26,11 @@
     <Folder Include="Common\" />
     <Folder Include="CustomControls\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Accounts\ForgotPasswordView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
