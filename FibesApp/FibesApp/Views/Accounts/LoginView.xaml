@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FibesApp.Views.Accounts.LoginView">
+             xmlns:local="clr-namespace:FibesApp.CustomControls"
+             x:Class="FibesApp.Views.Accounts.LoginView" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
@@ -14,8 +15,17 @@
                 
             </Grid>
             <!--Login Detail Section Grid-->
-            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Blue" Margin="35" RowDefinitions="Auto,Auto,Auto,Auto,50,Auto">
-                <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}"/>
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="35,35,35,0" RowDefinitions="Auto,55,55,Auto,55" RowSpacing="30">
+                <!--Welcome Fibes Label-->
+                <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}" FontSize="30"/>
+                <!--Email Section-->
+                <local:CustomFloatingEntry Grid.Row="1" lblTextTitle="Email Address" EntryText="{Binding Email}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <!--Password Section-->
+                <local:CustomFloatingEntry Grid.Row="2" lblTextTitle="Password" EntryText="{Binding Password}" EntryIsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <!--Forgot Password Section-->
+                <Label Grid.Row="3" Text="Forgot Password?" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,-10,0"/>
+                <!--Sign In Button-->
+                <Button Grid.Row="4" Text="Sign in" Command="{Binding SignInCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" FontSize="16" TextTransform="None" CornerRadius="5"/>
             </Grid>
         </Grid>
     </ContentPage.Content>
