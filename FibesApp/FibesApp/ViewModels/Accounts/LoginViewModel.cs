@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Acr.UserDialogs;
+using FibesApp.Views.Home;
+using FibesApp.Views.Menu;
 using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Accounts
@@ -19,7 +21,7 @@ namespace FibesApp.ViewModels.Accounts
             ForgotPasswordCommand = new Command(OnForgotPasswordAsync);
         }
 
-        
+
         #endregion
 
         #region Properties
@@ -60,13 +62,15 @@ namespace FibesApp.ViewModels.Accounts
         /// <summary>
         /// TODO:To Call The SignIn button ...
         /// </summary>
-        private void OnSignInAsync(object obj)
+        private async void OnSignInAsync(object obj)
         {
             if (!ValidateSignIn())
             {
                 return;
             }
-            
+            App.AppMasterDetailPage.Master = new AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
+            App.Current.MainPage = App.AppMasterDetailPage;
         }
         /// <summary>
         /// TODO:To Call The ForgotPassword Command ...
@@ -107,7 +111,7 @@ namespace FibesApp.ViewModels.Accounts
             }
             UserDialogs.Instance.HideLoading();
             return true;
-        } 
+        }
         #endregion
     }
 }

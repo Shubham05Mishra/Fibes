@@ -13,11 +13,17 @@ namespace FibesApp.ViewModels.Home
         public HomeViewModel(INavigation _Nav)
         {
             Navigation = _Nav;
-             MyCollectionCommand = new Command(MyCollectionAsync);
-             BrowseCommand = new Command(BrowseAsync);
+            MyCollectionCommand = new Command(MyCollectionAsync);
+            BrowseCommand = new Command(BrowseAsync);
             // FilterCommand = new Command(FilterAsync);
+            MenuCommand = new Command(MenuAync);
+            ProfileCommand = new Command(OnProfileAsync);
+
         }
+
+        
         #endregion
+
         #region Properties
         private ObservableCollection<ItemModel> _ItemsList;
         public ObservableCollection<ItemModel> ItemsList
@@ -84,46 +90,82 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
-        private string _MyCollectionColor;
-        public string MyCollectionColor
+        private bool _MyCollectionDefaultLabel = true;
+        public bool MyCollectionDefaultLabel
         {
-            get { return _MyCollectionColor; }
+            get { return _MyCollectionDefaultLabel; }
             set
             {
-                if (_MyCollectionColor != value)
+                if (_MyCollectionDefaultLabel != value)
                 {
-                    _MyCollectionColor = value;
-                    OnPropertyChanged("MyCollectionColor");
+                    _MyCollectionDefaultLabel = value;
+                    OnPropertyChanged("MyCollectionDefaultLabel");
                 }
             }
         }
-        private string _BrowseColor;
-        public string BrowseColor
+        private bool _MyCollectionColorLabel = false;
+        public bool MyCollectionColorLabel
         {
-            get { return _BrowseColor; }
+            get { return _MyCollectionColorLabel; }
             set
             {
-                if (_BrowseColor != value)
+                if (_MyCollectionColorLabel != value)
                 {
-                    _BrowseColor = value;
-                    OnPropertyChanged("BrowseColor");
+                    _MyCollectionColorLabel = value;
+                    OnPropertyChanged("MyCollectionColorLabel");
                 }
             }
         }
+        private bool _BrowserDefaultColorLabel = true;
+        public bool BrowserDefaultColorLabel
+        {
+            get { return _BrowserDefaultColorLabel; }
+            set
+            {
+                if (_BrowserDefaultColorLabel != value)
+                {
+                    _BrowserDefaultColorLabel = value;
+                    OnPropertyChanged("BrowserDefaultColorLabel");
+                }
+            }
+        }
+        private bool _BrowserColorLabel = false;
+        public bool BrowserColorLabel
+        {
+            get { return _BrowserColorLabel; }
+            set
+            {
+                if (_BrowserColorLabel != value)
+                {
+                    _BrowserColorLabel = value;
+                    OnPropertyChanged("BrowserColorLabel");
+                }
+            }
+        }
+
         #endregion
+
         #region Commands
         public Command MyCollectionCommand { get; }
         public Command BrowseCommand { get; }
+        public Command MenuCommand { get; }
+        public Command ProfileCommand { get; }
         public Command FilterCommand { get; }
         #endregion
+
         #region Methods
+
         /// <summary>
-        /// TODO : To Bind Item list
+        /// TODO : To Bind Item list...
         /// </summary>
         public void MyCollectionAsync()
         {
-            MyCollectionVisility = true;
+            MyCollectionVisility = true;  
             BrowserVisility = false;
+            MyCollectionColorLabel = false;
+            MyCollectionDefaultLabel = true;
+            BrowserColorLabel = false;
+            BrowserDefaultColorLabel = true;
             ItemsList = new ObservableCollection<ItemModel>()
             {
                 new ItemModel()
@@ -153,13 +195,18 @@ namespace FibesApp.ViewModels.Home
                 },
             };
         }
+
         /// <summary>
-        /// TODO : To Bind BrowseItem list
+        /// TODO : To Bind BrowseItem list...
         /// </summary>
         public void BrowseAsync()
         {
             BrowserVisility = true;
             MyCollectionVisility = false;
+            MyCollectionColorLabel = true;
+            MyCollectionDefaultLabel = false;
+            BrowserColorLabel = true;
+            BrowserDefaultColorLabel = false;
             BrowseItemsList = new ObservableCollection<ItemModel>()
             {
                 new ItemModel()
@@ -208,6 +255,22 @@ namespace FibesApp.ViewModels.Home
                     IsLike = true,
                 },
             };
+        }
+
+        /// <summary>
+        /// TODO : Open Menu Page
+        /// </summary>
+        public void MenuAync(object obj)
+        {
+            if (App.Current.MainPage is MasterDetailPage mdp)
+            {
+                mdp.IsPresented = true;
+            }
+        }
+        private async void OnProfileAsync(object obj)
+        {
+            await Navigation.PushAsync(new Views.Accounts.ProfileView());
+
         }
         #endregion
     }
