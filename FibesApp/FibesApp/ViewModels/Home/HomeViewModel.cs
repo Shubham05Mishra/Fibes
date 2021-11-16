@@ -13,11 +13,15 @@ namespace FibesApp.ViewModels.Home
         public HomeViewModel(INavigation _Nav)
         {
             Navigation = _Nav;
-             MyCollectionCommand = new Command(MyCollectionAsync);
-             BrowseCommand = new Command(BrowseAsync);
+            MyCollectionCommand = new Command(MyCollectionAsync);
+            BrowseCommand = new Command(BrowseAsync);
             // FilterCommand = new Command(FilterAsync);
             MenuCommand = new Command(MenuAync);
+            ProfileCommand = new Command(OnProfileAsync);
+
         }
+
+        
         #endregion
         #region Properties
         private ObservableCollection<ItemModel> _ItemsList;
@@ -116,6 +120,7 @@ namespace FibesApp.ViewModels.Home
         public Command MyCollectionCommand { get; }
         public Command BrowseCommand { get; }
         public Command MenuCommand { get; }
+        public Command ProfileCommand { get; }
         public Command FilterCommand { get; }
         #endregion
         #region Methods
@@ -218,6 +223,11 @@ namespace FibesApp.ViewModels.Home
         {
             (App.Current.MainPage as MasterDetailPage).IsPresented = true;
         }
-            #endregion
+        private async void OnProfileAsync(object obj)
+        {
+            await Navigation.PushAsync(new Views.Accounts.ProfileView());
+
         }
+        #endregion
+    }
 }

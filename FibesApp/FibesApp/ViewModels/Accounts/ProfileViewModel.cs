@@ -13,21 +13,41 @@ namespace FibesApp.ViewModels.Accounts
         {
             Navigation = nav;
             LogoutCommand = new Command(OnLogoutAsync);
+            backCommand = new Command(OnbackAsync);
         }
+
+        
 
         #endregion
 
         #region Command 
         public Command LogoutCommand { get; }
+        public Command backCommand { get; }
+
+
         #endregion
 
         #region Method
+        /// <summary>
+        /// TODO : Logout
+        /// </summary>
         private async void OnLogoutAsync(object obj)
         {
-          // UserDialog.Alert("you want to Logout", "", "Ok");
-            App.Current.MainPage = new Views.Accounts.LoginView();
+            var confirmed = await UserDialog.ConfirmAsync(" Are you sure you want to Logout" ,"Alert", "Yes","No");
+            if (confirmed)
+            {
+                App.Current.MainPage = new Views.Accounts.LoginView();
+            }
+            return;
+            
 
-
+        }
+        /// <summary>
+        /// TODO : Back the Previous Page
+        /// </summary>
+        private async void OnbackAsync(object obj)
+        {
+            await Navigation.PopAsync();
         }
         #endregion
 

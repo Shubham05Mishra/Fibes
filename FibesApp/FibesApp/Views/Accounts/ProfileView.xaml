@@ -20,7 +20,7 @@
                 <Grid Grid.Column="0" HorizontalOptions="Start" VerticalOptions="FillAndExpand">
                     <Image  Source="backbutton.png" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding backCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
                 </Grid>
                 <!--Profile Title-->
@@ -57,7 +57,7 @@
                     </Grid>
                     <BoxView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                     <!--Body-->
-                    <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,25"  RowSpacing="25">
+                    <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,25"  RowSpacing="20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>

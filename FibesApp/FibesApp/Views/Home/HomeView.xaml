@@ -21,10 +21,15 @@
                 <Image  Source="menubar.png" Aspect="AspectFit"  />
                 </Grid>
                 <Image Grid.Column="1" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <ci:CircleImage  Source="menubar.png" Aspect="AspectFit"/>
-                <ci:CircleImage Grid.Column="2" WidthRequest="100"
+                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                
+                <ci:CircleImage WidthRequest="100"
                             x:Name="ImgProfile"  Aspect="AspectFill"  HorizontalOptions="FillAndExpand"
                             Source="Profile.png" BackgroundColor="Transparent" VerticalOptions="FillAndExpand"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ProfileCommand}"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
             </Grid>
             <!--User Name and SearchBar Section-->
             <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto,50">
