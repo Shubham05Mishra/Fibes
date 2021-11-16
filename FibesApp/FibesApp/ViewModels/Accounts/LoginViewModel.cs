@@ -19,7 +19,7 @@ namespace FibesApp.ViewModels.Accounts
             ForgotPasswordCommand = new Command(OnForgotPasswordAsync);
         }
 
-        
+
         #endregion
 
         #region Properties
@@ -60,13 +60,13 @@ namespace FibesApp.ViewModels.Accounts
         /// <summary>
         /// TODO:To Call The SignIn button ...
         /// </summary>
-        private void OnSignInAsync(object obj)
+        private async void OnSignInAsync(object obj)
         {
             if (!ValidateSignIn())
             {
                 return;
             }
-            
+            await Navigation.PushAsync(new Views.Home.HomeView());
         }
         /// <summary>
         /// TODO:To Call The ForgotPassword Command ...
@@ -75,7 +75,7 @@ namespace FibesApp.ViewModels.Accounts
         {
             await Navigation.PushAsync(new Views.Accounts.ForgotPasswordView());
         }
-
+        #endregion
         #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...
@@ -106,7 +106,7 @@ namespace FibesApp.ViewModels.Accounts
             }
             UserDialogs.Instance.HideLoading();
             return true;
-        } 
+        }
         #endregion
     }
 }
