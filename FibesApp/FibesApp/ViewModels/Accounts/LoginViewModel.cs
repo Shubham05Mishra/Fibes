@@ -66,6 +66,7 @@ namespace FibesApp.ViewModels.Accounts
         }
         #endregion
 
+        #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>
@@ -95,6 +96,7 @@ namespace FibesApp.ViewModels.Accounts
             }
             UserDialogs.Instance.HideLoading();
             return true;
-        }
+        } 
+        #endregion
     }
 }
