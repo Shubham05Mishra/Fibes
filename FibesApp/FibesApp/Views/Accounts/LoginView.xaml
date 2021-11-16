@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
             <!--Background Image Section-->
             <Image Source="bg.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <!--Login Detail Section Grid-->
