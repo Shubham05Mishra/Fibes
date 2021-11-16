@@ -75,6 +75,7 @@ namespace FibesApp.ViewModels.Accounts
         {
             await Navigation.PushAsync(new Views.Accounts.ForgotPasswordView());
         }
+        #endregion
 
         #region Validations
         /// <summary>
