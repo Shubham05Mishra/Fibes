@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FibesApp.ViewModels.Home;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace FibesApp.Views.Home
@@ -20,8 +21,8 @@ namespace FibesApp.Views.Home
         public SearchView()
         {
             InitializeComponent();
-            // iOS Platform
-            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
+            // iOS Platform  
+            var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             SearchVM = new SearchViewModel(this.Navigation);
             this.BindingContext = SearchVM;
         }
@@ -31,13 +32,11 @@ namespace FibesApp.Views.Home
         /// TODO:To define the page on appearing event...
         /// </summary>
         protected async override void OnAppearing()
-        {
-            //To Change the color of Safearea in ios
-            //var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
-            //BgStack.Padding = safeAreaInset;
-            //To change the color of every page in status bar
-            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");            
+        {   
             base.OnAppearing();
+            await Task.Delay(10);
+            var appMainPageScreenWidth = App.Current.MainPage.Width;
+            SearchVM.ScreenItemWidth = (appMainPageScreenWidth - 65) / 2;
             SearchVM.GetLatestSearch();
             SearchVM.GetPopularProduct();
         }

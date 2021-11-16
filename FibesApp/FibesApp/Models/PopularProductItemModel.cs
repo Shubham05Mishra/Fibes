@@ -7,5 +7,6 @@ namespace FibesApp.Models
     public class PopularProductItemModel
     {
         public string GetImages { get; set; }
+        public double ItemHeight { get; set; }
     }
 }

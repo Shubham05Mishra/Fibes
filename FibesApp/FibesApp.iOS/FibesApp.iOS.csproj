@@ -258,4 +258,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\Profile%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\searchimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\searchimage%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\searchimage%403x.png" />
+  </ItemGroup>
 </Project>

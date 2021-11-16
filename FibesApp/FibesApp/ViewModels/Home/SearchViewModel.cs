@@ -9,10 +9,13 @@ namespace FibesApp.ViewModels.Home
 {
     public class SearchViewModel : BaseViewModel
     {
+        //To Declare Local Class Level Variables...
+        public double ScreenItemWidth;
+
         #region Constructor
         public SearchViewModel(INavigation nav)
         {
-            Navigation = nav;            
+            Navigation = nav;
         }
         #endregion
 
@@ -45,6 +48,7 @@ namespace FibesApp.ViewModels.Home
             }
         }
         #endregion
+
         #region Commands
         #endregion
 
@@ -83,51 +87,63 @@ namespace FibesApp.ViewModels.Home
             {
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
-                        GetImages = "demoimage.png"
+                        GetImages = "demoimage.png",
+                        ItemHeight = ScreenItemWidth
                     }
             };
         }
