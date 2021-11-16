@@ -1,33 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FibesApp.CustomControls"
-             x:Class="FibesApp.CustomControls.CustomFloatingEntry"
-             x:Name="FloatingEntry">
+<ContentView
+    x:Class="FibesApp.CustomControls.CustomFloatingEntry"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FibesApp.CustomControls"
+    x:Name="FloatingEntry">
     <ContentView.Content>
-        <Grid BackgroundColor="#F5F5F5" >
-            <local:CustomEntryLevel x:Name="customEntry"
-                                       FontSize="14"  
-                                       EntryBorderColor="{StaticResource AppSkyBlueColor}"
-                                       Text="{Binding EntryText, Source={x:Reference FloatingEntry}}" 
-                                       Keyboard="{Binding EntryKeyboard, Source={x:Reference FloatingEntry}}"
-                                       TextColor="{StaticResource AppBlackColor}" 
-                                       BackgroundColor="White"
-                                       PlaceholderColor="White" 
-                                       Unfocused="CustomEntry_Unfocused" 
-                                       Focused="CustomEntry_Focused" 
-                                       MaxLength="{Binding EntryMaxLength, Source={x:Reference FloatingEntry}}"
-                                       IsPassword="{Binding EntryIsPassword, Source={x:Reference FloatingEntry}}"
-                                       IsEnabled="{Binding EntryIsEnabled, Source={x:Reference FloatingEntry}}"
-                                       SeletectedBorderColor="{StaticResource AppSkyBlueColor}"  
-                                       Completed="CustomEntry_Completed"
-                                       EntryImage="mail.png">
-            </local:CustomEntryLevel>
-            <Label x:Name="LabelFloating"  Text="{Binding lblTextTitle, Source={x:Reference FloatingEntry}}" 
-                   BackgroundColor="White" 
-                   TextColor="#808080"  
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start" Margin="0,3,0,0">
+        <Grid BackgroundColor="#F5F5F5">
+            <local:CustomEntryLevel
+                x:Name="customEntry"
+                BackgroundColor="White"
+                Completed="CustomEntry_Completed"
+                EntryBorderColor="{StaticResource AppSkyBlueColor}"
+                EntryImage="mail.png"
+                Focused="CustomEntry_Focused"
+                FontSize="14"
+                IsEnabled="{Binding EntryIsEnabled, Source={x:Reference FloatingEntry}}"
+                IsPassword="{Binding EntryIsPassword, Source={x:Reference FloatingEntry}}"
+                Keyboard="{Binding EntryKeyboard, Source={x:Reference FloatingEntry}}"
+                MaxLength="{Binding EntryMaxLength, Source={x:Reference FloatingEntry}}"
+                PlaceholderColor="White"
+                SeletectedBorderColor="{StaticResource AppSkyBlueColor}"
+                Text="{Binding EntryText, Source={x:Reference FloatingEntry}}"
+                TextColor="{StaticResource AppBlackColor}"
+                Unfocused="CustomEntry_Unfocused" />
+            <Label
+                x:Name="LabelFloating"
+                Margin="0,0,0,0"
+                BackgroundColor="White"
+                HorizontalOptions="Start"
+                Text="{Binding lblTextTitle, Source={x:Reference FloatingEntry}}"
+                TextColor="#808080"
+                VerticalOptions="Start">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="LabelFloating_Tapped" />
                 </Label.GestureRecognizers>

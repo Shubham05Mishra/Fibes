@@ -213,4 +213,49 @@
   <ItemGroup>
     <BundleResource Include="Resources\scan%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backbutton%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backbutton%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\archive%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\archive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\archive%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clock%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clock%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cut%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cut%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Profile%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Profile%402x.png" />
+  </ItemGroup>
 </Project>
