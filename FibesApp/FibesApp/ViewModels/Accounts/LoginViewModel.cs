@@ -16,7 +16,10 @@ namespace FibesApp.ViewModels.Accounts
         {
             Navigation = nav;
             SignInCommand = new Command(OnSignInAsync);
+            ForgotPasswordCommand = new Command(OnForgotPasswordAsync);
         }
+
+        
         #endregion
 
         #region Properties
@@ -50,6 +53,7 @@ namespace FibesApp.ViewModels.Accounts
 
         #region Command
         public Command SignInCommand { get; }
+        public Command ForgotPasswordCommand { get; }
         #endregion
 
         #region Methods
@@ -64,7 +68,13 @@ namespace FibesApp.ViewModels.Accounts
             }
             
         }
-        #endregion
+        /// <summary>
+        /// TODO:To Call The ForgotPassword Command ...
+        /// </summary>
+        private async void OnForgotPasswordAsync(object obj)
+        {
+            await Navigation.PushAsync(new Views.Accounts.ForgotPasswordView());
+        }
 
         #region Validations
         /// <summary>

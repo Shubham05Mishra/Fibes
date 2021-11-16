@@ -12,20 +12,17 @@ using Xamarin.Forms.Xaml;
 namespace FibesApp.Views.Accounts
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ForgotPasswordView : ContentPage
-    {
-        //TODO : To Define Local Class Level Variables...
-        protected ForgotPasswordViewModel ForgotPasswordVM;
-        //TODO : To Define cosntructor...
+    public partial class ProfileView : ContentPage
+    {  //TODO : To Define Local Class Level Variables...
+        protected ProfileViewModel ProfileVM;
         #region Constructor
-        public ForgotPasswordView()
+        public ProfileView()
         {
             InitializeComponent();
             // iOS Platform
             Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
-            ForgotPasswordVM = new ForgotPasswordViewModel(this.Navigation);
-            this.BindingContext = ForgotPasswordVM;
-
+            ProfileVM = new ProfileViewModel(this.Navigation);
+            this.BindingContext = ProfileVM;
         }
         #endregion
 
@@ -40,11 +37,8 @@ namespace FibesApp.Views.Accounts
             BgStack.Padding = safeAreaInset;
             //To change the color of every page in status bar
             Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
-            //To Focous on firstentry of Signupup
-            await Task.Delay(1);
             base.OnAppearing();
         }
         #endregion
-
     }
 }
