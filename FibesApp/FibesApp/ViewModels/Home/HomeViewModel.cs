@@ -16,6 +16,7 @@ namespace FibesApp.ViewModels.Home
              MyCollectionCommand = new Command(MyCollectionAsync);
              BrowseCommand = new Command(BrowseAsync);
             // FilterCommand = new Command(FilterAsync);
+            MenuCommand = new Command(MenuAync);
         }
         #endregion
         #region Properties
@@ -114,11 +115,12 @@ namespace FibesApp.ViewModels.Home
         #region Commands
         public Command MyCollectionCommand { get; }
         public Command BrowseCommand { get; }
+        public Command MenuCommand { get; }
         public Command FilterCommand { get; }
         #endregion
         #region Methods
         /// <summary>
-        /// TODO : To Bind Item list
+        /// TODO : To Bind Item list...
         /// </summary>
         public void MyCollectionAsync()
         {
@@ -154,7 +156,7 @@ namespace FibesApp.ViewModels.Home
             };
         }
         /// <summary>
-        /// TODO : To Bind BrowseItem list
+        /// TODO : To Bind BrowseItem list...
         /// </summary>
         public void BrowseAsync()
         {
@@ -209,6 +211,13 @@ namespace FibesApp.ViewModels.Home
                 },
             };
         }
-        #endregion
-    }
+        /// <summary>
+        /// TODO : Open Menu Page
+        /// </summary>
+        private async void MenuAync(object obj)
+        {
+            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+        }
+            #endregion
+        }
 }
