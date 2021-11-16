@@ -21,6 +21,8 @@ namespace FibesApp.Views.Accounts
         public ForgotPasswordView()
         {
             InitializeComponent();
+            // iOS Platform
+            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
             ForgotPasswordVM = new ForgotPasswordViewModel(this.Navigation);
             this.BindingContext = ForgotPasswordVM;
 
