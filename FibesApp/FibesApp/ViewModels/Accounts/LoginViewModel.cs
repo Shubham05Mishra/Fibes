@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Acr.UserDialogs;
+using FibesApp.Views.Home;
+using FibesApp.Views.Menu;
 using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Accounts
@@ -66,7 +68,9 @@ namespace FibesApp.ViewModels.Accounts
             {
                 return;
             }
-            await Navigation.PushAsync(new Views.Home.HomeView());
+            App.AppMasterDetailPage.Master = new AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
+            App.Current.MainPage = App.AppMasterDetailPage;
         }
         /// <summary>
         /// TODO:To Call The ForgotPassword Command ...

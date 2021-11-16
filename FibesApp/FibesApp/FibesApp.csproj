@@ -56,7 +56,7 @@
     <EmbeddedResource Update="Views\Home\SearchView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Menu\MenuView.xaml">
+    <EmbeddedResource Update="Views\Menu\AppMenuView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

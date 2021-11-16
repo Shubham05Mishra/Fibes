@@ -9,10 +9,12 @@ namespace FibesApp
 {
     public partial class App : Application
     {
+
+        public static MasterDetailPage AppMasterDetailPage = new MasterDetailPage();
+
         public App()
         {
-            InitializeComponent();
-
+            InitializeComponent(); 
             MainPage = new NavigationPage (new LoginView());
         }
 
