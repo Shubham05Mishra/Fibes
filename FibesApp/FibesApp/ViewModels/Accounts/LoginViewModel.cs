@@ -106,7 +106,8 @@ namespace FibesApp.ViewModels.Accounts
             }
             UserDialogs.Instance.HideLoading();
             return true;
-        } 
+        }
+        #endregion
         #endregion
     }
 }

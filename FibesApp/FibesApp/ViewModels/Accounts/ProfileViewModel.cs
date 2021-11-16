@@ -24,7 +24,9 @@ namespace FibesApp.ViewModels.Accounts
         #region Method
         private async void OnLogoutAsync(object obj)
         {
-            App.Current.MainPage = new NavigationPage(new Views.Accounts.LoginView());
+          // UserDialog.Alert("you want to Logout", "", "Ok");
+            App.Current.MainPage = new Views.Accounts.LoginView();
+
 
         }
         #endregion
