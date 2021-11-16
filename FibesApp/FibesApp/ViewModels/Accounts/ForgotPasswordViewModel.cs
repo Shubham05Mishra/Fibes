@@ -45,7 +45,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Accounts.LoginView());
+            await Navigation.PopAsync();
 
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace FibesApp.ViewModels.Accounts
         {
             if (string.IsNullOrEmpty(Email))
             {
-                UserDialogs.Instance.Alert("Please enter email.");
+                UserDialogs.Instance.Alert("Please enter valid email.");
                 return false;
             }
             UserDialogs.Instance.HideLoading();

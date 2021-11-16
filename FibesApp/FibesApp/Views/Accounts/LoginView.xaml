@@ -15,7 +15,7 @@
                     <RowDefinition Height="45*"/>
                     <RowDefinition Height="55*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,0" RowDefinitions="Auto,55,55,Auto,55" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,0" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
                     <!--Welcome Fibes Label-->
                     <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}" FontSize="30"/>
                     <!--Email Section-->

@@ -71,11 +71,11 @@ namespace FibesApp.ViewModels.Accounts
         /// <summary>
         /// TODO:To Call The ForgotPassword Command ...
         /// </summary>
-        private void OnForgotPasswordAsync(object obj)
+        private async void OnForgotPasswordAsync(object obj)
         {
-            
+            await Navigation.PushAsync(new Views.Accounts.ForgotPasswordView());
         }
-        
+
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>
