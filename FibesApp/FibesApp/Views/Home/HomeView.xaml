@@ -13,17 +13,22 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <!--MenuBar,Logo and Profile Image Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30">
-                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="1,Auto,*,50">
+                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding MenuCommand}"/>
                     </Grid.GestureRecognizers>
-                <Image  Source="menubar.png" Aspect="AspectFit"  />
+                    <Image Source="menubar.png" HorizontalOptions="CenterAndExpand" WidthRequest="30" VerticalOptions="CenterAndExpand"
+                           >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding MenuCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Grid>
-                <Image Grid.Column="1" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Image Grid.Column="2" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                 <ci:CircleImage  Source="menubar.png" Aspect="AspectFit"/>
-                <ci:CircleImage Grid.Column="2" WidthRequest="100"
-                            x:Name="ImgProfile"  Aspect="AspectFill"  HorizontalOptions="FillAndExpand"
+                <ci:CircleImage Grid.Column="3" WidthRequest="100"
+                            x:Name="ImgProfile"  Aspect="AspectFit"  HorizontalOptions="FillAndExpand"
                             Source="Profile.png" BackgroundColor="Transparent" VerticalOptions="FillAndExpand"/>
             </Grid>
             <!--User Name and SearchBar Section-->
@@ -56,19 +61,29 @@
             <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,3">
                 <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="33*,33*,33*">
                     <!--My Collection Button-->
-                    <Label Grid.Column="0" Text="My Collection" FontAttributes="{Binding CollectionfontAttribute}" TextColor="{Binding MyCollectionColor}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="0" Text="My Collection" FontAttributes="{Binding CollectionfontAttribute}" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding MyCollectionDefaultLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding MyCollectionCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Grid.Column="0" Text="My Collection" IsVisible="{Binding MyCollectionColorLabel}" TextColor="{StaticResource AppGrayColor}" FontAttributes="{Binding CollectionfontAttribute}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding MyCollectionCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <!--Browse Button-->
-                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" FontAttributes="{Binding BrowserfontAttribute}" TextColor="{Binding BrowseColor}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" FontAttributes="{Binding BrowserfontAttribute}" TextColor="{StaticResource AppGrayColor}" IsVisible="{Binding BrowserDefaultColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BrowseCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" FontAttributes="{Binding BrowserfontAttribute}" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding BrowserColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding BrowseCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <!--Filter Button-->
-                    <Grid Grid.Column="2" Margin="40,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Grid Grid.Column="2" Margin="0,0,10,0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" >
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding FilterCommand}"/>
                         </Grid.GestureRecognizers>
@@ -108,8 +123,8 @@
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="150">
                             <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Image Source="ItemImage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                <Image Source="heart.png" HeightRequest="25" WidthRequest="25" Margin="0,5,8,0" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
+                                    <Image Source="ItemImage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Image Source="heart.png" HeightRequest="25" WidthRequest="25" Margin="0,5,8,0" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
                                 </Grid>
                             </Frame>
                         </Grid>
