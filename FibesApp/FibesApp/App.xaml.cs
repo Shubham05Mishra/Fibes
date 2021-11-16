@@ -12,7 +12,7 @@ namespace FibesApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new LoginView());
+            MainPage = new NavigationPage (new ProfileView());
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FibesApp.Views.Accounts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
@@ -11,7 +12,23 @@ namespace FibesApp.ViewModels.Accounts
         public ProfileViewModel(INavigation nav)
         {
             Navigation = nav;
+            LogoutCommand = new Command(OnLogoutAsync);
+        }
+
+        #endregion
+
+        #region Command 
+        public Command LogoutCommand { get; }
+        #endregion
+
+        #region Method
+        private async void OnLogoutAsync(object obj)
+        {
+            App.Current.MainPage = new NavigationPage(new Views.Accounts.LoginView());
+
         }
         #endregion
+
+
     }
 }
