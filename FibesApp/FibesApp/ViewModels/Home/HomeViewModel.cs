@@ -216,7 +216,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void MenuAync(object obj)
         {
-            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+          //  await (App.Current.MainPage as (new Menu.MenuView())).IsPresented = true;
         }
             #endregion
         }
