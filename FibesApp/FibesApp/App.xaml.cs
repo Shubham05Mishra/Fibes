@@ -3,6 +3,7 @@ using System;
 using FibesApp.Views.Accounts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FibesApp.Views.Home;
 
 namespace FibesApp
 {

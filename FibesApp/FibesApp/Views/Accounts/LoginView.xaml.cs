@@ -21,8 +21,8 @@ namespace FibesApp.Views.Accounts
         public LoginView()
         {
             InitializeComponent();
-            // iOS Platform
-            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
+            //To Change the color of Safearea in ios
+            var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             LoginVM = new LoginViewModel(this.Navigation);
             this.BindingContext = LoginVM;
         }
@@ -33,14 +33,7 @@ namespace FibesApp.Views.Accounts
         /// TODO:To define the page on appearing event...
         /// </summary>
         protected async override void OnAppearing()
-        {
-            //To Change the color of Safearea in ios
-            var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
-            BgStack.Padding = safeAreaInset;
-            //To change the color of every page in status bar
-            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
-            //To Focous on firstentry of Signupup
-            await Task.Delay(1);            
+        {                            
             base.OnAppearing();
         }
         #endregion

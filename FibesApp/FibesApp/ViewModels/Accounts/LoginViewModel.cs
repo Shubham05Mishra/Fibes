@@ -76,6 +76,7 @@ namespace FibesApp.ViewModels.Accounts
             await Navigation.PushAsync(new Views.Accounts.ForgotPasswordView());
         }
 
+        #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>
@@ -105,7 +106,7 @@ namespace FibesApp.ViewModels.Accounts
             }
             UserDialogs.Instance.HideLoading();
             return true;
-        }
+        } 
         #endregion
     }
 }

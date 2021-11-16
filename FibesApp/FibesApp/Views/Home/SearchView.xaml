@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FibesApp.Views.Home.SearchView"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource AppBackgroundColor}">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Header Section-->
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="60,*,30" Margin="0,0,25,0">
+                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5,0,0,0">
+                    <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
+                </Grid>
+                <Label Grid.Column="1" Text="Search" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20"/>
+                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="archive.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                </Grid>
+            </Grid>
+            <!--Search bar section-->
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="25,0" >
+                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*" ColumnSpacing="0">
+                        <Image Grid.Column="0" Source="searchimage.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" />
+                        <Entry Grid.Column="1" Placeholder="Search" PlaceholderColor="LightGray" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+            <!--Latest Search List Section-->
+            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" RowSpacing="0" Margin="25,0" >
+                <Label Grid.Row="0" Text="Latest Search" TextColor="{StaticResource AppBlackColor}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="18"/>
+                <ListView Grid.Row="1" ItemsSource="{Binding LatestSearchList}" HasUnevenRows="True" SeparatorVisibility="None" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30" HeightRequest="45">
+                                    <Image Grid.Column="0" Source="clock.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="20" WidthRequest="20"/>
+                                    <Label Grid.Column="1" Text="{Binding SearchItem}" TextColor="{StaticResource AppBlackColor}" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <Image Grid.Column="2" Source="cut.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="20" WidthRequest="20"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <!--Popular Product List Section-->
+            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,*" RowSpacing="0" Margin="25,0,25,20" >
+                <Label Grid.Row="0" Text="Popular Product" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" />
+                <CollectionView Grid.Row="1" ItemsSource="{Binding PopularProductList}" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="15" HorizontalItemSpacing="15"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}">
+                                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Image Source="demoimage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
