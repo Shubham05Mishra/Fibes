@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FibesApp.Views.Home.SearchView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10" Margin="25,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Header-->
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
+                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    
+                </Grid>
+                <Label Grid.Column="1" Text="Search" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20"/>
+            </Grid>
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <!--Search bar section-->
+                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
+                    <SearchBar TextColor="LightGray" PlaceholderColor="LightGray" HorizontalOptions="StartAndExpand"  
+                           Placeholder="Search...." VerticalOptions="CenterAndExpand"/>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" RowSpacing="0" BackgroundColor="Red">
+                <Label Grid.Row="0" Text="Latest Search" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="20"/>
+                <ListView Grid.Row="1" ItemsSource="{Binding LatestSearchList}" HasUnevenRows="True" SeparatorVisibility="None" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding SearchItem}" FontSize="50"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
