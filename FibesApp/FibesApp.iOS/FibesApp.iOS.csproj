@@ -296,6 +296,9 @@
     <BundleResource Include="Resources\demoimage.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\listItemImage.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\optionicon%403x.png" />
   </ItemGroup>
   <ItemGroup>

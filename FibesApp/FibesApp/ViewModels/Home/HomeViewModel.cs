@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using FibesApp.Models;
 using Xamarin.Forms;
 
@@ -19,15 +20,118 @@ namespace FibesApp.ViewModels.Home
             ScreenItemWidth = (appMainScreenWidth - 53) / 2;
             MyCollectionCommand = new Command(MyCollectionAsync);
             BrowseCommand = new Command(BrowseAsync);
-             FilterCommand = new Command(FilterAsync);
+            FilterCommand = new Command(FilterAsync);
             MenuCommand = new Command(MenuAync);
             ProfileCommand = new Command(OnProfileAsync);
 
+            #region Bind Static Lists
+            ItemsList = new ObservableCollection<ItemModel>()
+            {
+                new ItemModel()
+                {
+                    Id=1,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {Id=2,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {
+                     Id=3,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemModel()
+                {
+                      Id=4,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                   new ItemModel()
+                {
+                       Id=5,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+            };
+            BrowseItemsList = new ObservableCollection<ItemModel>()
+            {
+                new ItemModel()
+                {Id=1,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {Id=2,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemModel()
+                {Id=3,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                   new ItemModel()
+                {
+                       Id=4,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                    new ItemModel()
+                {
+                        Id=5,
+                    ItemImage = "listItemImage.png",
+                    IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {Id=6,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {Id=7,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemModel()
+                {Id=8,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+                   new ItemModel()
+                {Id=9,
+                    ItemImage = "listItemImage.png",
+                     IsLike = false,
+                    IsNotLike = true,
+                    ItemHeight = ScreenItemWidth,
+                },
+            };
+            #endregion
         }
-
-       
-
-
         #endregion
 
         #region Properties
@@ -96,59 +200,84 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
-        private bool _MyCollectionDefaultLabel = true;
-        public bool MyCollectionDefaultLabel
+        private FontAttributes _MyCollectionFontAttribute;
+        public FontAttributes MyCollectionFontAttribute
         {
-            get { return _MyCollectionDefaultLabel; }
+            get { return _MyCollectionFontAttribute; }
             set
             {
-                if (_MyCollectionDefaultLabel != value)
+                if (_MyCollectionFontAttribute != value)
                 {
-                    _MyCollectionDefaultLabel = value;
-                    OnPropertyChanged("MyCollectionDefaultLabel");
+                    _MyCollectionFontAttribute = value;
+                    OnPropertyChanged("MyCollectionFontAttribute");
                 }
             }
         }
-        private bool _MyCollectionColorLabel = false;
-        public bool MyCollectionColorLabel
+        private string _MyCollectionTextColor;
+        public string MyCollectionTextColor
         {
-            get { return _MyCollectionColorLabel; }
+            get { return _MyCollectionTextColor; }
             set
             {
-                if (_MyCollectionColorLabel != value)
+                if (_MyCollectionTextColor != value)
                 {
-                    _MyCollectionColorLabel = value;
-                    OnPropertyChanged("MyCollectionColorLabel");
+                    _MyCollectionTextColor = value;
+                    OnPropertyChanged("MyCollectionTextColor");
                 }
             }
         }
-        private bool _BrowserDefaultColorLabel = true;
-        public bool BrowserDefaultColorLabel
+        private FontAttributes _BrowseFontAttribute;
+        public FontAttributes BrowseFontAttribute
         {
-            get { return _BrowserDefaultColorLabel; }
+            get { return _BrowseFontAttribute; }
             set
             {
-                if (_BrowserDefaultColorLabel != value)
+                if (_BrowseFontAttribute != value)
                 {
-                    _BrowserDefaultColorLabel = value;
-                    OnPropertyChanged("BrowserDefaultColorLabel");
+                    _BrowseFontAttribute = value;
+                    OnPropertyChanged("BrowseFontAttribute");
                 }
             }
         }
-        private bool _BrowserColorLabel = false;
-        public bool BrowserColorLabel
+        private string _BrowseTextColor;
+        public string BrowseTextColor
         {
-            get { return _BrowserColorLabel; }
+            get { return _BrowseTextColor; }
             set
             {
-                if (_BrowserColorLabel != value)
+                if (_BrowseTextColor != value)
                 {
-                    _BrowserColorLabel = value;
-                    OnPropertyChanged("BrowserColorLabel");
+                    _BrowseTextColor = value;
+                    OnPropertyChanged("BrowseTextColor");
                 }
             }
         }
-
+        private bool _IsLike = false;
+        public bool IsLike
+        {
+            get { return _IsLike; }
+            set
+            {
+                if (_IsLike != value)
+                {
+                    _IsLike = value;
+                    OnPropertyChanged("IsLike");
+                }
+            }
+        }
+        private bool _IsNotLike = true;
+        public bool IsNotLike
+        {
+            get { return _IsNotLike; }
+            set
+            {
+                if (_IsNotLike != value)
+                {
+                    _IsNotLike = value;
+                    OnPropertyChanged("IsNotLike");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -166,45 +295,12 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         public void MyCollectionAsync()
         {
-            MyCollectionVisility = true;
             BrowserVisility = false;
-            MyCollectionColorLabel = false;
-            MyCollectionDefaultLabel = true;
-            BrowserColorLabel = false;
-            BrowserDefaultColorLabel = true;
-            ItemsList = new ObservableCollection<ItemModel>()
-            {
-                new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = false,
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = false,
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = false,
-                    ItemHeight = ScreenItemWidth,
-                },
-                  new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = false,
-                    ItemHeight = ScreenItemWidth,
-                },
-                   new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = false,
-                    ItemHeight = ScreenItemWidth,
-                },
-            };
+            MyCollectionVisility = true;
+            MyCollectionFontAttribute = FontAttributes.Bold;
+            BrowseFontAttribute = FontAttributes.None;
+            MyCollectionTextColor = Common.AppColor.AppPurpleColor;
+            BrowseTextColor = Common.AppColor.AppGrayColor;
         }
 
         /// <summary>
@@ -214,67 +310,10 @@ namespace FibesApp.ViewModels.Home
         {
             BrowserVisility = true;
             MyCollectionVisility = false;
-            MyCollectionColorLabel = true;
-            MyCollectionDefaultLabel = false;
-            BrowserColorLabel = true;
-            BrowserDefaultColorLabel = false;
-            BrowseItemsList = new ObservableCollection<ItemModel>()
-            {
-                new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                  new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                   new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                    new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                  new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-                   new ItemModel()
-                {
-                    ItemImage = "itemImage.png",
-                    IsLike = true,
-                    ItemHeight = ScreenItemWidth,
-                },
-            };
+            MyCollectionFontAttribute = FontAttributes.None;
+            BrowseFontAttribute = FontAttributes.Bold;
+            MyCollectionTextColor = Common.AppColor.AppGrayColor;
+            BrowseTextColor = Common.AppColor.AppPurpleColor;
         }
 
         /// <summary>
@@ -293,6 +332,29 @@ namespace FibesApp.ViewModels.Home
         private void FilterAsync(object obj)
         {
             //throw new NotImplementedException();
+        }
+        public async Task LikeAsync(ItemModel item)
+        {
+            try
+            {
+
+                if (item.IsNotLike == true)
+                {
+                    item.IsLike = true;
+                    item.IsNotLike = false;
+
+                }
+                else
+                {
+                    item.IsLike = false;
+                    item.IsNotLike = true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
         /// <summary>
         /// TODO : Open Profile Page

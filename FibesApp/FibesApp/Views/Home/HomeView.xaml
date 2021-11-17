@@ -70,41 +70,42 @@
             </Grid>
             <!--My Collection, Browse  and filter Button Section-->
             <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,3">
-                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" ColumnSpacing="0" VerticalOptions="FillAndExpand" ColumnDefinitions="33*,33*,33*">
+                <Grid Grid.Row="0" Margin="10,0,10,0" HorizontalOptions="FillAndExpand" ColumnSpacing="0" 
+                      VerticalOptions="FillAndExpand" ColumnDefinitions="*,*,50">
                     <!--My Collection Button-->
-                    <Label Grid.Column="0" Margin="10,0,0,0" Text="My Collection" Padding="0" FontAttributes="Bold" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding MyCollectionDefaultLabel}" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding MyCollectionCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Label Grid.Column="0" Margin="10,0,0,0" Text="My Collection" Padding="0" IsVisible="{Binding MyCollectionColorLabel}" TextColor="{StaticResource AppGrayColor}" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="0" Text="My Collection" FontAttributes="{Binding MyCollectionFontAttribute}"
+                           TextColor="{Binding MyCollectionTextColor}" HorizontalOptions="StartAndExpand" 
+                           HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding MyCollectionCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <!--Browse Button-->
-                    <Label Grid.Column="1" Margin="40,0,0,0" Padding="0" Text="Browse" TextColor="{StaticResource AppGrayColor}" IsVisible="{Binding BrowserDefaultColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding BrowseCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Label Grid.Column="1" Margin="40,0,0,0" Padding="0" Text="Browse" FontAttributes="Bold" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding BrowserColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="1" Text="Browse" FontAttributes="{Binding BrowseFontAttribute}"
+                           TextColor="{Binding BrowseTextColor}" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" 
+                           HorizontalTextAlignment="Start">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding BrowseCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <!--Filter Button-->
-                    <Grid Grid.Column="2" Margin="0,0,10,0" ColumnSpacing="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" >
+                    <Grid Grid.Column="2" ColumnSpacing="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" >
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding FilterCommand}"/>
                         </Grid.GestureRecognizers>
-                        <Image Source="filter.png" Aspect="AspectFit"/>
+                        <Image Source="filter.png" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
                     </Grid>
                 </Grid>
                 <!--Button Indicator Section-->
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" ColumnDefinitions="33*,33*,33*">
-                    <BoxView Grid.Column="0" Margin="10,0,0,0" BackgroundColor="{StaticResource AppPurpleColor}" HeightRequest="1" IsVisible="{Binding MyCollectionVisility}" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"/>
-                    <BoxView Grid.Column="1" Margin="35,0,0,0" BackgroundColor="{StaticResource AppPurpleColor}" HeightRequest="1" IsVisible="{Binding BrowserVisility}" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                <Grid Grid.Row="1" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
+                      ColumnDefinitions="*,*,50" ColumnSpacing="0">
+
+                    <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
+                             IsVisible="{Binding MyCollectionVisility}" HorizontalOptions="StartAndExpand" WidthRequest="50"
+                             VerticalOptions="FillAndExpand"/>
+                    <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="50"
+                             IsVisible="{Binding BrowserVisility}" HorizontalOptions="StartAndExpand"
+                             VerticalOptions="FillAndExpand"/>
                 </Grid>
             </Grid>
             <!--My Collection List-->
@@ -117,14 +118,14 @@
                         <!--Main Grid for List-->
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"  >
                             <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Image Source="ItemImage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Image Source="{Binding ItemImage}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                             </Frame>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <!--Browser List-->
-            <CollectionView Grid.Row="3" ItemsSource="{Binding BrowseItemsList}" IsVisible="{Binding BrowserVisility}" Margin="7,0,7,8">
+            <CollectionView x:Name="LvBrowse" Grid.Row="3" ItemsSource="{Binding BrowseItemsList}" IsVisible="{Binding BrowserVisility}" Margin="7,0,7,8">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="15" HorizontalItemSpacing="15" />
                 </CollectionView.ItemsLayout>
@@ -134,8 +135,14 @@
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="{Binding ItemHeight}">
                             <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Image Source="ItemImage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                    <Image Source="heart.png" HeightRequest="25" WidthRequest="25" Margin="0,5,8,0" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
+                                    <Image Source="{Binding ItemImage}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="40">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="LikeTapped"/>
+                                        </Grid.GestureRecognizers>
+                                        <Image Source="heart.png" IsVisible="{Binding IsNotLike}" HeightRequest="25" WidthRequest="25" Margin="0,5,8,0" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
+                                        <Image Source="likeHeart.png" IsVisible="{Binding IsLike}" HeightRequest="25" WidthRequest="25" Margin="0,5,8,0" HorizontalOptions="End" VerticalOptions="StartAndExpand"/>
+                                    </Grid>
                                 </Grid>
                             </Frame>
                         </Grid>
