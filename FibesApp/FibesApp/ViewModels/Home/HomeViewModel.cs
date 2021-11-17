@@ -9,19 +9,25 @@ namespace FibesApp.ViewModels.Home
 {
     public class HomeViewModel : BaseViewModel
     {
+        //TODO : To Declare Local Variables Here 
+        public double ScreenItemWidth;
         #region Constructor
         public HomeViewModel(INavigation _Nav)
         {
             Navigation = _Nav;
+            var appMainScreenWidth = App.Current.MainPage.Width;
+            ScreenItemWidth = (appMainScreenWidth - 53) / 2;
             MyCollectionCommand = new Command(MyCollectionAsync);
             BrowseCommand = new Command(BrowseAsync);
-            // FilterCommand = new Command(FilterAsync);
+             FilterCommand = new Command(FilterAsync);
             MenuCommand = new Command(MenuAync);
             ProfileCommand = new Command(OnProfileAsync);
 
         }
 
-        
+       
+
+
         #endregion
 
         #region Properties
@@ -160,7 +166,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         public void MyCollectionAsync()
         {
-            MyCollectionVisility = true;  
+            MyCollectionVisility = true;
             BrowserVisility = false;
             MyCollectionColorLabel = false;
             MyCollectionDefaultLabel = true;
@@ -172,26 +178,31 @@ namespace FibesApp.ViewModels.Home
                 {
                     ItemImage = "itemImage.png",
                     IsLike = false,
+                    ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = false,
+                    ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = false,
+                    ItemHeight = ScreenItemWidth,
                 },
                   new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = false,
+                    ItemHeight = ScreenItemWidth,
                 },
                    new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = false,
+                    ItemHeight = ScreenItemWidth,
                 },
             };
         }
@@ -213,46 +224,55 @@ namespace FibesApp.ViewModels.Home
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                   new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                    new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                     new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                   new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
                    new ItemModel()
                 {
                     ItemImage = "itemImage.png",
                     IsLike = true,
+                    ItemHeight = ScreenItemWidth,
                 },
             };
         }
@@ -267,9 +287,19 @@ namespace FibesApp.ViewModels.Home
                 mdp.IsPresented = true;
             }
         }
+        /// <summary>
+        /// TODO : It Shows Filter Items
+        /// </summary>
+        private void FilterAsync(object obj)
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// TODO : Open Profile Page
+        /// </summary>
         private async void OnProfileAsync(object obj)
         {
-            await Navigation.PushAsync(new Views.Accounts.ProfileView());
+            await Navigation.PushModalAsync(new Views.Accounts.ProfileView());
 
         }
         #endregion

@@ -31,9 +31,12 @@ namespace FibesApp.Views.Home
         /// <summary>
         /// TODO : To Define the Page On appearing Event...
         /// </summary>
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
+            //await Task.Delay(10);
+            //var appMainPageScreenWidth = App.Current.MainPage.Width;
+            //HomeVM.ScreenItemWidth = (appMainPageScreenWidth - 53) / 2;
             HomeVM.MyCollectionAsync();
         }
         #endregion
