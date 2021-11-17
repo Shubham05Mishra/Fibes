@@ -11,19 +11,19 @@ using Xamarin.Forms.Xaml;
 namespace FibesApp.Views.Box
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EmptyBoxView : ContentPage
+    public partial class SubmitBoxView : ContentPage
     {
         //TODO : To Define Local Class Level Variables...
-        protected EmptyBoxViewModel EmptyBoxVM;
+        protected SubmitBoxViewModel SubmitBoxVM;
         //TODO : To Define cosntructor...
         #region Constructor
-        public EmptyBoxView()
+        public SubmitBoxView()
         {
             InitializeComponent();
             //To Change the color of Safearea in ios
             var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
-            EmptyBoxVM = new EmptyBoxViewModel(this.Navigation);
-            this.BindingContext = EmptyBoxVM;
+            SubmitBoxVM = new SubmitBoxViewModel(this.Navigation);
+            this.BindingContext = SubmitBoxVM;
         }
         #endregion
     }

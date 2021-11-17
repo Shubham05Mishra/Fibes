@@ -5,7 +5,13 @@
              x:Class="FibesApp.Views.Home.HomeView" NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Margin="12">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" >
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform ="iOS" Value="12,25,12,12"/>
+                    <On Platform="Android" Value="12"/>
+                </OnPlatform>
+            </Grid.Margin>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="Auto"/>
@@ -29,7 +35,7 @@
                 <Grid Grid.Column="3" WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 
                 <ci:CircleImage WidthRequest="100"
-                            x:Name="ImgProfile"  Aspect="AspectFill"  HorizontalOptions="FillAndExpand"
+                            x:Name="ImgProfile"  Aspect="AspectFit"  HorizontalOptions="FillAndExpand"
                             Source="Profile.png" BackgroundColor="Transparent" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ProfileCommand}"/>

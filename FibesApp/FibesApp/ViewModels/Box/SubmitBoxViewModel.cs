@@ -5,24 +5,23 @@ using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Box
 {
-    public class EmptyBoxViewModel : BaseViewModel
+    public class SubmitBoxViewModel : BaseViewModel
     {
         #region Constructor
-        public EmptyBoxViewModel(INavigation nav)
+        public SubmitBoxViewModel(INavigation nav)
         {
             Navigation = nav;
-            BackToHomeCommand = new Command(BackToHomeAsync);
-            OptionCommand = new Command(OptionAsync);
-
-        }        
+            CancelCommand = new Command(CancelAsync);
+            BackToHomeCommand = new Command(BackToHomeAsync);            
+        }       
         #endregion
 
         #region Properties
         #endregion
 
         #region Commands
-        public Command BackToHomeCommand { get; }
-        public Command OptionCommand { get; }
+        public Command CancelCommand { get; }
+        public Command BackToHomeCommand { get; }       
         #endregion
 
         #region Methods
@@ -35,11 +34,11 @@ namespace FibesApp.ViewModels.Box
         }
 
         /// <summary>
-        /// TODO:To Call The Option command ...
+        /// TODO:To Call The Cancel command ...
         /// </summary>
-        private void OptionAsync(object obj)
+        private void CancelAsync(object obj)
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
         #endregion
     }

@@ -292,7 +292,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private void FilterAsync(object obj)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
         /// <summary>
         /// TODO : Open Profile Page
