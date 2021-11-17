@@ -28,6 +28,9 @@
                 <Label Grid.Column="1" Text="Search" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20"/>
                 <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Image Source="archive.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BoxCommand}"/>
+                    </Grid.GestureRecognizers>
                 </Grid>
             </Grid>
             <!--Search bar section-->

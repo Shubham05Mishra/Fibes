@@ -16,6 +16,12 @@ namespace FibesApp.ViewModels.Home
         public SearchViewModel(INavigation nav)
         {
             Navigation = nav;
+            BoxCommand = new Command(OnBoxCommand);
+        }
+
+        private async void OnBoxCommand(object obj)
+        {
+            await Navigation.PushModalAsync(new Views.Box.BoxDetailView());
         }
         #endregion
 
@@ -74,6 +80,8 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+
+        public Command BoxCommand { get; }
         #endregion
 
         #region Commands
