@@ -45,7 +45,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
 
         }
         /// <summary>

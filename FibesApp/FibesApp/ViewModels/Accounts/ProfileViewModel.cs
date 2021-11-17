@@ -38,16 +38,13 @@ namespace FibesApp.ViewModels.Accounts
             {
                 App.Current.MainPage = new Views.Accounts.LoginView();
             }
-            return;
-            
-
         }
         /// <summary>
         /// TODO : Back the Previous Page
         /// </summary>
         private async void OnbackAsync(object obj)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
         #endregion
 
