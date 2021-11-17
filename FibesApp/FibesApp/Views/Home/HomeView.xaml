@@ -13,7 +13,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <!--MenuBar,Logo and Profile Image Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="1,Auto,*,50">
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="1,Auto,*,Auto">
                 <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding MenuCommand}"/>
@@ -25,8 +25,8 @@
                         </Image.GestureRecognizers>
                     </Image>
                 </Grid>
-                <Image Grid.Column="1" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Grid.Column="2" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Grid Grid.Column="3" WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 
                 <ci:CircleImage WidthRequest="100"
                             x:Name="ImgProfile"  Aspect="AspectFill"  HorizontalOptions="FillAndExpand"
@@ -51,7 +51,7 @@
                 <Label Grid.Row="1" Text="What are you looking for today?" FontSize="16" TextColor="{StaticResource AppBlackColor}"/>
                 <!--Search Bar Section-->
                 <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="260,12,50">
-                    <Frame Grid.Column="0" Padding="0" WidthRequest="260" BorderColor="{StaticResource AppPurpleColor}" HasShadow="False" HeightRequest="20" CornerRadius="12">
+                    <Frame Grid.Column="0" Padding="0,0,10,0" WidthRequest="260" BorderColor="{StaticResource AppPurpleColor}" HasShadow="False" HeightRequest="20" CornerRadius="12">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*">
                             <Image Grid.Column="0" Margin="10" Source="search.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" />
                             <local:CustomEntry Grid.Column="1" Placeholder="Search what you want"/>
@@ -66,23 +66,23 @@
             <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,3">
                 <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="33*,33*,33*">
                     <!--My Collection Button-->
-                    <Label Grid.Column="0" Text="My Collection" FontAttributes="{Binding CollectionfontAttribute}" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding MyCollectionDefaultLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="0" Text="My Collection" FontAttributes="Bold" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding MyCollectionDefaultLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding MyCollectionCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label Grid.Column="0" Text="My Collection" IsVisible="{Binding MyCollectionColorLabel}" TextColor="{StaticResource AppGrayColor}" FontAttributes="{Binding CollectionfontAttribute}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="0" Text="My Collection" IsVisible="{Binding MyCollectionColorLabel}" TextColor="{StaticResource AppGrayColor}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding MyCollectionCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <!--Browse Button-->
-                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" FontAttributes="{Binding BrowserfontAttribute}" TextColor="{StaticResource AppGrayColor}" IsVisible="{Binding BrowserDefaultColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" TextColor="{StaticResource AppGrayColor}" IsVisible="{Binding BrowserDefaultColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding BrowseCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" FontAttributes="{Binding BrowserfontAttribute}" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding BrowserColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                    <Label Grid.Column="1" Margin="40,0,0,0" Text="Browse" FontAttributes="Bold" TextColor="{StaticResource AppPurpleColor}" IsVisible="{Binding BrowserColorLabel}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding BrowseCommand}"/>
                         </Label.GestureRecognizers>
@@ -109,7 +109,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <!--Main Grid for List-->
-                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="150">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"  >
                             <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Image Source="ItemImage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                             </Frame>
@@ -125,7 +125,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <!--Main Grid for List-->
-                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="150">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="{Binding ItemHeight}">
                             <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Image Source="ItemImage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>

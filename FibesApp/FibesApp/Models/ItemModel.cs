@@ -8,5 +8,6 @@ namespace FibesApp.Models
     {
         public string ItemImage { get; set; }
         public bool IsLike { get; set; }
+        public double ItemHeight { get; set; }
     }
 }
