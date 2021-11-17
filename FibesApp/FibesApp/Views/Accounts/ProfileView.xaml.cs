@@ -15,6 +15,7 @@ namespace FibesApp.Views.Accounts
     public partial class ProfileView : ContentPage
     {  //TODO : To Define Local Class Level Variables...
         protected ProfileViewModel ProfileVM;
+
         #region Constructor
         public ProfileView()
         {

@@ -13,8 +13,9 @@ namespace FibesApp.Views.Box
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EmptyBoxView : ContentPage
     {
-        //TODO : To Define Local Class Level Variables...
+        //TODO : To Define Local Class Level Variables
         protected EmptyBoxViewModel EmptyBoxVM;
+
         //TODO : To Define cosntructor...
         #region Constructor
         public EmptyBoxView()
@@ -25,6 +26,9 @@ namespace FibesApp.Views.Box
             EmptyBoxVM = new EmptyBoxViewModel(this.Navigation);
             this.BindingContext = EmptyBoxVM;
         }
+        #endregion
+
+        #region Event Handler
         #endregion
     }
 }

@@ -9,6 +9,8 @@ namespace FibesApp.ViewModels.Box
 {
     public class BoxDetailViewModel : BaseViewModel
     {
+        //TODO : To Declare Local Variables Here 
+
         #region Constructor
         public BoxDetailViewModel(INavigation Nav)
         {
@@ -21,7 +23,7 @@ namespace FibesApp.ViewModels.Box
             {
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -29,7 +31,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -37,7 +39,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -45,7 +47,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -53,7 +55,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -61,7 +63,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -69,7 +71,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -77,7 +79,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
-                    ProitemImage = "itemImage.png",
+                    ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
@@ -85,12 +87,11 @@ namespace FibesApp.ViewModels.Box
                 },
 
             };
+            #endregion
         }
+       #endregion
 
-       
-        #endregion
-        #endregion
-        #region Property
+        #region Properties
         private ObservableCollection<BoxDetailModel> _DetailItemsList;
         public ObservableCollection<BoxDetailModel> DetailItemsList
         {
@@ -104,20 +105,30 @@ namespace FibesApp.ViewModels.Box
                 }
             }
         }
+        #endregion
 
+        #region Commands
         public Command ClearCommand { get; }
         public Command SubmitCommand { get; }
         #endregion
 
         #region Method
+        /// <summary>
+        /// TODO : To Define Submit Button Tap Event...
+        /// </summary>
+        /// <param name="obj"></param>
         private async void OnSubmitAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Box.SubmitBoxView());
+            await Navigation.PushModalAsync(new Views.Box.SubmitBoxView(),false);
         }
 
+        /// <summary>
+        /// TODO : To Define Clear Button Tap Event...
+        /// </summary>
+        /// <param name="obj"></param>
         private async void OnClearAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Box.EmptyBoxView());
+            await Navigation.PushModalAsync(new Views.Box.EmptyBoxView(),false);
         }
         #endregion
     }

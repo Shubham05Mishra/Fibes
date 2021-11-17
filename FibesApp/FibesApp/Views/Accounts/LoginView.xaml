@@ -3,18 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FibesApp.CustomControls"
              x:Class="FibesApp.Views.Accounts.LoginView"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
         <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.Margin>
+                <!--Platform Specific code for Top Margin for iOS-->
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform ="iOS" Value="0,25,0,0"/>
+                    <On Platform="Android" Value="0,0,0,0"/>
+                </OnPlatform>
+            </Grid.Margin>
             <!--Background Image Section-->
             <Image Source="bg.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <!--Login Detail Section Grid-->
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="45*"/>
-                    <RowDefinition Height="55*"/>
-                </Grid.RowDefinitions>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="45*,55*">
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,0" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
                     <!--Welcome Fibes Label-->
                     <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}" FontSize="30"/>
@@ -24,6 +27,7 @@
                     <local:CustomFloatingEntry Grid.Row="2" lblTextTitle="Password" EntryText="{Binding Password}" EntryIsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <!--Forgot Password Section-->
                     <Grid Grid.Row="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,-10,0" Padding="5">
+                         <!--Forgot Password Label--> 
                         <Label Text="Forgot Password?" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>

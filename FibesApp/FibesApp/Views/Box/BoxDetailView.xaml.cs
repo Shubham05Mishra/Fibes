@@ -14,8 +14,9 @@ namespace FibesApp.Views.Box
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BoxDetailView : ContentPage
     {
-        //TODO : To Define Local Class Level Variables...
+        //TODO : To Define Local Class Level Variables
         protected BoxDetailViewModel BoxDetailVM;
+
         #region Constructor
         public BoxDetailView()
         {

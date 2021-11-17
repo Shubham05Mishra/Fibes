@@ -12,6 +12,7 @@ namespace FibesApp.ViewModels.Home
     {
         //TODO : To Declare Local Variables Here 
         public double ScreenItemWidth;
+
         #region Constructor
         public HomeViewModel(INavigation _Nav)
         {
@@ -19,6 +20,7 @@ namespace FibesApp.ViewModels.Home
             var appMainScreenWidth = App.Current.MainPage.Width;
             ScreenItemWidth = (appMainScreenWidth - 53) / 2;
             MyCollectionCommand = new Command(MyCollectionAsync);
+            SearchCommand = new Command(SearchAsync);
             BrowseCommand = new Command(BrowseAsync);
             FilterCommand = new Command(FilterAsync);
             MenuCommand = new Command(MenuAync);
@@ -282,6 +284,7 @@ namespace FibesApp.ViewModels.Home
 
         #region Commands
         public Command MyCollectionCommand { get; }
+        public Command SearchCommand { get; }
         public Command BrowseCommand { get; }
         public Command MenuCommand { get; }
         public Command ProfileCommand { get; }
@@ -289,6 +292,13 @@ namespace FibesApp.ViewModels.Home
         #endregion
 
         #region Methods
+        /// <summary>
+        /// TODO : Open Search Page...
+        /// </summary>
+        private async void SearchAsync(object obj)
+        {
+            await Navigation.PushModalAsync(new Views.Home.SearchView());
+        }
 
         /// <summary>
         /// TODO : To Bind Item list...
@@ -326,6 +336,7 @@ namespace FibesApp.ViewModels.Home
                 mdp.IsPresented = true;
             }
         }
+
         /// <summary>
         /// TODO : It Shows Filter Items
         /// </summary>
@@ -333,35 +344,13 @@ namespace FibesApp.ViewModels.Home
         {
             //throw new NotImplementedException();
         }
-        public async Task LikeAsync(ItemModel item)
-        {
-            try
-            {
 
-                if (item.IsNotLike == true)
-                {
-                    item.IsLike = true;
-                    item.IsNotLike = false;
-
-                }
-                else
-                {
-                    item.IsLike = false;
-                    item.IsNotLike = true;
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-        }
         /// <summary>
         /// TODO : Open Profile Page
         /// </summary>
         private async void OnProfileAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Accounts.ProfileView());
+            await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }
         #endregion

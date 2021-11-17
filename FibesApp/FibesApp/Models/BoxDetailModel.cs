@@ -6,11 +6,10 @@ namespace FibesApp.Models
 {
    public class BoxDetailModel
     {
-        public string ProitemImage { get; set; }
+        public string ProItemImage { get; set; }
         public string ProName { get; set; }
         public string ProBrand { get; set; }
         public string ProType { get; set; }
-        
         public string ProStatus { get; set; }
         public int ProQuantity { get; set; }
         

@@ -7,13 +7,14 @@ namespace FibesApp.ViewModels.Box
 {
     public class EmptyBoxViewModel : BaseViewModel
     {
+        //TODO : To Define Local Variables Here 
+
         #region Constructor
         public EmptyBoxViewModel(INavigation nav)
         {
             Navigation = nav;
             BackToHomeCommand = new Command(BackToHomeAsync);
             OptionCommand = new Command(OptionAsync);
-
         }        
         #endregion
 
@@ -27,7 +28,7 @@ namespace FibesApp.ViewModels.Box
 
         #region Methods
         /// <summary>
-        /// TODO:To Call The BackToHome button ...
+        /// TODO:Open Home Page...
         /// </summary>
         private void BackToHomeAsync(object obj)
         {
@@ -35,7 +36,7 @@ namespace FibesApp.ViewModels.Box
         }
 
         /// <summary>
-        /// TODO:To Call The Option command ...
+        /// TODO:Open Options of Page...
         /// </summary>
         private void OptionAsync(object obj)
         {

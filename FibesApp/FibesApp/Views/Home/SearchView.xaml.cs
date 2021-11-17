@@ -17,7 +17,7 @@ namespace FibesApp.Views.Home
         //TODO : To Define Local Class Level Variables...
         protected SearchViewModel SearchVM;
 
-        //TODO : To Define cosntructor...
+        //TODO : To Define Constructor...
         #region Constructor
         public SearchView()
         {
@@ -28,6 +28,7 @@ namespace FibesApp.Views.Home
             this.BindingContext = SearchVM;
         }
         #endregion
+
         #region EventHandler
         /// <summary>
         /// TODO:To define the page on appearing event...
@@ -35,13 +36,9 @@ namespace FibesApp.Views.Home
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await Task.Delay(10);
-            var appMainPageScreenWidth = App.Current.MainPage.Width;
-            SearchVM.ScreenItemWidth = (appMainPageScreenWidth - 65) / 2;
             SearchVM.GetLatestSearch();
             SearchVM.GetPopularProduct();
         }
-        #endregion
 
         /// <summary>
         /// TODO:To define the search of Name based on firstname
@@ -52,6 +49,7 @@ namespace FibesApp.Views.Home
         {
             FilterName();
         }
+
         /// <summary>
         /// TODO : To define FilterName method
         /// </summary>
@@ -72,12 +70,13 @@ namespace FibesApp.Views.Home
                 {
                     SearchVM.IsLatestSearchListVisible = true;
                     SearchVM.IsEmptyListVisible = false;
-                }                
+                }
             }
             catch (Exception ex)
             {
                 var x = ex.Message;
             }
         }
+        #endregion
     }
 }

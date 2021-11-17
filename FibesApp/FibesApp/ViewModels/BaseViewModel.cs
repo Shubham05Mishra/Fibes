@@ -9,9 +9,27 @@ namespace FibesApp.ViewModels
 {
     public class BaseViewModel : BindableObject
     {
+        //TODO : To Declare Local Variables Here 
+
         private INavigation _Navigation;
-        protected readonly IBusinessCode _businessCode;
-        public Command BackCommand { get; set; }
+        public bool IsInitialized { get; set; }
+      //  protected readonly IBusinessCode _businessCode;
+
+        #region Constructor
+        public BaseViewModel(INavigation navigation = null)
+        {
+            try
+            {
+                Navigation = navigation;
+                BackCommand = new Command(OnBacksAsync);
+                //  _businessCode = SimpleIoc.Default.GetInstance<IBusinessCode>();
+            }
+            catch (Exception ex)
+            { }
+        }
+        #endregion
+
+        #region  Properties
         public INavigation Navigation
         {
             get { return _Navigation; }
@@ -23,22 +41,14 @@ namespace FibesApp.ViewModels
                     OnPropertyChanged("Navigation");
                 }
             }
-        }
+        } 
+        #endregion
 
-        public bool IsInitialized { get; set; }
+        #region Commands
+        public Command BackCommand { get; set; }
+        #endregion
 
-        public BaseViewModel(INavigation navigation = null)
-        {
-            try
-            {
-                Navigation = navigation;
-                BackCommand = new Command(OnBacksAsync);
-              //  _businessCode = SimpleIoc.Default.GetInstance<IBusinessCode>();
-            }
-            catch (Exception ex)
-            { }
-        }
-
+        #region Methods
         /// <summary>
         /// TODO : To Navigate To Back Page...
         /// </summary>
@@ -75,6 +85,7 @@ namespace FibesApp.ViewModels
         {
             if (Navigation != null)
                 await Navigation.PopModalAsync();
-        }
+        } 
+        #endregion
     }
 }

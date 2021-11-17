@@ -8,22 +8,24 @@ namespace FibesApp.ViewModels.Accounts
 {
    public class ProfileViewModel : BaseViewModel
     {
+        //TODO : To Define Local Variables Here 
+
         #region Constructor
         public ProfileViewModel(INavigation nav)
         {
             Navigation = nav;
             LogoutCommand = new Command(OnLogoutAsync);            
         }
-
-        
-
         #endregion
 
-        #region Command 
-        public Command LogoutCommand { get; }        
+        #region Properties
         #endregion
 
-        #region Method
+        #region Commands 
+        public Command LogoutCommand { get; }      
+        #endregion
+
+        #region Methods
         /// <summary>
         /// TODO : Logout
         /// </summary>
@@ -36,7 +38,5 @@ namespace FibesApp.ViewModels.Accounts
             }
         }        
         #endregion
-
-
     }
 }
