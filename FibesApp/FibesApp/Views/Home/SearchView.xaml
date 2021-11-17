@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FibesApp.Views.Home.SearchView"
+             xmlns:local="clr-namespace:FibesApp.CustomControls"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
@@ -28,14 +29,14 @@
                 <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*" ColumnSpacing="0">
                         <Image Grid.Column="0" Source="searchimage.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" />
-                        <Entry Grid.Column="1" Placeholder="Search" PlaceholderColor="LightGray" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        <local:CustomEntry x:Name="SearchString" Grid.Column="1" Placeholder="Search" PlaceholderColor="LightGray" TextChanged="SearchBar" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
             </Grid>
             <!--Latest Search List Section-->
             <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" RowSpacing="0" Margin="25,0" >
                 <Label Grid.Row="0" Text="Latest Search" TextColor="{StaticResource AppBlackColor}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="18"/>
-                <ListView Grid.Row="1" ItemsSource="{Binding LatestSearchList}" HasUnevenRows="True" SeparatorVisibility="None" >
+                <ListView x:Name="LatestSearchList" Grid.Row="1" IsVisible="{Binding IsLatestSearchListVisible}" ItemsSource="{Binding LatestSearchList}" HasUnevenRows="True" SeparatorVisibility="None" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -48,6 +49,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Label Grid.Row="1" Text="Does'nt exist" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding IsEmptyListVisible}"/>
             </Grid>
             <!--Popular Product List Section-->
             <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,*" RowSpacing="0" Margin="25,0,25,20" >

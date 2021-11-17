@@ -80,6 +80,7 @@ namespace FibesApp.ViewModels.Accounts
             await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView());
         }
         #endregion
+
         #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...

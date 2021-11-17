@@ -47,6 +47,33 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+
+        private bool _IsLatestSearchListVisible = true;
+        public bool IsLatestSearchListVisible
+        {
+            get { return _IsLatestSearchListVisible; }
+            set
+            {
+                if (_IsLatestSearchListVisible != value)
+                {
+                    _IsLatestSearchListVisible = value;
+                    OnPropertyChanged("IsLatestSearchListVisible");
+                }
+            }
+        }
+        private bool _IsEmptyListVisible = false;
+        public bool IsEmptyListVisible
+        {
+            get { return _IsEmptyListVisible; }
+            set
+            {
+                if (_IsEmptyListVisible != value)
+                {
+                    _IsEmptyListVisible = value;
+                    OnPropertyChanged("IsEmptyListVisible");
+                }
+            }
+        }
         #endregion
 
         #region Commands
