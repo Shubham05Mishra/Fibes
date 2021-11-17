@@ -292,4 +292,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\itemImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\remove%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\remove%402x.png" />
+  </ItemGroup>
 </Project>
