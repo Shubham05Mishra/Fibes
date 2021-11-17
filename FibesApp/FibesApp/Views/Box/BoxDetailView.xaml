@@ -21,14 +21,14 @@
                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <Image  Source="backbutton.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding backCommand}" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
                 </Grid>
                 <!--Box Title-->
                 <Label Grid.Column="1" Text="Box" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <!--OptionButton-->
                 <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Image  Source="backbutton.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Image  Source="optionicon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OptionCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>

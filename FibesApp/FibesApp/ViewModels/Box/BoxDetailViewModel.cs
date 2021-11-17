@@ -110,14 +110,14 @@ namespace FibesApp.ViewModels.Box
         #endregion
 
         #region Method
-        private void OnSubmitAsync(object obj)
+        private async void OnSubmitAsync(object obj)
         {
-            throw new NotImplementedException();
+            await Navigation.PushModalAsync(new Views.Box.SubmitBoxView());
         }
 
-        private void OnClearAsync(object obj)
+        private async void OnClearAsync(object obj)
         {
-            throw new NotImplementedException();
+            await Navigation.PushModalAsync(new Views.Box.EmptyBoxView());
         }
         #endregion
     }
