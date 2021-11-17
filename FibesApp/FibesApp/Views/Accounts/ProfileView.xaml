@@ -4,7 +4,13 @@
              x:Class="FibesApp.Views.Accounts.ProfileView"
              NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
   <ContentPage.Content>
-        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"    >
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform ="iOS" Value="0,25,0,0"/>
+                    <On Platform="Android" Value="0,0,0,0"/>
+                </OnPlatform>
+            </Grid.Margin>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
@@ -20,11 +26,11 @@
                 <Grid Grid.Column="0" HorizontalOptions="Start" VerticalOptions="FillAndExpand">
                     <Image  Source="backbutton.png" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding backCommand}" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
                 </Grid>
                 <!--Profile Title-->
-                <Label Grid.Column="1" Text="Profile" FontSize="15" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Grid.Column="1" Text="Profile" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </Grid>
             <!--Second Section-->
             <ScrollView IsClippedToBounds="True" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

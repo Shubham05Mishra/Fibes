@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FibesApp.Views.Box.SubmitBoxView"
+             NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
+    <ContentPage.Content>
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform ="iOS" Value="0,25,0,0"/>
+                    <On Platform="Android" Value="0,0,0,0"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <!--Transfer in Process Grid-->
+            <Grid x:Name="Transfer" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Header Section-->
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
+                    <!--Back Button-->
+                    <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image  Source="backbutton.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                    <!--Box Title-->
+                    <Label Grid.Column="1" Text="Box" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <!--Option Button-->
+                    <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image  Source="optionicon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="Fill"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OptionCommand}" NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,-7,0,0">
+                    <!--Background Image-->
+                    <Image Source="bg.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.08"/>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                        </Grid.RowDefinitions>
+                        <!--Transfer Image-->
+                        <Image Grid.Row="1" Source="transfer.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="350" WidthRequest="350"/>
+                        <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="Auto,Auto" RowSpacing="20">
+                            <Label Text="Transferring products in progress" TextColor="{StaticResource AppBlackColor}" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <!--Back to Main Page Button-->
+                            <Button Grid.Row="1" Text="Cancel" Command="{Binding CancelCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" 
+                                FontSize="16" TextTransform="None" CornerRadius="10" HorizontalOptions="CenterAndExpand" WidthRequest="150"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            
+            <!--Transfer Done Grid-->
+            <Grid x:Name="TransferDone" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Header Section-->
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
+                    <!--Back Button-->
+                    <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image  Source="backbutton.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                    <!--Box Title-->
+                    <Label Grid.Column="1" Text="Box" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <!--Option Button-->
+                    <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image  Source="optionicon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="Fill"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OptionCommand}" NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,-7,0,0">
+                    <!--Background Image-->
+                    <Image Source="bg.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.08"/>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                        </Grid.RowDefinitions>
+                        <!--Transfer Done Image-->
+                        <Image Grid.Row="1" Source="transferdone.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="350" WidthRequest="350"/>
+                        <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="Auto,Auto" RowSpacing="20">
+                            <Label Text="Transferred successfully" TextColor="{StaticResource AppBlackColor}" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <!--Back to Main Page Button-->
+                            <Button Grid.Row="1" Text="Back to main page" Command="{Binding BackToHomeCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" 
+                                FontSize="16" TextTransform="None" CornerRadius="10" HorizontalOptions="CenterAndExpand"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

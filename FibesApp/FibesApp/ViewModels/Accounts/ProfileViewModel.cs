@@ -12,8 +12,7 @@ namespace FibesApp.ViewModels.Accounts
         public ProfileViewModel(INavigation nav)
         {
             Navigation = nav;
-            LogoutCommand = new Command(OnLogoutAsync);
-            backCommand = new Command(OnbackAsync);
+            LogoutCommand = new Command(OnLogoutAsync);            
         }
 
         
@@ -21,10 +20,7 @@ namespace FibesApp.ViewModels.Accounts
         #endregion
 
         #region Command 
-        public Command LogoutCommand { get; }
-        public Command backCommand { get; }
-
-
+        public Command LogoutCommand { get; }        
         #endregion
 
         #region Method
@@ -38,14 +34,7 @@ namespace FibesApp.ViewModels.Accounts
             {
                 App.Current.MainPage = new Views.Accounts.LoginView();
             }
-        }
-        /// <summary>
-        /// TODO : Back the Previous Page
-        /// </summary>
-        private async void OnbackAsync(object obj)
-        {
-            await Navigation.PopModalAsync();
-        }
+        }        
         #endregion
 
 

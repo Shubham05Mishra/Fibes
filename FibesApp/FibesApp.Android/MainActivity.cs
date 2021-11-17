@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.OS;
 using Acr.UserDialogs;
 using AndroidX.AppCompat.App;
+using Android.Views;
 
 namespace FibesApp.Droid
 {
@@ -15,7 +16,9 @@ namespace FibesApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            //To Off dark mode
+            Window.AddFlags(WindowManagerFlags.Fullscreen);
+            Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
 
             #region Initialize Packages
 

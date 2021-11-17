@@ -301,4 +301,55 @@
   <ItemGroup>
     <BundleResource Include="Resources\remove%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\demoimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\listItemImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\optionicon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\optionicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\optionicon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\panda%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\panda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\panda%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pandaicon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pandaicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pandaicon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transfer%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transfer%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transferdone%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transferdone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transferdone%402x.png" />
+  </ItemGroup>
 </Project>
