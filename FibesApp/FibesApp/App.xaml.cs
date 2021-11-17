@@ -4,6 +4,7 @@ using FibesApp.Views.Accounts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FibesApp.Views.Home;
+using FibesApp.Views.Box;
 
 namespace FibesApp
 {

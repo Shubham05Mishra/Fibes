@@ -331,7 +331,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private void FilterAsync(object obj)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
         public async Task LikeAsync(ItemModel item)
         {

@@ -26,11 +26,11 @@
                 <Grid Grid.Column="0" HorizontalOptions="Start" VerticalOptions="FillAndExpand">
                     <Image  Source="backbutton.png" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding backCommand}" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
                 </Grid>
                 <!--Profile Title-->
-                <Label Grid.Column="1" Text="Profile" FontSize="15" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label Grid.Column="1" Text="Profile" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </Grid>
             <!--Second Section-->
             <ScrollView IsClippedToBounds="True" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
