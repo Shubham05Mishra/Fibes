@@ -26,5 +26,18 @@ namespace FibesApp.Views.Box
             this.BindingContext = SubmitBoxVM;
         }
         #endregion
+
+        #region EventHandler
+        /// <summary>
+        /// TODO:To define the page on appearing event...
+        /// </summary>
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await Task.Delay(5000);
+            TransferDone.IsVisible = true;
+            Transfer.IsVisible = false;
+        }
+        #endregion
     }
 }

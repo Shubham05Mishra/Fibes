@@ -13,7 +13,7 @@
                 </OnPlatform>
             </Grid.Margin>
             <!--Transfer in Process Grid-->
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
+            <Grid x:Name="Transfer" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
@@ -60,7 +60,7 @@
             </Grid>
             
             <!--Transfer Done Grid-->
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid x:Name="TransferDone" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>

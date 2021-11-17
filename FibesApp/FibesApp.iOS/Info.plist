@@ -32,5 +32,12 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<!--To disable Status bar-->
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<!--To Off dark mode-->
+	<key>UIUserInterfaceStyle</key>
 </dict>
 </plist>
