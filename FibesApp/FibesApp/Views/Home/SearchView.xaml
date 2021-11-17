@@ -7,7 +7,13 @@
              BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10" >
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10">
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform ="iOS" Value="0,25,0,0"/>
+                    <On Platform="Android" Value="0,0,0,0"/>
+                </OnPlatform>
+            </Grid.Margin>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="50"/>
@@ -49,7 +55,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Label Grid.Row="1" Text="Does'nt exist" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding IsEmptyListVisible}"/>
+                <Label Grid.Row="1" Text="No Result Found" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding IsEmptyListVisible}"/>
             </Grid>
             <!--Popular Product List Section-->
             <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,*" RowSpacing="0" Margin="25,0,25,20" >
