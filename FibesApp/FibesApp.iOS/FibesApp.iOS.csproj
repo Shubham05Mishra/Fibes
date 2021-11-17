@@ -295,4 +295,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\demoimage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\listItemImage.png" />
+  </ItemGroup>
 </Project>
