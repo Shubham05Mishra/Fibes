@@ -6,7 +6,7 @@
              x:Class="FibesApp.Views.Home.HomeView" NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" RowDefinitions="60,Auto,Auto,Auto" >
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" RowDefinitions="60,Auto,Auto,Auto" IsEnabled="{Binding IsPageEnable}">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
@@ -54,7 +54,7 @@
                 <!--Search Bar Section-->
                 <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,12,50">
                     <Frame Grid.Column="0" Padding="0,0,10,0" WidthRequest="260" BorderColor="{StaticResource AppPurpleColor}" HasShadow="False" HeightRequest="20" CornerRadius="12">
-                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*" >
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SearchCommand}"/>
                             </Grid.GestureRecognizers>

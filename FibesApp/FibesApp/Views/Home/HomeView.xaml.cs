@@ -35,10 +35,11 @@ namespace FibesApp.Views.Home
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            HomeVM.IsPageEnable = true;
             //await Task.Delay(10);
             //var appMainPageScreenWidth = App.Current.MainPage.Width;
             //HomeVM.ScreenItemWidth = (appMainPageScreenWidth - 53) / 2;
-            HomeVM.MyCollectionAsync();
+            HomeVM.MyCollectionAsync();            
         }
 
         /// <summary>
@@ -65,6 +66,7 @@ namespace FibesApp.Views.Home
                             imageItem.IsLike = true;
                             imageItem.IsNotLike = false;
                         }
+                        break;
                     }
                 }
                 LvBrowse.ItemsSource = null;

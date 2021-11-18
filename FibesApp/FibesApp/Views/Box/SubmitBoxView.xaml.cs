@@ -34,7 +34,7 @@ namespace FibesApp.Views.Box
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await Task.Delay(5000);
+            await Task.Delay(3000);
             TransferDone.IsVisible = true;
             Transfer.IsVisible = false;
         }

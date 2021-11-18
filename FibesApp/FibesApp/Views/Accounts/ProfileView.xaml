@@ -4,7 +4,7 @@
              x:Class="FibesApp.Views.Accounts.ProfileView"
              NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
   <ContentPage.Content>
-        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*">
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" IsEnabled="{Binding IsPageEnable}">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS--> 
                 <OnPlatform x:TypeArguments="Thickness">
@@ -13,9 +13,9 @@
                 </OnPlatform>
             </Grid.Margin>
             <!--Header Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  ColumnDefinitions="30,*,30">
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  ColumnDefinitions="50,*,50">
                 <!--Back Button-->
-                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5,0,0,0">
+                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>

@@ -5,7 +5,7 @@
              Title="Menu">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Home" Command="{Binding HomeCommand}"/>
+            <Button Text="Home" Command="{Binding HomeCommand}" VerticalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

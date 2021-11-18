@@ -35,6 +35,7 @@ namespace FibesApp.Views.Box
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            BoxDetailVM.IsPageEnable = true;
            // BoxDetailVM.GetItems();
         }
         #endregion
