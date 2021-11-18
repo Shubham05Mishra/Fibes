@@ -25,19 +25,19 @@ namespace FibesApp.ViewModels.Home
             {
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Aman"
+                        SearchItem = "Search product A"
                     },
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Shubham"
+                        SearchItem = "Search product B"
                     },
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Mayank"
+                        SearchItem = "Search product C"
                     },
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Abhilesh"
+                        SearchItem = "Search product D"
                     },
             };
 

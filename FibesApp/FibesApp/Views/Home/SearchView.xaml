@@ -16,19 +16,19 @@
                 </OnPlatform>
             </Grid.Margin>
             <!--Header Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30" Margin="0,0,25,0">
-                 <!--Back Button Section--> 
-                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5,0,0,0">
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
+                <!--Back Button-->
+                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="10,0,0,0"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
-                    <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
                 </Grid>
                 <!--Page Heading Label--> 
                 <Label Grid.Column="1" Text="Search" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20"/>
                  <!--Box Button Section--> 
                 <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Image Source="archive.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                    <Image Source="archive.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,22,0"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BoxCommand}"/>
                     </Grid.GestureRecognizers>

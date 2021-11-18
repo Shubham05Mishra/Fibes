@@ -20065,23 +20065,18 @@ namespace FibesApp.Droid
 			
 			// aapt resource value: 0x7F0700A5
 			public const int remove = 2131165349;
-			public const int roundedbg = 2131165349;
 			
 			// aapt resource value: 0x7F0700A6
 			public const int roundedbg = 2131165350;
-			public const int roundedbgdark = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
 			public const int roundedbgdark = 2131165351;
-			public const int scan = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
 			public const int scan = 2131165352;
-			public const int search = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
 			public const int search = 2131165353;
-			public const int searchimage = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
 			public const int searchimage = 2131165354;
@@ -20103,22 +20098,6 @@ namespace FibesApp.Droid
 			
 			// aapt resource value: 0x7F0700B0
 			public const int transferdone = 2131165360;
-			public const int splash = 2131165354;
-			
-			// aapt resource value: 0x7F0700AB
-			public const int test_custom_background = 2131165355;
-			
-			// aapt resource value: 0x7F0700AC
-			public const int tooltip_frame_dark = 2131165356;
-			
-			// aapt resource value: 0x7F0700AD
-			public const int tooltip_frame_light = 2131165357;
-			
-			// aapt resource value: 0x7F0700AE
-			public const int transfer = 2131165358;
-			
-			// aapt resource value: 0x7F0700AF
-			public const int transferdone = 2131165359;
 			
 			static Drawable()
 			{

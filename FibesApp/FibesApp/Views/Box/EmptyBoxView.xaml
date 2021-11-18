@@ -14,10 +14,10 @@
                 </OnPlatform>
             </Grid.Margin>
             <!--Header Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30" >
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
                 <!--Back Button-->
                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
+                    <Image  Source="backbutton.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
@@ -25,7 +25,7 @@
                 <!--Box Title-->
                 <Label Grid.Column="1" Text="Box" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <!--Option Button-->
-                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Image  Source="optionicon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="Fill"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OptionCommand}" NumberOfTapsRequired="1"/>
