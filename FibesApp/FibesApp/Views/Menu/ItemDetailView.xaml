@@ -1,12 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FibesApp.Views.Menu.ItemDetailView" NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
+             x:Class="FibesApp.Views.Menu.ItemDetailView"
+             NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*"  RowSpacing="20">
+            <Grid.Margin>
+                <!--Platform Specific code for Top Margin for iOS-->
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform ="iOS" Value="12,25,12,12"/>
+                    <On Platform="Android" Value="12"/>
+                </OnPlatform>
+            </Grid.Margin>
+            <!--Header Section-->
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" Margin="10,0"  ColumnSpacing="20" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30,30">
+                <!--BackButton-->
+                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <!--Like Button Section-->
+                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="1">
+                    <Image Source="{Binding LikeImage}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LikeCommand}"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <!--Box Button Section-->
+                <Grid Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="archive.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BoxCommand}"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+            <!--Body Section-->
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="20,10,20,0" RowSpacing="10" VerticalOptions="FillAndExpand" RowDefinitions="50,40,*,50">
+                <!--Fabric Name-->
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="Fabric name" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+                </Grid>
+                <!--Overview, Features Section-->
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" Padding="0" RowSpacing="5" RowDefinitions="*,3">
+                    <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" ColumnSpacing="0" 
+                      VerticalOptions="EndAndExpand" ColumnDefinitions="*,*,80">
+                        <!--Overview Button-->
+                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Overview" FontSize="15" FontAttributes="{Binding OverviewFontAttribute}"
+                           TextColor="{Binding OverviewTextColor}" HorizontalOptions="StartAndExpand" 
+                           HorizontalTextAlignment="Center"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OverviewCommand}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <!--Features Button-->
+                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label  Text="Features" FontSize="15" FontAttributes="{Binding FeaturesFontAttribute}"
+                           TextColor="{Binding FeaturesTextColor}" BackgroundColor="Transparent" HorizontalOptions="StartAndExpand" 
+                           HorizontalTextAlignment="Start"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding FeaturesCommand}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Grid>
+                    <!--Button Indicator Section-->
+                    <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
+                      ColumnDefinitions="*,*,80" ColumnSpacing="0">
+                        <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
+                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="StartAndExpand" WidthRequest="50"
+                             VerticalOptions="FillAndExpand"/>
+                        <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="50"
+                             IsVisible="{Binding FeaturesVisility}" HorizontalOptions="StartAndExpand"
+                             VerticalOptions="FillAndExpand"/>
+                    </Grid>
+                </Grid>
+                <!--Overview List-->
+                <CollectionView Grid.Row="2" ItemsSource="{Binding ItemsList}" IsVisible="{Binding OverviewVisility}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" Span="1" VerticalItemSpacing="15" HorizontalItemSpacing="15" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <!--Main Grid for List-->
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"  >
+                                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Image Source="{Binding ItemImage}" Aspect="AspectFill"   WidthRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <!--Length and Price-->
+                <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="7" ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="Length" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Column="1" Text="Price" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

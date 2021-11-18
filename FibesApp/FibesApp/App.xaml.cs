@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FibesApp.Views.Home;
 using FibesApp.Views.Box;
+using FibesApp.Views.Menu;
 
 namespace FibesApp
 {
@@ -16,7 +17,7 @@ namespace FibesApp
         public App()
         {
             InitializeComponent(); 
-            MainPage = new NavigationPage (new LoginView());
+            MainPage = new NavigationPage (new ItemDetailView());
         }
 
         protected override void OnStart()
