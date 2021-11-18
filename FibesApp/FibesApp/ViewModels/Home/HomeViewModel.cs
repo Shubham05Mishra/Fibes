@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
-using FibesApp.Interfaces;
 using FibesApp.Models;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
@@ -15,6 +14,7 @@ namespace FibesApp.ViewModels.Home
         //TODO : To Declare Local Variables Here 
         public double ScreenItemWidth;
         ZXingScannerPage ScannerPage;
+
         #region Constructor
         public HomeViewModel(INavigation _Nav)
         {
@@ -137,8 +137,6 @@ namespace FibesApp.ViewModels.Home
             };
             #endregion
         }
-
-        
         #endregion
 
         #region Properties
@@ -393,18 +391,18 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void BarCodeAsync(object obj)
         {
-            ScannerPage = new ZXingScannerPage();
-            ScannerPage.OnScanResult += (result) =>
-            {
-                ScannerPage.IsScanning = false;
+            //ScannerPage = new ZXingScannerPage();
+            //ScannerPage.OnScanResult += (result) =>
+            //{
+            //    ScannerPage.IsScanning = false;
 
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                     Navigation.PopModalAsync();
-                    UserDialog.Alert("Scanned QRCode",result.Text,"OK");
-                });
-            };
-            await Navigation.PushModalAsync(ScannerPage);
+            //    Device.BeginInvokeOnMainThread(() =>
+            //    {
+            //         Navigation.PopModalAsync();
+            //        UserDialog.Alert("Scanned QRCode",result.Text,"OK");
+            //    });
+            //};
+            await Navigation.PushModalAsync(new Views.Home.QRCodeScannerView());
         }
     }
         #endregion

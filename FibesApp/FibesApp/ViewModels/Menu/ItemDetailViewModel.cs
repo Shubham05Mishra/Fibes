@@ -31,6 +31,11 @@ namespace FibesApp.ViewModels.Menu
                     ItemImage = "listItemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
+                  new ItemDetailModel()
+                {
+                    ItemImage = "itemImage.png",
+                    ItemHeight = ScreenItemWidth,
+                },
                  new ItemDetailModel()
                 {
                     ItemImage = "listItemImage.png",
@@ -39,11 +44,21 @@ namespace FibesApp.ViewModels.Menu
                  new ItemDetailModel()
                 {
                     ItemImage = "listItemImage.png",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "itemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
                   new ItemDetailModel()
                 {
                     ItemImage = "listItemImage.png",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "itemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
                    new ItemDetailModel()
