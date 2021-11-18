@@ -7,13 +7,6 @@
     <ContentPage.Content>
         <!--Main Grid-->
         <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" IsEnabled="{Binding IsPageEnable}">
-            <Grid.Margin>
-                <!--Platform Specific code for Top Margin for iOS-->
-                <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform ="iOS" Value="0,25,0,0"/>
-                    <On Platform="Android" Value="0,0,0,0"/>
-                </OnPlatform>
-            </Grid.Margin>
             <!--Background Image Section-->
             <Image Source="bg.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <!--Login Detail Section Grid-->

@@ -352,4 +352,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\transferdone%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\likeHeart%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\likeHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\likeHeart%402x.png" />
+  </ItemGroup>
 </Project>
