@@ -10,8 +10,8 @@
             <!--Background Image Section-->
             <Image Source="bg.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <!--Login Detail Section Grid-->
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="45*,55*">
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,0" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,Auto">
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,35" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
                     <!--Welcome Fibes Label-->
                     <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}" FontSize="30"/>
                     <!--Email Section-->
