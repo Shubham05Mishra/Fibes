@@ -35,6 +35,7 @@ namespace FibesApp.Views.Accounts
         protected async override void OnAppearing()
         {                            
             base.OnAppearing();
+            LoginVM.IsPageEnable = true;
         }
         #endregion
     }

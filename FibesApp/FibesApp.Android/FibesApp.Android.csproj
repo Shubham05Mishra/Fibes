@@ -82,8 +82,15 @@
     <PackageReference Include="Xamarin.Google.Android.Material">
       <Version>1.3.0.1</Version>
     </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile.Forms">
+      <Version>2.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dependencies\QrScanningService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renders\CustomEntryLevelRenderer.cs" />
     <Compile Include="Renders\CustomEntryRenderer.cs" />
@@ -113,9 +120,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dependencies\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FibesApp\FibesApp.csproj">
       <Project>{B6D43096-2CCF-4140-929F-D326F6CE0728}</Project>

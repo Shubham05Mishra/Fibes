@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:local="clr-namespace:FibesApp.CustomControls"
+              xmlns:Barcode="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:local="clr-namespace:FibesApp.CustomControls"
              x:Class="FibesApp.Views.Home.HomeView" NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" RowDefinitions="60,Auto,Auto,Auto" >
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" RowDefinitions="60,Auto,Auto,Auto" IsEnabled="{Binding IsPageEnable}">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
@@ -52,7 +53,7 @@
                 <!--Search Bar Section-->
                 <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,12,50">
                     <Frame Grid.Column="0" Padding="0,0,10,0" WidthRequest="260" BorderColor="{StaticResource AppPurpleColor}" HasShadow="False" HeightRequest="20" CornerRadius="12">
-                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*" >
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SearchCommand}"/>
                             </Grid.GestureRecognizers>
@@ -61,9 +62,18 @@
                             <Label Grid.Column="1" Text="Search what you want" FontSize="16" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
                         </Grid>
                     </Frame>
+                    <!--QRCode Scan Section--> 
                     <Frame Grid.Column="2" CornerRadius="12" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource AppPurpleColor}" VerticalOptions="FillAndExpand" Padding="12">
-                        <Image Source="scan.png" Aspect="AspectFill" HeightRequest="40" HorizontalOptions="EndAndExpand" WidthRequest="40"/>
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Image Source="scan.png" Aspect="AspectFill" HeightRequest="40" HorizontalOptions="EndAndExpand" WidthRequest="40"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BarcodeCommand}"/>
+                            </Grid.GestureRecognizers>
+                            
+                        
+                       </Grid>
                     </Frame>
+                    <!--<Barcode:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>-->
                 </Grid>
             </Grid>
             <!--My Collection, Browse  and filter Button Section-->

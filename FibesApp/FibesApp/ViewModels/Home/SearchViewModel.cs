@@ -25,19 +25,19 @@ namespace FibesApp.ViewModels.Home
             {
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Aman"
+                        SearchItem = "Search product A"
                     },
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Shubham"
+                        SearchItem = "Search product B"
                     },
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Mayank"
+                        SearchItem = "Search product C"
                     },
                     new LatestSearchItemModel()
                     {
-                        SearchItem = "Abhilesh"
+                        SearchItem = "Search product D"
                     },
             };
 
@@ -162,6 +162,19 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -189,6 +202,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
         #endregion

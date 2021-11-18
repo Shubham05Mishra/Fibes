@@ -35,10 +35,11 @@ namespace FibesApp.Views.Home
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            HomeVM.IsPageEnable = true;
             //await Task.Delay(10);
             //var appMainPageScreenWidth = App.Current.MainPage.Width;
             //HomeVM.ScreenItemWidth = (appMainPageScreenWidth - 53) / 2;
-            HomeVM.MyCollectionAsync();
+            HomeVM.MyCollectionAsync();            
         }
 
         /// <summary>
@@ -55,7 +56,7 @@ namespace FibesApp.Views.Home
                 {
                     if (imageItem.Id == item.Id)
                     {
-                        if (item.IsLike)
+                        if (imageItem.IsLike)
                         {
                             imageItem.IsLike = false;
                             imageItem.IsNotLike = true;
@@ -65,12 +66,19 @@ namespace FibesApp.Views.Home
                             imageItem.IsLike = true;
                             imageItem.IsNotLike = false;
                         }
+                        break;
                     }
                 }
-                LvBrowse.ItemsSource = null;
-                LvBrowse.ItemsSource = HomeVM.BrowseItemsList;
             }
         }
         #endregion
+
+        private void ZXingScannerView_OnScanResult(ZXing.Result result)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                Navigation.PushModalAsync(new Views.Accounts.LoginView());
+            });
+        }
     }
 }

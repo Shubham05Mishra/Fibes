@@ -19,6 +19,19 @@ namespace FibesApp.ViewModels.Accounts
         #endregion
 
         #region Properties
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands 
@@ -31,6 +44,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnLogoutAsync(object obj)
         {
+            IsPageEnable = false;
             var confirmed = await UserDialog.ConfirmAsync(" Are you sure you want to Logout" ,"Alert", "Yes","No");
             if (confirmed)
             {

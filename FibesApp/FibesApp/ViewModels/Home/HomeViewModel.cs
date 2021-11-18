@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using FibesApp.Interfaces;
 using FibesApp.Models;
 using Xamarin.Forms;
+using ZXing.Net.Mobile.Forms;
 
 namespace FibesApp.ViewModels.Home
 {
@@ -12,7 +14,7 @@ namespace FibesApp.ViewModels.Home
     {
         //TODO : To Declare Local Variables Here 
         public double ScreenItemWidth;
-
+        ZXingScannerPage ScannerPage;
         #region Constructor
         public HomeViewModel(INavigation _Nav)
         {
@@ -25,6 +27,7 @@ namespace FibesApp.ViewModels.Home
             FilterCommand = new Command(FilterAsync);
             MenuCommand = new Command(MenuAync);
             ProfileCommand = new Command(OnProfileAsync);
+            BarcodeCommand = new Command(BarCodeAsync);
 
             #region Bind Static Lists
             ItemsList = new ObservableCollection<ItemModel>()
@@ -134,6 +137,8 @@ namespace FibesApp.ViewModels.Home
             };
             #endregion
         }
+
+        
         #endregion
 
         #region Properties
@@ -202,6 +207,19 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         private FontAttributes _MyCollectionFontAttribute;
         public FontAttributes MyCollectionFontAttribute
         {
@@ -254,6 +272,20 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+                    private string _BarcodeText
+;
+        public string BarcodeText
+        {
+            get { return _BarcodeText; }
+            set
+            {
+                if (_BarcodeText != value)
+                {
+                    _BarcodeText = value;
+                    OnPropertyChanged("BarcodeText");
+                }
+            }
+        }
         private bool _IsLike = false;
         public bool IsLike
         {
@@ -288,6 +320,7 @@ namespace FibesApp.ViewModels.Home
         public Command BrowseCommand { get; }
         public Command MenuCommand { get; }
         public Command ProfileCommand { get; }
+        public Command BarcodeCommand { get; }
         public Command FilterCommand { get; }
         #endregion
 
@@ -297,6 +330,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void SearchAsync(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Home.SearchView());
         }
 
@@ -349,10 +383,29 @@ namespace FibesApp.ViewModels.Home
         /// TODO : Open Profile Page
         /// </summary>
         private async void OnProfileAsync(object obj)
-        {
+        {            
             await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }
-        #endregion
+
+        /// <summary>
+        /// TODO : Open Barcode Scanner
+        /// </summary>
+        private async void BarCodeAsync(object obj)
+        {
+            ScannerPage = new ZXingScannerPage();
+            ScannerPage.OnScanResult += (result) =>
+            {
+                ScannerPage.IsScanning = false;
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                     Navigation.PopModalAsync();
+                    UserDialog.Alert("Scanned QRCode",result.Text,"OK");
+                });
+            };
+            await Navigation.PushModalAsync(ScannerPage);
+        }
     }
+        #endregion
 }
