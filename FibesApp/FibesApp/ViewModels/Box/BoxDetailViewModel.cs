@@ -112,7 +112,7 @@ namespace FibesApp.ViewModels.Box
         public Command SubmitCommand { get; }
         #endregion
 
-        #region Method
+        #region Methods
         /// <summary>
         /// TODO : To Define Submit Button Tap Event...
         /// </summary>
