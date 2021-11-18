@@ -38,9 +38,9 @@ namespace FibesApp.ViewModels.Box
         /// <summary>
         /// TODO:Cancel Button Tap Event...
         /// </summary>
-        private void CancelAsync(object obj)
+        private async void CancelAsync(object obj)
         {
-            throw new NotImplementedException();
+           await Navigation.PopModalAsync();
         }
         #endregion
     }

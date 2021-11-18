@@ -4,8 +4,8 @@
              x:Class="FibesApp.Views.Box.BoxDetailView"
              NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
-        <!--Main Grid--> 
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*,130">
+        <!--Main Grid-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowDefinitions="60,*,130">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
@@ -14,7 +14,7 @@
                 </OnPlatform>
             </Grid.Margin>
             <!--Header Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30">
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" Margin="8,0" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30">
                 <!--BackButton-->
                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
@@ -43,7 +43,7 @@
                                     <!--CheckBox-->
                                     <CheckBox Grid.Column="0" IsChecked="True" Color="{StaticResource AppDarkBlueColor}" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" TranslationY="-8" ></CheckBox>
                                     <!--Product-->
-                                    <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto,Auto,50" >
+                                    <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto,Auto,40" >
                                         <!--Product Name-->
                                         <Label Grid.Row="0" Text="{Binding ProName}" TextColor="{StaticResource AppBlackColor}"/>
                                         <!--Product Brand-->
@@ -60,24 +60,22 @@
                                             </Label.FormattedText>
                                         </Label>
                                         <!--Product Quantity-->
-                                        <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="8" ColumnDefinitions="*,50">
+                                        <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource AppBackgroundColor}" VerticalOptions="FillAndExpand" ColumnSpacing="0" ColumnDefinitions="65*,35*">
                                             <!--Quantity Increment Decrement button-->
                                             <Frame Grid.Column="0" HasShadow="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}"  Padding="0" >
-                                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="45,*,45">
-                                                    <Button Grid.Column="0" Text="-" FontSize="22" Padding="0"    TextColor="{StaticResource AppBlackColor}" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
+                                                <Grid HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" ColumnDefinitions="45*,10*,45*">
+                                                    <Button Grid.Column="0" Text="-" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
                                                     <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                                                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                                                            <Label Text="1" FontSize="18" TextColor="{StaticResource AppBlackColor}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" />
-                                                            <Grid.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding QuantityCommand}"/>
-                                                            </Grid.GestureRecognizers>
-                                                        </Grid>
-                                                        <Button Grid.Column="2" Text="+" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
+                                                        <Label Text="1" FontSize="18" TextColor="{StaticResource AppBlackColor}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" />
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding QuantityCommand}"/>
+                                                        </Grid.GestureRecognizers>
                                                     </Grid>
+                                                    <Button Grid.Column="2" Text="+" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
                                                 </Grid>
                                             </Frame>
                                             <!--remove Button-->
-                                            <ImageButton Grid.Column="1"  Source="remove.png" Aspect="AspectFit"  Margin="0" Padding="15" BackgroundColor="{StaticResource AppLightGrayColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                            <ImageButton Grid.Column="1"  Source="remove.png" Aspect="AspectFit"  Margin="0" Padding="9" WidthRequest="40" HeightRequest="40" BackgroundColor="{StaticResource AppLightGrayColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
                                         </Grid>
                                     </Grid>
                                     <!--Product Image-->

@@ -58,8 +58,9 @@ namespace FibesApp.ViewModels.Accounts
         {
             if (!Validate())
             {
-                return;
+                return; 
             }
+            UserDialogs.Instance.Alert("Please check your email for password change.");
         }
         #endregion
 
@@ -69,7 +70,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private bool Validate()
         {
-            if (string.IsNullOrEmpty(Email))
+            if (!string.IsNullOrEmpty(Email))
             {
                 UserDialogs.Instance.Alert("Please enter valid email.");
                 return false;
