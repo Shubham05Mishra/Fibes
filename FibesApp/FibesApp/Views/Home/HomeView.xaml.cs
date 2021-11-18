@@ -66,6 +66,7 @@ namespace FibesApp.Views.Home
                             imageItem.IsLike = true;
                             imageItem.IsNotLike = false;
                         }
+                        break;
                     }
                 }
             }
