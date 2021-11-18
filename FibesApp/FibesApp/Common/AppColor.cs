@@ -7,6 +7,7 @@ namespace FibesApp.Common
 {
     public class AppColor
     {
+        //TODO : To Define the Colors of the Application...
         public static string AppBackgroundColor = "#ffffff";
       //  public static Color AppGrayColor = Xamarin.Forms.Color.FromHex("#7f7f7f");
         public static string AppGrayColor = "#7f7f7f";

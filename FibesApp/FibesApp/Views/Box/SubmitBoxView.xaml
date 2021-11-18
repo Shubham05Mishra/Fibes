@@ -7,17 +7,14 @@
         <!--Main Grid-->
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.Margin>
+                <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform ="iOS" Value="0,25,0,0"/>
                     <On Platform="Android" Value="0,0,0,0"/>
                 </OnPlatform>
             </Grid.Margin>
             <!--Transfer in Process Grid-->
-            <Grid x:Name="Transfer" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <Grid x:Name="Transfer" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" >
                 <!--Header Section-->
                 <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
                     <!--Back Button-->
@@ -40,13 +37,7 @@
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,-7,0,0">
                     <!--Background Image-->
                     <Image Source="bg.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.08"/>
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30*"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="20*"/>
-                            <RowDefinition Height="20*"/>
-                        </Grid.RowDefinitions>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="30*,Auto,20*,20*">
                         <!--Transfer Image-->
                         <Image Grid.Row="1" Source="transfer.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="350" WidthRequest="350"/>
                         <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="Auto,Auto" RowSpacing="20">
@@ -58,13 +49,8 @@
                     </Grid>
                 </Grid>
             </Grid>
-            
             <!--Transfer Done Grid-->
-            <Grid x:Name="TransferDone" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <Grid x:Name="TransferDone" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false" RowDefinitions="60,*">
                 <!--Header Section-->
                 <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*,50">
                     <!--Back Button-->
@@ -87,13 +73,7 @@
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,-7,0,0">
                     <!--Background Image-->
                     <Image Source="bg.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.08"/>
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30*"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="20*"/>
-                            <RowDefinition Height="20*"/>
-                        </Grid.RowDefinitions>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="30*,Auto,20*,20*">
                         <!--Transfer Done Image-->
                         <Image Grid.Row="1" Source="transferdone.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="350" WidthRequest="350"/>
                         <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="Auto,Auto" RowSpacing="20">

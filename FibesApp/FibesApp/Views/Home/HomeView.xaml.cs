@@ -41,7 +41,11 @@ namespace FibesApp.Views.Home
             HomeVM.MyCollectionAsync();
         }
 
-
+        /// <summary>
+        /// TODO : To Define the Like Item Button Tab Event...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void LikeTapped(object sender, EventArgs e)
         {
             var item = (sender as Grid).BindingContext as ItemModel;
@@ -68,6 +72,5 @@ namespace FibesApp.Views.Home
             }
         }
         #endregion
-
     }
 }

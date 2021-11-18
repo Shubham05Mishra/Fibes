@@ -14,9 +14,10 @@ namespace FibesApp.Views.Accounts
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ForgotPasswordView : ContentPage
     {
-        //TODO : To Define Local Class Level Variables...
+        //TODO : To Define Local Class Level Variables
         protected ForgotPasswordViewModel ForgotPasswordVM;
-        //TODO : To Define cosntructor...
+
+        //TODO : To Define Constructor...
         #region Constructor
         public ForgotPasswordView()
         {

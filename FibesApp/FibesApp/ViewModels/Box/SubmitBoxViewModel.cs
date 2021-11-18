@@ -7,6 +7,8 @@ namespace FibesApp.ViewModels.Box
 {
     public class SubmitBoxViewModel : BaseViewModel
     {
+        //TODO : To Declare Local Variables Here 
+
         #region Constructor
         public SubmitBoxViewModel(INavigation nav)
         {
@@ -26,7 +28,7 @@ namespace FibesApp.ViewModels.Box
 
         #region Methods
         /// <summary>
-        /// TODO:To Call The BackToHome button ...
+        /// TODO:Open Home Page...
         /// </summary>
         private void BackToHomeAsync(object obj)
         {
@@ -34,7 +36,7 @@ namespace FibesApp.ViewModels.Box
         }
 
         /// <summary>
-        /// TODO:To Call The Cancel command ...
+        /// TODO:Cancel Button Tap Event...
         /// </summary>
         private void CancelAsync(object obj)
         {

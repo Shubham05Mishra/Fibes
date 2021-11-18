@@ -11,8 +11,10 @@ namespace FibesApp.ViewModels.Accounts
 {
     public class LoginViewModel : BaseViewModel
     {
+        //TODO : To Define Local Variables Here 
         private const string _password = @"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
         private const string _emailRegex = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
+
         #region Constructor
         public LoginViewModel(INavigation nav)
         {
@@ -20,8 +22,6 @@ namespace FibesApp.ViewModels.Accounts
             SignInCommand = new Command(OnSignInAsync);
             ForgotPasswordCommand = new Command(OnForgotPasswordAsync);
         }
-
-
         #endregion
 
         #region Properties
@@ -53,7 +53,7 @@ namespace FibesApp.ViewModels.Accounts
         }
         #endregion
 
-        #region Command
+        #region Commands
         public Command SignInCommand { get; }
         public Command ForgotPasswordCommand { get; }
         #endregion
@@ -77,7 +77,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnForgotPasswordAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView());
+            await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView(),false);
         }
         #endregion
 

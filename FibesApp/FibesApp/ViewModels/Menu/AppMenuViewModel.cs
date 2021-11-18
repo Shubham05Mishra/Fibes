@@ -8,6 +8,8 @@ namespace FibesApp.ViewModels.Menu
 {
     public class AppMenuViewModel : BaseViewModel
     {
+        //TODO : To Declare Local Variables Here 
+
         #region Constructor
         public AppMenuViewModel(INavigation nav)
         {
@@ -19,10 +21,9 @@ namespace FibesApp.ViewModels.Menu
         #endregion
 
         #region Properties
-
         #endregion
 
-        #region Command
+        #region Commands
         public Command HomeCommand { get; }
         #endregion
 

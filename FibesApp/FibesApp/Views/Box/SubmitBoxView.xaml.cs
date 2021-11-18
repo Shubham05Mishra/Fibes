@@ -27,7 +27,7 @@ namespace FibesApp.Views.Box
         }
         #endregion
 
-        #region EventHandler
+        #region Event Handler
         /// <summary>
         /// TODO:To define the page on appearing event...
         /// </summary>

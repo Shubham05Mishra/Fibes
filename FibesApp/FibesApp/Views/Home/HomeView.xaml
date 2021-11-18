@@ -5,19 +5,14 @@
              x:Class="FibesApp.Views.Home.HomeView" NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" >
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" RowDefinitions="60,Auto,Auto,Auto" >
             <Grid.Margin>
+                <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform ="iOS" Value="12,25,12,12"/>
                     <On Platform="Android" Value="12"/>
                 </OnPlatform>
             </Grid.Margin>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
             <!--MenuBar,Logo and Profile Image Section-->
             <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="1,Auto,*,Auto">
                 <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
@@ -59,8 +54,12 @@
                 <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,12,50">
                     <Frame Grid.Column="0" Padding="0,0,10,0" WidthRequest="260" BorderColor="{StaticResource AppPurpleColor}" HasShadow="False" HeightRequest="20" CornerRadius="12">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SearchCommand}"/>
+                            </Grid.GestureRecognizers>
                             <Image Grid.Column="0" Margin="10" Source="search.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" />
-                            <local:CustomEntry Grid.Column="1" Placeholder="Search what you want"/>
+                            <!--<local:CustomEntry Grid.Column="1" Placeholder="Search what you want"/>-->
+                            <Label Grid.Column="1" Text="Search what you want" FontSize="16" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
                         </Grid>
                     </Frame>
                     <Frame Grid.Column="2" CornerRadius="12" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource AppPurpleColor}" VerticalOptions="FillAndExpand" Padding="12">
@@ -99,7 +98,6 @@
                 <!--Button Indicator Section-->
                 <Grid Grid.Row="1" Margin="10,0,10,0" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
                       ColumnDefinitions="*,*,50" ColumnSpacing="0">
-
                     <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
                              IsVisible="{Binding MyCollectionVisility}" HorizontalOptions="StartAndExpand" WidthRequest="50"
                              VerticalOptions="FillAndExpand"/>

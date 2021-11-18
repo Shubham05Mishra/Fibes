@@ -7,35 +7,41 @@
              BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10">
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,50,200,Auto" RowSpacing="10">
             <Grid.Margin>
+                <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform ="iOS" Value="0,25,0,0"/>
                     <On Platform="Android" Value="0,0,0,0"/>
                 </OnPlatform>
             </Grid.Margin>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
             <!--Header Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="60,*,30" Margin="0,0,25,0">
+            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30" Margin="0,0,25,0">
+                 <!--Back Button Section--> 
                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5,0,0,0">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                    </Grid.GestureRecognizers>
                     <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
                 </Grid>
+                <!--Page Heading Label--> 
                 <Label Grid.Column="1" Text="Search" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20"/>
+                 <!--Box Button Section--> 
                 <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Image Source="archive.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BoxCommand}"/>
+                    </Grid.GestureRecognizers>
                 </Grid>
             </Grid>
             <!--Search bar section-->
             <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="25,0" >
                 <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="50,*" ColumnSpacing="0">
-                        <Image Grid.Column="0" Source="searchimage.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" />
-                        <local:CustomEntry x:Name="SearchString" Grid.Column="1" Placeholder="Search" PlaceholderColor="LightGray" TextChanged="SearchBar" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*" Margin="0,0,10,0" ColumnSpacing="0">
+                       <!--Search Image--> 
+                        <Image Grid.Column="0" Margin="10" Source="searchimage.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" />
+                         <!--Search Entry Section--> 
+                        <local:CustomEntry x:Name="SearchString" Grid.Column="1" Placeholder="Search"  PlaceholderColor="LightGray" TextChanged="SearchBar" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
             </Grid>

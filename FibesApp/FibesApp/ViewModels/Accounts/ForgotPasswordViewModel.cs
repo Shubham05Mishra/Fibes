@@ -8,6 +8,8 @@ namespace FibesApp.ViewModels.Accounts
 {
    public class ForgotPasswordViewModel : BaseViewModel
     {
+        //TODO : To Define Local Variables Here 
+
         #region Constructor
         public ForgotPasswordViewModel(INavigation nav)
         {
@@ -15,12 +17,6 @@ namespace FibesApp.ViewModels.Accounts
             ResetCommand = new Command(OnResetAsync);
             SignInCommand = new Command(OnSignInAsync);
         }
-        #endregion
-
-        #region Command
-        public Command SignInCommand { get; }
-        public Command ResetCommand { get; }
-
         #endregion
 
         #region Properties
@@ -39,15 +35,22 @@ namespace FibesApp.ViewModels.Accounts
         }
         #endregion
 
-        #region Method
+        #region Commands
+        public Command SignInCommand { get; }
+        public Command ResetCommand { get; }
+
+        #endregion
+
+        #region Methods
         /// <summary>
-        /// TODO:To Call The SignIn  ...
+        /// TODO:To Call The SignIn Page  ...
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
             await Navigation.PopModalAsync();
 
         }
+
         /// <summary>
         /// TODO:To Call The Reset button ...
         /// </summary>
@@ -58,7 +61,9 @@ namespace FibesApp.ViewModels.Accounts
                 return;
             }
         }
+        #endregion
 
+        #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>

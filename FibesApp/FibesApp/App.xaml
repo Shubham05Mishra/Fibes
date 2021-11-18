@@ -14,9 +14,8 @@
             <Color x:Key="AppBlueColor">#5f33be</Color>
             <Color x:Key="AppSkyBlueColor">#1F72C6</Color>
             <Color x:Key="AppLightGrayColor">#F4F4F4</Color>
-
+            <Color x:Key="AppDarkBlueColor">#8688BC</Color>
             <!--#endregion-->
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>
