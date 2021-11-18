@@ -35,11 +35,11 @@ namespace FibesApp.Views.Home
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            HomeVM.IsPageEnable = true;
             //await Task.Delay(10);
             //var appMainPageScreenWidth = App.Current.MainPage.Width;
             //HomeVM.ScreenItemWidth = (appMainPageScreenWidth - 53) / 2;
-            HomeVM.MyCollectionAsync();
-            HomeVM.IsPageEnable = true;
+            HomeVM.MyCollectionAsync();            
         }
 
         /// <summary>
