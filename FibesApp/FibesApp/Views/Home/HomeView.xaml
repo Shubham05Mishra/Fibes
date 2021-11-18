@@ -20,8 +20,7 @@
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding MenuCommand}"/>
                     </Grid.GestureRecognizers>
-                    <Image Source="menubar.png" HorizontalOptions="CenterAndExpand" WidthRequest="30" VerticalOptions="CenterAndExpand"
-                           >
+                    <Image Source="menubar.png" HorizontalOptions="CenterAndExpand" WidthRequest="30" VerticalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding MenuCommand}"/>
                         </Image.GestureRecognizers>
