@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using FibesApp.Interfaces;
 using FibesApp.Models;
 using Xamarin.Forms;
+using ZXing.Net.Mobile.Forms;
 
 namespace FibesApp.ViewModels.Home
 {
@@ -12,7 +14,7 @@ namespace FibesApp.ViewModels.Home
     {
         //TODO : To Declare Local Variables Here 
         public double ScreenItemWidth;
-
+        ZXingScannerPage ScannerPage;
         #region Constructor
         public HomeViewModel(INavigation _Nav)
         {
@@ -25,6 +27,7 @@ namespace FibesApp.ViewModels.Home
             FilterCommand = new Command(FilterAsync);
             MenuCommand = new Command(MenuAync);
             ProfileCommand = new Command(OnProfileAsync);
+            BarcodeCommand = new Command(BarCodeAsync);
 
             #region Bind Static Lists
             ItemsList = new ObservableCollection<ItemModel>()
@@ -134,6 +137,8 @@ namespace FibesApp.ViewModels.Home
             };
             #endregion
         }
+
+        
         #endregion
 
         #region Properties
@@ -254,6 +259,20 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+                    private string _BarcodeText
+;
+        public string BarcodeText
+        {
+            get { return _BarcodeText; }
+            set
+            {
+                if (_BarcodeText != value)
+                {
+                    _BarcodeText = value;
+                    OnPropertyChanged("BarcodeText");
+                }
+            }
+        }
         private bool _IsLike = false;
         public bool IsLike
         {
@@ -288,6 +307,7 @@ namespace FibesApp.ViewModels.Home
         public Command BrowseCommand { get; }
         public Command MenuCommand { get; }
         public Command ProfileCommand { get; }
+        public Command BarcodeCommand { get; }
         public Command FilterCommand { get; }
         #endregion
 
@@ -353,6 +373,25 @@ namespace FibesApp.ViewModels.Home
             await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }
-        #endregion
+
+        /// <summary>
+        /// TODO : Open Barcode Scanner
+        /// </summary>
+        private async void BarCodeAsync(object obj)
+        {
+            ScannerPage = new ZXingScannerPage();
+            ScannerPage.OnScanResult += (result) =>
+            {
+                ScannerPage.IsScanning = false;
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                     Navigation.PopModalAsync();
+                    UserDialog.Alert("Scanned QRCode",result.Text,"OK");
+                });
+            };
+            await Navigation.PushModalAsync(ScannerPage);
+        }
     }
+        #endregion
 }

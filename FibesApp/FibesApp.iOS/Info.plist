@@ -39,5 +39,8 @@
 	<false/>
 	<!--To Off dark mode-->
 	<key>UIUserInterfaceStyle</key>
+	<!--To Open Camera--> 
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to the camera to scan QRcode</string>
 </dict>
 </plist>

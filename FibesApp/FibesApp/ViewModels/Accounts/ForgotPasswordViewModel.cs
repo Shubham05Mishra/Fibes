@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Accounts
@@ -9,6 +10,7 @@ namespace FibesApp.ViewModels.Accounts
    public class ForgotPasswordViewModel : BaseViewModel
     {
         //TODO : To Define Local Variables Here 
+        private const string _emailRegex = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
 
         #region Constructor
         public ForgotPasswordViewModel(INavigation nav)
@@ -54,13 +56,18 @@ namespace FibesApp.ViewModels.Accounts
         /// <summary>
         /// TODO:To Call The Reset button ...
         /// </summary>
-        private void OnResetAsync(object obj)
+        private async void OnResetAsync(object obj)
         {
-            if (!Validate())
+            if (!ValidateEmail())
             {
                 return; 
             }
-            UserDialogs.Instance.Alert("Please check your email for password change.");
+            var confirmed = await UserDialog.ConfirmAsync("Please check your email for password change.", "Success", "OK", "");
+            if (confirmed)
+            {
+                await Navigation.PopModalAsync();
+                UserDialog.HideLoading();
+            }
         }
         #endregion
 
@@ -68,14 +75,19 @@ namespace FibesApp.ViewModels.Accounts
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>
-        private bool Validate()
+        private bool ValidateEmail()
         {
-            if (!string.IsNullOrEmpty(Email))
+            if (string.IsNullOrEmpty(Email))
             {
-                UserDialogs.Instance.Alert("Please enter valid email.");
+                UserDialogs.Instance.Alert("Please enter email.");
                 return false;
             }
-            UserDialogs.Instance.HideLoading();
+            bool isValid = (Regex.IsMatch(Email, _emailRegex, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)));
+            if (!isValid)
+            {
+                UserDialogs.Instance.Alert("Please enter valid email address.");
+                return false;
+            }
             return true;
 
         }
