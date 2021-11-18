@@ -363,8 +363,7 @@ namespace FibesApp.ViewModels.Home
         /// TODO : Open Profile Page
         /// </summary>
         private async void OnProfileAsync(object obj)
-        {
-            IsPageEnable = false;
+        {            
             await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }

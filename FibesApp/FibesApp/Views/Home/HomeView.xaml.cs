@@ -56,7 +56,7 @@ namespace FibesApp.Views.Home
                 {
                     if (imageItem.Id == item.Id)
                     {
-                        if (item.IsLike)
+                        if (imageItem.IsLike)
                         {
                             imageItem.IsLike = false;
                             imageItem.IsNotLike = true;
@@ -68,8 +68,6 @@ namespace FibesApp.Views.Home
                         }
                     }
                 }
-                LvBrowse.ItemsSource = null;
-                LvBrowse.ItemsSource = HomeVM.BrowseItemsList;
             }
         }
         #endregion
