@@ -72,5 +72,13 @@ namespace FibesApp.Views.Home
             }
         }
         #endregion
+
+        private void ZXingScannerView_OnScanResult(ZXing.Result result)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                Navigation.PushModalAsync(new Views.Accounts.LoginView());
+            });
+        }
     }
 }

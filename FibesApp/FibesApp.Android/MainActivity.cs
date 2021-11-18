@@ -19,12 +19,15 @@ namespace FibesApp.Droid
             //To Off dark mode
             Window.AddFlags(WindowManagerFlags.Fullscreen);
             Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
+           
 
             #region Initialize Packages
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            UserDialogs.Init(this);            
+            UserDialogs.Init(this);
+            //QRCode Package
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
             #endregion
 
             LoadApplication(new App());
@@ -32,7 +35,7 @@ namespace FibesApp.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
+            global::ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode,permissions,grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }

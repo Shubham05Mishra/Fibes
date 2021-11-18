@@ -41,6 +41,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>	 
 	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
+	<!--To Open Camera--> 
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to the camera to scan QRcode</string>
 </dict>
 </plist>

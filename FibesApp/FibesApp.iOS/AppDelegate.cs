@@ -24,6 +24,7 @@ namespace FibesApp.iOS
         {
             #region Initialize Packages
 
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             global::Xamarin.Forms.Forms.Init();
 
             #endregion
