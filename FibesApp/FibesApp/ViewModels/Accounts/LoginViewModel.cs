@@ -51,6 +51,19 @@ namespace FibesApp.ViewModels.Accounts
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -64,6 +77,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
+            IsPageEnable = false;
             if (!ValidateSignIn())
             {
                 return;
@@ -77,6 +91,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnForgotPasswordAsync(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView(),false);
         }
         #endregion

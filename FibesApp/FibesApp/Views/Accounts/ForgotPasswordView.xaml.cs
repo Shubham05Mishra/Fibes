@@ -37,6 +37,7 @@ namespace FibesApp.Views.Accounts
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            ForgotPasswordVM.IsPageEnable = true;
         }
         #endregion
 

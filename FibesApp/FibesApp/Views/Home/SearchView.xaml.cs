@@ -36,6 +36,7 @@ namespace FibesApp.Views.Home
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            SearchVM.IsPageEnable = true;
             SearchVM.GetLatestSearch();
             SearchVM.GetPopularProduct();
         }

@@ -33,6 +33,19 @@ namespace FibesApp.ViewModels.Accounts
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -47,6 +60,7 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PopModalAsync();
 
         }
@@ -55,12 +69,12 @@ namespace FibesApp.ViewModels.Accounts
         /// TODO:To Call The Reset button ...
         /// </summary>
         private void OnResetAsync(object obj)
-        {
+        {            
             if (!Validate())
             {
                 return; 
             }
-            UserDialogs.Instance.Alert("Please check your email for password change.");
+            UserDialogs.Instance.Alert("Please check your email for password change.");           
         }
         #endregion
 

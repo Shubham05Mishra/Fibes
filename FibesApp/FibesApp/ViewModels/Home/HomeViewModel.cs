@@ -202,6 +202,19 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         private FontAttributes _MyCollectionFontAttribute;
         public FontAttributes MyCollectionFontAttribute
         {
@@ -297,6 +310,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void SearchAsync(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Home.SearchView());
         }
 
@@ -350,6 +364,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void OnProfileAsync(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }

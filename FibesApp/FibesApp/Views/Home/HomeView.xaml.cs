@@ -39,6 +39,7 @@ namespace FibesApp.Views.Home
             //var appMainPageScreenWidth = App.Current.MainPage.Width;
             //HomeVM.ScreenItemWidth = (appMainPageScreenWidth - 53) / 2;
             HomeVM.MyCollectionAsync();
+            HomeVM.IsPageEnable = true;
         }
 
         /// <summary>

@@ -162,6 +162,19 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -189,6 +202,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
+            IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
         #endregion
