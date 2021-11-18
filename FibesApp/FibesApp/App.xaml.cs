@@ -3,8 +3,7 @@ using System;
 using FibesApp.Views.Accounts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using FibesApp.Views.Home;
-using FibesApp.Views.Box;
+using FibesApp.Views.Home; 
 
 namespace FibesApp
 {
@@ -14,9 +13,11 @@ namespace FibesApp
         public static MasterDetailPage AppMasterDetailPage = new MasterDetailPage();
 
         public App()
-        {
+        { 
+            InitializeComponent();
+             
             InitializeComponent(); 
-            MainPage = new NavigationPage (new LoginView());
+            MainPage = new NavigationPage (new LoginView()); 
         }
 
         protected override void OnStart()
