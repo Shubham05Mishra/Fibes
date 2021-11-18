@@ -8,6 +8,8 @@ namespace FibesApp.ViewModels.Accounts
 {
    public class ForgotPasswordViewModel : BaseViewModel
     {
+        //TODO : To Define Local Variables Here 
+
         #region Constructor
         public ForgotPasswordViewModel(INavigation nav)
         {
@@ -15,12 +17,6 @@ namespace FibesApp.ViewModels.Accounts
             ResetCommand = new Command(OnResetAsync);
             SignInCommand = new Command(OnSignInAsync);
         }
-        #endregion
-
-        #region Command
-        public Command SignInCommand { get; }
-        public Command ResetCommand { get; }
-
         #endregion
 
         #region Properties
@@ -37,36 +33,60 @@ namespace FibesApp.ViewModels.Accounts
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
-        #region Method
+        #region Commands
+        public Command SignInCommand { get; }
+        public Command ResetCommand { get; }
+
+        #endregion
+
+        #region Methods
         /// <summary>
-        /// TODO:To Call The SignIn  ...
+        /// TODO:To Call The SignIn Page  ...
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Accounts.LoginView());
+            IsPageEnable = false;
+            await Navigation.PopModalAsync();
 
         }
+
         /// <summary>
         /// TODO:To Call The Reset button ...
         /// </summary>
         private void OnResetAsync(object obj)
-        {
+        {            
             if (!Validate())
             {
-                return;
+                return; 
             }
+            UserDialogs.Instance.Alert("Please check your email for password change.");           
         }
+        #endregion
 
+        #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>
         private bool Validate()
         {
-            if (string.IsNullOrEmpty(Email))
+            if (!string.IsNullOrEmpty(Email))
             {
-                UserDialogs.Instance.Alert("Please enter email.");
+                UserDialogs.Instance.Alert("Please enter valid email.");
                 return false;
             }
             UserDialogs.Instance.HideLoading();

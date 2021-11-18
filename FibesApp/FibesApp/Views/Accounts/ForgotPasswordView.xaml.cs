@@ -14,15 +14,16 @@ namespace FibesApp.Views.Accounts
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ForgotPasswordView : ContentPage
     {
-        //TODO : To Define Local Class Level Variables...
+        //TODO : To Define Local Class Level Variables
         protected ForgotPasswordViewModel ForgotPasswordVM;
-        //TODO : To Define cosntructor...
+
+        //TODO : To Define Constructor...
         #region Constructor
         public ForgotPasswordView()
         {
             InitializeComponent();
-            // iOS Platform
-            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
+            //To Change the color of Safearea in ios
+            var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             ForgotPasswordVM = new ForgotPasswordViewModel(this.Navigation);
             this.BindingContext = ForgotPasswordVM;
 
@@ -35,14 +36,8 @@ namespace FibesApp.Views.Accounts
         /// </summary>
         protected async override void OnAppearing()
         {
-            //To Change the color of Safearea in ios
-            var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
-            BgStack.Padding = safeAreaInset;
-            //To change the color of every page in status bar
-            Xamarin.Forms.MessagingCenter.Send<string>("", "RefreshStatusBar");
-            //To Focous on firstentry of Signupup
-            await Task.Delay(1);
             base.OnAppearing();
+            ForgotPasswordVM.IsPageEnable = true;
         }
         #endregion
 

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Acr.UserDialogs;
+using FibesApp.Views.Home;
+using FibesApp.Views.Menu;
 using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Accounts
 {
     public class LoginViewModel : BaseViewModel
     {
+        //TODO : To Define Local Variables Here 
         private const string _password = @"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
         private const string _emailRegex = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
+
         #region Constructor
         public LoginViewModel(INavigation nav)
         {
@@ -18,8 +22,6 @@ namespace FibesApp.ViewModels.Accounts
             SignInCommand = new Command(OnSignInAsync);
             ForgotPasswordCommand = new Command(OnForgotPasswordAsync);
         }
-
-        
         #endregion
 
         #region Properties
@@ -49,9 +51,22 @@ namespace FibesApp.ViewModels.Accounts
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
-        #region Command
+        #region Commands
         public Command SignInCommand { get; }
         public Command ForgotPasswordCommand { get; }
         #endregion
@@ -60,22 +75,28 @@ namespace FibesApp.ViewModels.Accounts
         /// <summary>
         /// TODO:To Call The SignIn button ...
         /// </summary>
-        private void OnSignInAsync(object obj)
+        private async void OnSignInAsync(object obj)
         {
+            IsPageEnable = false;
             if (!ValidateSignIn())
             {
                 return;
             }
-            
+            App.AppMasterDetailPage.Master = new AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
+            App.Current.MainPage = App.AppMasterDetailPage;
         }
         /// <summary>
         /// TODO:To Call The ForgotPassword Command ...
         /// </summary>
-        private void OnForgotPasswordAsync(object obj)
+        private async void OnForgotPasswordAsync(object obj)
         {
-            
+            IsPageEnable = false;
+            await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView(),false);
         }
-        
+        #endregion
+
+        #region Validations
         /// <summary>
         /// TODO : To Apply Sign In Validations...
         /// </summary>
