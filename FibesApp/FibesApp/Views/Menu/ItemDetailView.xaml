@@ -40,17 +40,17 @@
             <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="20,10,20,0" RowSpacing="10" VerticalOptions="FillAndExpand" RowDefinitions="50,40,*,50">
                 <!--Fabric Name-->
                 <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Label Text="Fabric name" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+                    <Label Text="Fabric name" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
                 </Grid>
                 <!--Overview, Features Section-->
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" Padding="0" RowSpacing="5" RowDefinitions="*,3">
-                    <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" ColumnSpacing="0" 
-                      VerticalOptions="EndAndExpand" ColumnDefinitions="*,*,80">
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" Padding="0" RowSpacing="0" RowDefinitions="40,3">
+                    <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" ColumnSpacing="33" 
+                      VerticalOptions="FillAndExpand" ColumnDefinitions="90,90,80" >
                         <!--Overview Button-->
                         <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label Text="Overview" FontSize="15" FontAttributes="{Binding OverviewFontAttribute}"
                            TextColor="{Binding OverviewTextColor}" HorizontalOptions="StartAndExpand" 
-                           HorizontalTextAlignment="Center"/>
+                           HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding OverviewCommand}"/>
                             </Grid.GestureRecognizers>
@@ -58,8 +58,8 @@
                         <!--Features Button-->
                         <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label  Text="Features" FontSize="15" FontAttributes="{Binding FeaturesFontAttribute}"
-                           TextColor="{Binding FeaturesTextColor}" BackgroundColor="Transparent" HorizontalOptions="StartAndExpand" 
-                           HorizontalTextAlignment="Start"/>
+                           TextColor="{Binding FeaturesTextColor}" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" 
+                           HorizontalTextAlignment="Start" VerticalOptions="CenterAndExpand"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding FeaturesCommand}"/>
                             </Grid.GestureRecognizers>
@@ -67,11 +67,11 @@
                     </Grid>
                     <!--Button Indicator Section-->
                     <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
-                      ColumnDefinitions="*,*,80" ColumnSpacing="0">
+                      ColumnDefinitions="*,*,80" ColumnSpacing="0" >
                         <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
-                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="15,0,0,0"
+                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="15,0,0,0" TranslationY="-5"
                              VerticalOptions="FillAndExpand"/>
-                        <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="30" Margin="15,0,0,0"
+                        <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="30" Margin="15,0,0,0" TranslationY="-5"
                              IsVisible="{Binding FeaturesVisility}" HorizontalOptions="StartAndExpand"
                              VerticalOptions="FillAndExpand"/>
                     </Grid>

@@ -92,7 +92,7 @@ namespace FibesApp.ViewModels.Accounts
         private async void OnForgotPasswordAsync(object obj)
         {
             IsPageEnable = false;
-            await Navigation.PushAsync(new Views.Accounts.ForgotPasswordView(),false);
+            await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView(),false);
         }
         #endregion
 

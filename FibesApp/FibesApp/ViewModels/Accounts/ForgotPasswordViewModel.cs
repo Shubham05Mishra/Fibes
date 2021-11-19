@@ -63,7 +63,7 @@ namespace FibesApp.ViewModels.Accounts
         private async void OnSignInAsync(object obj)
         {
             IsPageEnable = false;
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
 
         }
 
@@ -79,7 +79,7 @@ namespace FibesApp.ViewModels.Accounts
             var confirmed = await UserDialog.ConfirmAsync("Please check your email for password change.", "Success", "OK", "");
             if (confirmed)
             {
-                Navigation.PopAsync();
+                Navigation.PopModalAsync();
                 UserDialog.HideLoading();
             }
         }
