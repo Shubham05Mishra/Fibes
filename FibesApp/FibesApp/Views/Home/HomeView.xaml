@@ -71,7 +71,6 @@
                             </Grid.GestureRecognizers>
                        </Grid>
                     </Frame>
-                    <!--<Barcode:ZXingScannerView IsScanning="True" OnScanResult="ZXingScannerView_OnScanResult"/>-->
                 </Grid>
             </Grid>
             <!--My Collection, Browse  and filter Button Section-->
