@@ -1,35 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<QRCode:ZXingScannerPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Barcode="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-             x:Class="FibesApp.Views.Home.QRCodeScannerView" NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
-    <ContentPage.Content>
-        <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowDefinitions="60,*" IsEnabled="{Binding IsPageEnable}">
-            <Grid.Margin>
-                <!--Platform Specific code for Top Margin for iOS-->
-                <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform ="iOS" Value="0,25,0,0"/>
-                    <On Platform="Android" Value="0,0,0,0"/>
-                </OnPlatform>
-            </Grid.Margin>
-            <!--Header Section-->
-            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" Margin="8,0" VerticalOptions="FillAndExpand" ColumnDefinitions="30,*,30">
-                <!--BackButton-->
-                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                    <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding BackCommand}" NumberOfTapsRequired="1"/>
-                    </Grid.GestureRecognizers>
-                </Grid>
-                <!--App Logo Image-->
-                <Image Grid.Column="1" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            </Grid>
-            <!--QRCode Section-->
-            <Frame Grid.Row="1" CornerRadius="8" HorizontalOptions="CenterAndExpand" BorderColor="{StaticResource AppPurpleColor}" IsClippedToBounds="False" VerticalOptions="CenterAndExpand" Padding="0">
-                <Barcode:ZXingScannerView IsScanning="True" OnScanResult="QRCodeScan" />
-                <!----> 
-            </Frame>
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
+             xmlns:QRCode="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="FibesApp.Views.Home.QRCodeScannerView" NavigationPage.HasNavigationBar="True" 
+                         BackgroundColor="{StaticResource AppBackgroundColor}">
+    
+</QRCode:ZXingScannerPage>

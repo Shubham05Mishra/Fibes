@@ -67,7 +67,7 @@
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Image Source="scan.png" Aspect="AspectFill" HeightRequest="40" HorizontalOptions="EndAndExpand" WidthRequest="40"/>
                             <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BarcodeCommand}"/>
+                                <TapGestureRecognizer Command="{Binding QRcodeCommand}"/>
                             </Grid.GestureRecognizers>
                        </Grid>
                     </Frame>

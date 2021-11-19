@@ -37,6 +37,14 @@ namespace FibesApp.Views.Menu
             base.OnAppearing();
             ItemDetailVM.OverViewAsync();
         }
+        /// <summary>
+        /// TODO : To Disable Back command of Device...
+        /// </summary>
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         #endregion
     }
 }

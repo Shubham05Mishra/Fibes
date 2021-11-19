@@ -40,7 +40,7 @@ namespace FibesApp.ViewModels.Accounts
 
         #region Methods
         /// <summary>
-        /// TODO : Logout
+        /// TODO : To Define Logout Button...
         /// </summary>
         private async void OnLogoutAsync(object obj)
         {

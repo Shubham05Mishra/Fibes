@@ -40,7 +40,7 @@ namespace FibesApp.ViewModels.Box
         /// </summary>
         private void OptionAsync(object obj)
         {
-            //throw new NotImplementedException();
+            
         }
         #endregion
     }

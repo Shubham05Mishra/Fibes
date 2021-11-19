@@ -22,6 +22,7 @@ namespace FibesApp.ViewModels.Menu
             FeaturesCommand = new Command(FeatureAsync);
             BoxCommand = new Command(OnBoxCommand);
             LikeCommand = new Command(OnLikeAsync);
+            backCommand = new Command(OnbackAsync);
 
             #region Bind Static Lists
             ItemsList = new ObservableCollection<ItemDetailModel>()
@@ -68,8 +69,6 @@ namespace FibesApp.ViewModels.Menu
                 },
             };
         }
-
-        
 
         #endregion
         #endregion
@@ -200,6 +199,7 @@ namespace FibesApp.ViewModels.Menu
         public Command FeaturesCommand { get; }
         public Command BoxCommand { get; }
         public Command LikeCommand { get; }
+        public Command backCommand { get; }
 
         #endregion
 
@@ -231,15 +231,15 @@ namespace FibesApp.ViewModels.Menu
             FeaturesTextColor = Common.AppColor.AppPurpleColor;
         }
         /// <summary>
-        /// TODO : Open Box Detail Page...
+        /// TODO :To Define Open Box Detail Page...
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(), false);
+            await Navigation.PushAsync(new Views.Box.BoxDetailView(), false);
         }
 
         /// <summary>
-        /// TODO : Like Button ...
+        /// TODO :To Define Like Button ...
         /// </summary>
         private void OnLikeAsync(object obj)
         {
@@ -248,6 +248,15 @@ namespace FibesApp.ViewModels.Menu
             else            
                 LikeImage = "heart.png";                     
         }
+
+        /// <summary>
+        /// TODO :To Define Back Button ...
+        /// </summary>
+        private async void OnbackAsync(object obj)
+        { 
+            await Navigation.PopToRootAsync();
+        }
+
         #endregion
     }
 }

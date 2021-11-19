@@ -1,4 +1,5 @@
-﻿using FibesApp.ViewModels.Box;
+﻿using FibesApp.Models;
+using FibesApp.ViewModels.Box;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,51 @@ namespace FibesApp.Views.Box
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            BoxDetailVM.IsPageEnable = true;
-           // BoxDetailVM.GetItems();
+            BoxDetailVM.IsPageEnable = true;           
         }
         #endregion
+        /// <summary>
+        /// TODO : To Increse quantity of items...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemIncrementButton(object sender, EventArgs e)
+        {
+            var item = (sender as Button).BindingContext as BoxDetailModel;
+            if (item != null)
+            {
+                foreach (var ItemCount in BoxDetailVM.DetailItemsList)
+                {
+                    if (ItemCount.Id == item.Id)
+                    {
+                        item.ItemCount += 1;
+                        break;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// TODO : To Decrease quantity of items...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemDecrementCommand(object sender, EventArgs e)
+        {
+            var item = (sender as Button).BindingContext as BoxDetailModel;
+            if (item != null)
+            {
+                foreach (var ItemCount in BoxDetailVM.DetailItemsList)
+                {
+                    if (ItemCount.Id == item.Id)
+                    {
+                        if (item.ItemCount > 1)
+                        {
+                            item.ItemCount -= 1;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
