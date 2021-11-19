@@ -9,7 +9,7 @@ namespace FibesApp.ViewModels.Box
 {
     public class BoxDetailViewModel : BaseViewModel
     {
-        //TODO : To Declare Local Variables Here 
+        //TODO : To Declare Local Variables Here                 
 
         #region Constructor
         public BoxDetailViewModel(INavigation Nav)
@@ -17,12 +17,14 @@ namespace FibesApp.ViewModels.Box
             Navigation = Nav;
             ClearCommand = new Command(OnClearAsync);
             SubmitCommand = new Command(OnSubmitAsync);
+            
 
             #region Bind static List
             DetailItemsList = new ObservableCollection<BoxDetailModel>()
             {
                 new BoxDetailModel()
                  {
+                    Id = 1,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -31,6 +33,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 2,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -39,6 +42,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 3,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -47,6 +51,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 4,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -55,6 +60,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 5,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -63,6 +69,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 6,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -71,6 +78,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 7,
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -79,6 +87,7 @@ namespace FibesApp.ViewModels.Box
                 },
                 new BoxDetailModel()
                  {
+                    Id = 8, 
                     ProItemImage = "itemImage.png",
                    ProName = "Product",
                    ProBrand = "Brand",
@@ -89,7 +98,9 @@ namespace FibesApp.ViewModels.Box
             };
             #endregion
         }
-       #endregion
+
+        
+        #endregion
 
         #region Properties
         private ObservableCollection<BoxDetailModel> _DetailItemsList;
@@ -118,6 +129,7 @@ namespace FibesApp.ViewModels.Box
                 }
             }
         }
+
         #endregion
 
         #region Commands
@@ -145,6 +157,8 @@ namespace FibesApp.ViewModels.Box
             IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Box.EmptyBoxView(),false);
         }
+
+        
         #endregion
     }
 }

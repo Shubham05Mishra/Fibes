@@ -63,15 +63,15 @@
                                         <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource AppBackgroundColor}" VerticalOptions="FillAndExpand" ColumnSpacing="0" ColumnDefinitions="65*,35*">
                                             <!--Quantity Increment Decrement button-->
                                             <Frame Grid.Column="0" HasShadow="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}"  Padding="0" >
-                                                <Grid HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" ColumnDefinitions="45*,10*,45*">
-                                                    <Button Grid.Column="0" Text="-" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
+                                                <Grid HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" ColumnDefinitions="45*,Auto,45*">
+                                                    <Button Grid.Column="0" Text="-" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" Clicked="ItemDecrementCommand" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
                                                     <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                                                        <Label Text="1" FontSize="18" TextColor="{StaticResource AppBlackColor}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" />
+                                                        <Label x:Name="ItemCount" Text="{Binding ItemCount}" FontSize="13" TextColor="{StaticResource AppBlackColor}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" />
                                                         <Grid.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{Binding QuantityCommand}"/>
                                                         </Grid.GestureRecognizers>
                                                     </Grid>
-                                                    <Button Grid.Column="2" Text="+" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
+                                                    <Button Grid.Column="2" Text="+" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" Clicked="ItemIncrementButton" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
                                                 </Grid>
                                             </Frame>
                                             <!--remove Button-->

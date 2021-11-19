@@ -6,37 +6,71 @@ using System.Threading.Tasks;
 using FibesApp.ViewModels.Home;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZXing.Net.Mobile.Forms;
 
 namespace FibesApp.Views.Home
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QRCodeScannerView : ContentPage
+    public partial class QRCodeScannerView : ZXingScannerPage
     {
         //TODO : To Declare Local Varibles Here 
         protected QRCodeScannerViewModel QRCodeScannerVM;
-
+        
         #region Constructor
         public QRCodeScannerView()
         {
             InitializeComponent();
-            QRCodeScannerVM = new QRCodeScannerViewModel(this.Navigation);
-            this.BindingContext = QRCodeScannerVM;
-        } 
+            InitScanner(); 
+        }
         #endregion
 
         #region Event Handler
         /// <summary>
-        /// On QRCode Scan Event 
+        /// TOTO : To Open QR code Scanner
+        /// </summary>
+        void InitScanner()
+        {
+            try
+            {
+                DefaultOverlayTopText = "Align the barcode within the frame";
+                DefaultOverlayBottomText = string.Empty; 
+                OnScanResult += QRCodeResult; 
+                Title = "Scan QRCode";                 
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        /// <summary>
+        /// TODO : To Define the QRCode method...
         /// </summary>
         /// <param name="result"></param>
-        private void QRCodeScan(ZXing.Result result)
+        void QRCodeResult(ZXing.Result result)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            Device.BeginInvokeOnMainThread(async () =>
             {
-                Navigation.PushModalAsync(new Views.Menu.ItemDetailView());
+                IsScanning = false;
+                IsAnalyzing = false;
+                await Navigation.PushAsync(new Views.Menu.ItemDetailView());
             });
+        }
+        /// <summary>
+        /// TODO : To Define the Page On Disappearing Event...
+        /// </summary>
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Content = null;
+        }
+        /// <summary>
+        /// TODO : To Define the Page On appearing Event...
+        /// </summary>
+        protected override void OnAppearing()
+        {
+            IsScanning = true;
+            IsAnalyzing = true;
+            base.OnAppearing();            
         } 
         #endregion
-    }
-   
+    } 
 }
