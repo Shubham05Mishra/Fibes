@@ -54,7 +54,7 @@ namespace FibesApp.ViewModels
         /// </summary>
         public async void OnBacksAsync()
         {
-            await PopModalAsync();
+            await PopAsync();
         }
         public Acr.UserDialogs.IUserDialogs UserDialog
         {

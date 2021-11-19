@@ -76,13 +76,13 @@ namespace FibesApp.ViewModels.Accounts
         /// TODO:To Call The SignIn button ...
         /// </summary>
         private async void OnSignInAsync(object obj)
-        {            
+        {
             if (!ValidateSignIn())
             {
                 return;
             }
             App.AppMasterDetailPage.Master = new AppMenuView();
-            App.AppMasterDetailPage.Detail = new HomeView();
+            App.AppMasterDetailPage.Detail = new NavigationPage(new HomeView());
             IsPageEnable = false;
             App.Current.MainPage = App.AppMasterDetailPage;
         }

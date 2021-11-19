@@ -28,7 +28,7 @@ namespace FibesApp.ViewModels.Box
 
         #region Methods
         /// <summary>
-        /// TODO:Open Home Page...
+        /// TODO:To Open Home Page...
         /// </summary>
         private void BackToHomeAsync(object obj)
         {
@@ -36,7 +36,7 @@ namespace FibesApp.ViewModels.Box
         }
 
         /// <summary>
-        /// TODO:Cancel Button Tap Event...
+        /// TODO:To Define Cancel Button Tap Event...
         /// </summary>
         private async void CancelAsync(object obj)
         {

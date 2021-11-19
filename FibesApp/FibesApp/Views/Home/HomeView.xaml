@@ -66,10 +66,10 @@
                     <Frame Grid.Column="2" CornerRadius="12" HasShadow="False" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource AppPurpleColor}" VerticalOptions="FillAndExpand" Padding="12">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Image Source="scan.png" Aspect="AspectFill" HeightRequest="40" HorizontalOptions="EndAndExpand" WidthRequest="40"/>
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BarcodeCommand}"/>
-                            </Grid.GestureRecognizers>
-                       </Grid>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding QRcodeCommand}"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </Grid>
             </Grid>
