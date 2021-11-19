@@ -76,7 +76,12 @@ namespace FibesApp.ViewModels.Accounts
             {
                 return; 
             }
-            UserDialogs.Instance.Alert("Please check your email for password change.");
+            var confirmed = await UserDialog.ConfirmAsync("Please check your email for password change.", "Success", "OK", "");
+            if (confirmed)
+            {
+                Navigation.PopModalAsync();
+                UserDialog.HideLoading();
+            }
         }
         #endregion
 

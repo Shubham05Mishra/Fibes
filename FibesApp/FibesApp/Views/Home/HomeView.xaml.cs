@@ -36,9 +36,6 @@ namespace FibesApp.Views.Home
         {
             base.OnAppearing();
             HomeVM.IsPageEnable = true;
-            //await Task.Delay(10);
-            //var appMainPageScreenWidth = App.Current.MainPage.Width;
-            //HomeVM.ScreenItemWidth = (appMainPageScreenWidth - 53) / 2;
             HomeVM.MyCollectionAsync();            
         }
 
@@ -73,12 +70,5 @@ namespace FibesApp.Views.Home
         }
         #endregion
 
-        private void ZXingScannerView_OnScanResult(ZXing.Result result)
-        {
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                Navigation.PushModalAsync(new Views.Accounts.LoginView());
-            });
-        }
     }
 }

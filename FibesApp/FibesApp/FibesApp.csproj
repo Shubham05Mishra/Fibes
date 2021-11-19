@@ -56,6 +56,9 @@
     <EmbeddedResource Update="Views\Home\HomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Home\QRCodeScannerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Home\SearchView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -65,5 +68,15 @@
     <EmbeddedResource Update="Views\Menu\ItemDetailView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Home\QRCodeScannerView.xaml.cs">
+      <DependentUpon>QRCodeScannerView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
