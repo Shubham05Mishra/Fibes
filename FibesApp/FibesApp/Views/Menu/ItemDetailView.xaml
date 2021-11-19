@@ -69,9 +69,9 @@
                     <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
                       ColumnDefinitions="*,*,80" ColumnSpacing="0">
                         <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
-                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="StartAndExpand" WidthRequest="50"
+                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="15,0,0,0"
                              VerticalOptions="FillAndExpand"/>
-                        <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="50"
+                        <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="30" Margin="15,0,0,0"
                              IsVisible="{Binding FeaturesVisility}" HorizontalOptions="StartAndExpand"
                              VerticalOptions="FillAndExpand"/>
                     </Grid>
@@ -86,7 +86,7 @@
                             <!--Main Grid for List-->
                             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"  >
                                 <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Image Source="{Binding ItemImage}" Aspect="AspectFill"   WidthRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Image Source="{Binding ItemImage}" Aspect="AspectFill"   WidthRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                 </Frame>
                             </Grid>
                         </DataTemplate>
