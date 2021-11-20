@@ -25,6 +25,14 @@ namespace FibesApp.Views.Accounts
             var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             LoginVM = new LoginViewModel(this.Navigation);
             this.BindingContext = LoginVM;
+
+            /// <summary>
+            /// TODO:To Change Focus from EmailEntry to PasswordEntry...
+            /// </summary>
+            EmailEntry.Completed += (Object sender, EventArgs e) =>
+            {
+                PasswordEntry.Focus();
+            };
         }
         #endregion
 
@@ -33,10 +41,10 @@ namespace FibesApp.Views.Accounts
         /// TODO:To define the page on appearing event...
         /// </summary>
         protected async override void OnAppearing()
-        {                            
+        {
             base.OnAppearing();
             LoginVM.IsPageEnable = true;
         }
-        #endregion
-    }
+    #endregion
+}
 }

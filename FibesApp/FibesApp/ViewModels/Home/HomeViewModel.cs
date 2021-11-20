@@ -329,7 +329,7 @@ namespace FibesApp.ViewModels.Home
         private async void SearchAsync(object obj)
         {
             IsPageEnable = false;
-            await Navigation.PushModalAsync(new Views.Home.SearchView());
+            await Navigation.PushModalAsync(new Views.Home.SearchView(),false);
         }
 
         /// <summary>
@@ -392,7 +392,7 @@ namespace FibesApp.ViewModels.Home
         private async void QRCodeAsync(object obj)
         {
             ScannerPage = new ZXingScannerPage();            
-            await Navigation.PushAsync(new Views.Home.QRCodeScannerView());
+            await Navigation.PushModalAsync(new Views.Home.QRCodeScannerView());
         }
     }
     #endregion
