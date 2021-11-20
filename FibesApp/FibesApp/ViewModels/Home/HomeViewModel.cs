@@ -35,34 +35,69 @@ namespace FibesApp.ViewModels.Home
                 new ItemModel()
                 {
                     Id=1,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {Id=2,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
                 },
                  new ItemModel()
                 {
                      Id=3,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
                 },
                   new ItemModel()
                 {
                       Id=4,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
                 },
                    new ItemModel()
                 {
                        Id=5,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {
+                       Id=6,
+                    ItemImage = "collectionListItem.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {
+                       Id=7,
+                    ItemImage = "collectionListItem.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {
+                       Id=8,
+                    ItemImage = "collectionListItem.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {
+                       Id=9,
+                    ItemImage = "collectionListItem.png",
+                    IsLike = false,
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemModel()
+                {
+                       Id=10,
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
                 },

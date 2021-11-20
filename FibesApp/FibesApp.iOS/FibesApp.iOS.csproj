@@ -385,4 +385,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\up%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\collectionListItem.png" />
+  </ItemGroup>
 </Project>
