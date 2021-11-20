@@ -10,7 +10,7 @@
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform ="iOS" Value="12,25,12,12"/>
-                    <On Platform="Android" Value="12"/>
+                    <On Platform="Android" Value="0"/>
                 </OnPlatform>
             </Grid.Margin>
             <!--Header Section-->
