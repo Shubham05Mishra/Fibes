@@ -104,11 +104,7 @@
                         <!--Length and Price-->
                         <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="15,20" RowSpacing="10" RowDefinitions="Auto,Auto,Auto" >
                             <!--Label Length and Price-->
-                            <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60*"/>
-                                    <ColumnDefinition Width="40*"/>
-                                </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="60*,40*">
                                 <!--Length-->
                                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto">
                                     <Label Grid.Row="0" Text="Length" TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
@@ -147,11 +143,7 @@
                     </Grid>
                     <!--Similar Product Section-->
                     <Grid Grid.Row="1"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,300" BackgroundColor="{StaticResource AppLightGrayColor}">
-                        <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,Auto" >
                             <!--Label Similar Product-->
                             <Label Grid.Column="0" Text="Similar Product"  Margin="20,20,0,0"  TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                             <!--Label See All-->
