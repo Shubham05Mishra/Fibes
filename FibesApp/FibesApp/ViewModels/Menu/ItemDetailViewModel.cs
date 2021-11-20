@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Menu
 {
-   public class ItemDetailViewModel : BaseViewModel
+    public class ItemDetailViewModel : BaseViewModel
     {
         //TODO : To Declare Local Variables Here 
         public double ScreenItemWidth;
@@ -23,12 +23,15 @@ namespace FibesApp.ViewModels.Menu
             BoxCommand = new Command(OnBoxCommand);
             LikeCommand = new Command(OnLikeAsync);
             backCommand = new Command(OnbackAsync);
+            MeasuringUnitUpCommand = new Command(MeasuringUnitUpAsync);
+            MeasuringUnitDownCommand = new Command(MeasuringUnitDownAsync);
 
             #region Bind Static Lists
+
             ItemsList = new ObservableCollection<ItemDetailModel>()
             {
                 new ItemDetailModel()
-                { 
+                {
                     ItemImage = "listItemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
@@ -127,9 +130,9 @@ namespace FibesApp.ViewModels.Menu
                     ItemHeight = ScreenItemWidth,
                 },
             };
-        }
 
-        #endregion
+            #endregion
+        }
         #endregion
 
         #region Properties
@@ -250,7 +253,21 @@ namespace FibesApp.ViewModels.Menu
                     OnPropertyChanged("LikeImage");
                 }
             }
-        }        
+        }
+
+        private string _MeasuringUnit = "mtr";
+        public string MeasuringUnit
+        {
+            get { return _MeasuringUnit; }
+            set
+            {
+                if (_MeasuringUnit != value)
+                {
+                    _MeasuringUnit = value;
+                    OnPropertyChanged("MeasuringUnit");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -259,6 +276,8 @@ namespace FibesApp.ViewModels.Menu
         public Command BoxCommand { get; }
         public Command LikeCommand { get; }
         public Command backCommand { get; }
+        public Command MeasuringUnitUpCommand { get; }
+        public Command MeasuringUnitDownCommand { get; }
 
         #endregion
 
@@ -294,7 +313,7 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
-            await Navigation.PushAsync(new Views.Box.BoxDetailView(), false);
+            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(), false);
         }
 
         /// <summary>
@@ -302,20 +321,49 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private void OnLikeAsync(object obj)
         {
-            if(LikeImage == "heart.png")            
-                LikeImage = "likeHeart.png";            
-            else            
-                LikeImage = "heart.png";                     
+            if (LikeImage == "heart.png")
+                LikeImage = "likeHeart.png";
+            else
+                LikeImage = "heart.png";
+        }
+
+        private void MeasuringUnitDownAsync(object obj)
+        {
+           if(MeasuringUnit == "mtr")
+            {
+                MeasuringUnit = "cm";
+                return;
+            }
+           if(MeasuringUnit == "cm")
+            {
+                MeasuringUnit = "mm";
+            }
+        }
+
+        private void MeasuringUnitUpAsync(object obj)
+        {
+            if (MeasuringUnit == "cm")
+            {
+                MeasuringUnit = "mtr";
+            }
+            if (MeasuringUnit == "mm")
+            {
+                MeasuringUnit = "cm";
+            }
         }
 
         /// <summary>
         /// TODO :To Define Back Button ...
         /// </summary>
         private async void OnbackAsync(object obj)
-        { 
-            await Navigation.PopToRootAsync();
+        {
+            // await Navigation.PopToRootAsync();
+            App.Current.MainPage = new Views.Home.HomeView();
         }
 
+        #endregion
+
+        #region Validations
         #endregion
     }
 }

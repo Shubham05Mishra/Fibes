@@ -43,5 +43,8 @@ namespace FibesApp.ViewModels.Box
             
         }
         #endregion
+
+        #region Validations
+        #endregion
     }
 }

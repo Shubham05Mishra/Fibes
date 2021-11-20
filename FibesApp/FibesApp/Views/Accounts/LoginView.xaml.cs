@@ -36,7 +36,7 @@ namespace FibesApp.Views.Accounts
         }
         #endregion
 
-        #region EventHandler
+        #region Event Handler
         /// <summary>
         /// TODO:To define the page on appearing event...
         /// </summary>

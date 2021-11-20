@@ -29,7 +29,7 @@ namespace FibesApp.Views.Box
         }
         #endregion
 
-        #region Event Handeler
+        #region Event Handler
         /// <summary>
         /// TODO : To Define the Page On appearing Event...
         /// </summary>
@@ -38,7 +38,7 @@ namespace FibesApp.Views.Box
             base.OnAppearing();
             BoxDetailVM.IsPageEnable = true;           
         }
-        #endregion
+
         /// <summary>
         /// TODO : To Increse quantity of items...
         /// </summary>
@@ -59,6 +59,7 @@ namespace FibesApp.Views.Box
                 }
             }
         }
+
         /// <summary>
         /// TODO : To Decrease quantity of items...
         /// </summary>
@@ -76,11 +77,12 @@ namespace FibesApp.Views.Box
                         if (item.ItemCount > 1)
                         {
                             item.ItemCount -= 1;
+                            break;
                         }
-                        break;
                     }
                 }
             }
         }
+        #endregion
     }
 }

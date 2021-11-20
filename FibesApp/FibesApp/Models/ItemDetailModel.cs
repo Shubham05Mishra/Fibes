@@ -10,7 +10,6 @@ namespace FibesApp.Models
         public string ItemImage { get; set; }
         public string FabricName { get; set; }
         public string FabricBrand { get; set; }
-        
         public double ItemHeight { get; set; }
         
     }

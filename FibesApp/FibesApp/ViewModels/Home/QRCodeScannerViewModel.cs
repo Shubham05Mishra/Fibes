@@ -25,5 +25,8 @@ namespace FibesApp.ViewModels.Home
         #region Methods
         #endregion
 
+        #region Validations
+        #endregion
+
     }
 }

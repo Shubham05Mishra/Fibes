@@ -50,7 +50,10 @@ namespace FibesApp.ViewModels.Accounts
             {
                 App.Current.MainPage = new Views.Accounts.LoginView();
             }
-        }        
+        }
+        #endregion
+
+        #region Validations
         #endregion
     }
 }

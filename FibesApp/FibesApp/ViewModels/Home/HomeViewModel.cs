@@ -324,12 +324,12 @@ namespace FibesApp.ViewModels.Home
 
         #region Methods
         /// <summary>
-        /// TODO : Open Search Page...
+        /// TODO : To Open Search Page...
         /// </summary>
         private async void SearchAsync(object obj)
         {
             IsPageEnable = false;
-            await Navigation.PushModalAsync(new Views.Home.SearchView(),false);
+            await Navigation.PushModalAsync(new Views.Home.SearchView(), false);
         }
 
         /// <summary>
@@ -359,7 +359,7 @@ namespace FibesApp.ViewModels.Home
         }
 
         /// <summary>
-        /// TODO : Open Menu Page
+        /// TODO : To Open Menu Page
         /// </summary>
         public void MenuAync(object obj)
         {
@@ -391,9 +391,14 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void QRCodeAsync(object obj)
         {
-            ScannerPage = new ZXingScannerPage();            
+            ScannerPage = new ZXingScannerPage();
             await Navigation.PushModalAsync(new Views.Home.QRCodeScannerView());
         }
+
+        #endregion
+
+        #region Validations
+        #endregion
     }
-    #endregion
+
 }

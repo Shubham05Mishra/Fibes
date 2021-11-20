@@ -51,7 +51,7 @@ namespace FibesApp.Views.Home
             {
                 IsScanning = false;
                 IsAnalyzing = false;
-                await Navigation.PushAsync(new Views.Menu.ItemDetailView());
+                await Navigation.PushModalAsync(new Views.Menu.ItemDetailView());
             });
         }
         /// <summary>
