@@ -8,6 +8,8 @@ namespace FibesApp.Models
    public class ItemDetailModel 
     {
         public string ItemImage { get; set; }
+        public string FabricName { get; set; }
+        public string FabricBrand { get; set; }
         
         public double ItemHeight { get; set; }
         

@@ -34,11 +34,6 @@ namespace FibesApp.ViewModels.Menu
                 },
                   new ItemDetailModel()
                 {
-                    ItemImage = "itemImage.png",
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemDetailModel()
-                {
                     ItemImage = "listItemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
@@ -49,7 +44,12 @@ namespace FibesApp.ViewModels.Menu
                 },
                  new ItemDetailModel()
                 {
-                    ItemImage = "itemImage.png",
+                    ItemImage = "listItemImage.png",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
                   new ItemDetailModel()
@@ -65,6 +65,65 @@ namespace FibesApp.ViewModels.Menu
                    new ItemDetailModel()
                 {
                     ItemImage = "listItemImage.png",
+                    ItemHeight = ScreenItemWidth,
+                },
+            };
+            SimilarProductList = new ObservableCollection<ItemDetailModel>()
+            {
+                new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                    FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                   new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
                     ItemHeight = ScreenItemWidth,
                 },
             };
@@ -87,16 +146,16 @@ namespace FibesApp.ViewModels.Menu
                 }
             }
         }
-        private ObservableCollection<ItemDetailModel> _FeaturesItemsList;
-        public ObservableCollection<ItemDetailModel> FeaturesItemsList
+        private ObservableCollection<ItemDetailModel> _SimilarProductList;
+        public ObservableCollection<ItemDetailModel> SimilarProductList
         {
-            get { return _FeaturesItemsList; }
+            get { return _SimilarProductList; }
             set
             {
-                if (_FeaturesItemsList != value)
+                if (_SimilarProductList != value)
                 {
-                    _FeaturesItemsList = value;
-                    OnPropertyChanged("FeaturesItemsList");
+                    _SimilarProductList = value;
+                    OnPropertyChanged("SimilarProductList");
                 }
             }
         }
