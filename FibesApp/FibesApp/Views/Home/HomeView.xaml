@@ -27,12 +27,6 @@
                     </Image>
                 </Grid>
                 <Image Grid.Column="2" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-
-                <!--<Frame Padding="0" HasShadow="False" IsClippedToBounds="True" BorderColor="Transparent"
-                       CornerRadius="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
-                       Grid.Column="3" WidthRequest="42" HeightRequest="42">
-                                <Image Source="Profile.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            </Frame>-->
                 <Grid Grid.Column="3" WidthRequest="38" HeightRequest="38" Margin="0,0,5,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 
                 <ci:CircleImage HeightRequest="40" WidthRequest="40" 

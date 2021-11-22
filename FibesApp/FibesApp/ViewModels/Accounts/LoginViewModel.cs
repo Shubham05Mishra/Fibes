@@ -77,10 +77,10 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
-            //if (!ValidateSignIn())
-            //{
-            //    return;
-            //}
+            if (!ValidateSignIn())
+            {
+                return;
+            }
             App.AppMasterDetailPage = new MasterDetailPage();
             App.AppMasterDetailPage.Master = new Views.Menu.AppMenuView();
             App.AppMasterDetailPage.Detail = new HomeView();
@@ -122,7 +122,7 @@ namespace FibesApp.ViewModels.Accounts
             bool isValid1 = (Regex.IsMatch(Password, _password, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)));
             if (!isValid1)
             {
-                UserDialogs.Instance.Alert("Please enter valid password.");
+                UserDialogs.Instance.Alert("Please enter valid password followed by atleast 1 special character and 1 digit.");
                 return false;
             }
             UserDialogs.Instance.HideLoading();
