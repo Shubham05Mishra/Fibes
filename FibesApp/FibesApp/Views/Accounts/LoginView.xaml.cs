@@ -44,6 +44,8 @@ namespace FibesApp.Views.Accounts
         {
             base.OnAppearing();
             LoginVM.IsPageEnable = true;
+            LoginVM.Email = string.Empty;
+            LoginVM.Password = string.Empty;
         }
     #endregion
 }

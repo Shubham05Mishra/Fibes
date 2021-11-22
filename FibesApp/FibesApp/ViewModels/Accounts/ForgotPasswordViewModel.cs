@@ -64,7 +64,6 @@ namespace FibesApp.ViewModels.Accounts
         {
             IsPageEnable = false;
             await Navigation.PopModalAsync();
-
         }
 
         /// <summary>
@@ -103,7 +102,6 @@ namespace FibesApp.ViewModels.Accounts
                 return false;
             }
             return true;
-
         }
         #endregion
     }

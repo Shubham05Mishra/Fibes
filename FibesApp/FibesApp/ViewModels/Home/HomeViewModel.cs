@@ -364,7 +364,7 @@ namespace FibesApp.ViewModels.Home
         private async void SearchAsync(object obj)
         {
             IsPageEnable = false;
-            await Navigation.PushModalAsync(new Views.Home.SearchView(), false);
+            await Navigation.PushModalAsync(new Views.Home.SearchView(),false);
         }
 
         /// <summary>
@@ -417,7 +417,7 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void OnProfileAsync(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Accounts.ProfileView(), false);
+            await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }
 

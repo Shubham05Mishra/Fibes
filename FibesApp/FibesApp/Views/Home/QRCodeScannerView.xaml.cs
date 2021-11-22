@@ -11,48 +11,41 @@ using ZXing.Net.Mobile.Forms;
 namespace FibesApp.Views.Home
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QRCodeScannerView : ZXingScannerPage
+    public partial class QRCodeScannerView : ContentPage
     {
         //TODO : To Declare Local Varibles Here 
         protected QRCodeScannerViewModel QRCodeScannerVM;
-        
+        bool isScanned = false;
+
         #region Constructor
         public QRCodeScannerView()
         {
             InitializeComponent();
-            InitScanner(); 
         }
         #endregion
 
         #region Event Handler
-        /// <summary>
-        /// TOTO : To Open QR code Scanner
-        /// </summary>
-        void InitScanner()
-        {
-            try
-            {
-                DefaultOverlayTopText = "Align the barcode within the frame";
-                DefaultOverlayBottomText = string.Empty; 
-                OnScanResult += QRCodeResult; 
-                Title = "Scan QRCode";                 
-            }
-            catch (Exception ex)
-            { }
-        }
-
         /// <summary>
         /// TODO : To Define the QRCode method...
         /// </summary>
         /// <param name="result"></param>
         void QRCodeResult(ZXing.Result result)
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            try
             {
-                IsScanning = false;
-                IsAnalyzing = false;
-                await Navigation.PushModalAsync(new Views.Menu.ItemDetailView());
-            });
+                Device.BeginInvokeOnMainThread(async () =>
+                   {
+                       if (isScanned == false)
+                       {
+                           isScanned = true;
+                           zxingScanner.IsScanning = false;
+                           zxingScanner.IsAnalyzing = false;
+                           await Navigation.PushModalAsync(new Views.Menu.ItemDetailView());
+                       }
+                   });
+            }
+            catch (Exception ex)
+            { }
         }
         /// <summary>
         /// TODO : To Define the Page On Disappearing Event...
@@ -60,17 +53,28 @@ namespace FibesApp.Views.Home
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            Content = null;
+            zxingScanner.Result = null;
         }
         /// <summary>
         /// TODO : To Define the Page On appearing Event...
         /// </summary>
         protected override void OnAppearing()
         {
-            IsScanning = true;
-            IsAnalyzing = true;
-            base.OnAppearing();            
-        } 
+            zxingScanner.IsAnalyzing = true;
+            base.OnAppearing();
+            isScanned = false;
+            zxingScanner.IsScanning = true; 
+        }
+
+        /// <summary>
+        /// TODO: Cancel Button Tap Event...
+        /// </summary>
+        private async void CancelTabbed(object sender, EventArgs e)
+        {
+            zxingScanner.IsScanning = false;
+            zxingScanner.IsAnalyzing = false;
+            await Navigation.PopModalAsync();
+        }
         #endregion
-    } 
+    }
 }

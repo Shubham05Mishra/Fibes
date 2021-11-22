@@ -26,6 +26,7 @@ namespace FibesApp.Views.Home
             var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             SearchVM = new SearchViewModel(this.Navigation);
             this.BindingContext = SearchVM;
+            //NavigationPage.SetHasNavigationBar(this, false);
         }
         #endregion
 

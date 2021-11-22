@@ -26,7 +26,6 @@ namespace FibesApp.Views.Accounts
             var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             ForgotPasswordVM = new ForgotPasswordViewModel(this.Navigation);
             this.BindingContext = ForgotPasswordVM;
-            EmailEntry.Focus();
         }
         #endregion
 

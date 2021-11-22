@@ -17,7 +17,6 @@ namespace FibesApp.ViewModels.Box
             Navigation = Nav;
             ClearCommand = new Command(OnClearAsync);
             SubmitCommand = new Command(OnSubmitAsync);
-            
 
             #region Bind static List
             DetailItemsList = new ObservableCollection<BoxDetailModel>()
@@ -157,8 +156,6 @@ namespace FibesApp.ViewModels.Box
             IsPageEnable = false;
             await Navigation.PushModalAsync(new Views.Box.EmptyBoxView(),false);
         }
-
-
         #endregion
 
         #region Validations

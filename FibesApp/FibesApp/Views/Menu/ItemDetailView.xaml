@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:FibesApp.CustomControls"
              NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*"  RowSpacing="20">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*"  RowSpacing="20" IsEnabled="{Binding IsPageEnable}">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
@@ -19,7 +19,7 @@
                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding backCommand}" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding Back_Command}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
                 </Grid>
                 <!--Like Button Section-->
@@ -74,7 +74,7 @@
                             <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
                       ColumnDefinitions="*,*,80" ColumnSpacing="0">
                                 <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
-                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="CenterAndExpand" WidthRequest="40" Margin="0,0,0,0"
+                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="CenterAndExpand" WidthRequest="40" Margin="-5,0,0,0"
                              VerticalOptions="FillAndExpand" />
                                 <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="40" Margin="-5,0,0,0"
                              IsVisible="{Binding FeaturesVisility}" HorizontalOptions="CenterAndExpand"
@@ -109,15 +109,15 @@
                                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto">
                                     <Label Grid.Row="0" Text="Length" TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                                     <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="5" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto">
-                                        <!--DecimalUnit Value Entry-->
+                                        <!--Unit Value Entry-->
                                         <Frame Grid.Column="0" HasShadow="False"  Margin="0" Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
-                                            <local:CustomEntry Grid.Column="0" TranslationY="1" TranslationX="2" HorizontalTextAlignment="Center" Text="{Binding UnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                            <local:CustomEntry Grid.Column="0" TranslationY="1" Keyboard="Numeric" MaxLength="2" TranslationX="2" HorizontalTextAlignment="Center" Text="{Binding UnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                                         </Frame>
                                         <!--Dot(.) Label between meter and cntimeter--> 
                                         <Label Grid.Column="1" Margin="0" Text="." TextColor="{StaticResource AppBlackColor}" FontSize="20" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
-                                         <!--Unit Value Entry--> 
+                                        <!--DecimalUnit Value Entry--> 
                                         <Frame Grid.Column="2" HasShadow="False"   Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
-                                            <local:CustomEntry Grid.Column="0"  TranslationY="1"   Text="{Binding DecimalUnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" HorizontalTextAlignment="Center" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                            <local:CustomEntry Grid.Column="0" Keyboard="Numeric" MaxLength="2" TranslationY="1"   Text="{Binding DecimalUnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" HorizontalTextAlignment="Center" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                                         </Frame>
                                         <!--Unit Label--> 
                                         <Frame Grid.Column="3" Margin="5,0" HasShadow="False"  Padding="5,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="50" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >

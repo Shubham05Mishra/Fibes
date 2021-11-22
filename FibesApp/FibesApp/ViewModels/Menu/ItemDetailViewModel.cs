@@ -1,4 +1,6 @@
 ﻿using FibesApp.Models;
+using FibesApp.Views.Home;
+using FibesApp.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +24,7 @@ namespace FibesApp.ViewModels.Menu
             FeaturesCommand = new Command(FeatureAsync);
             BoxCommand = new Command(OnBoxCommand);
             LikeCommand = new Command(OnLikeAsync);
-            backCommand = new Command(OnbackAsync);
+            Back_Command = new Command(OnbackAsync);
             MeasuringUnitUpCommand = new Command(MeasuringUnitUpAsync);
             MeasuringUnitDownCommand = new Command(MeasuringUnitDownAsync);
 
@@ -268,6 +270,20 @@ namespace FibesApp.ViewModels.Menu
                 }
             }
         }
+
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -275,7 +291,7 @@ namespace FibesApp.ViewModels.Menu
         public Command FeaturesCommand { get; }
         public Command BoxCommand { get; }
         public Command LikeCommand { get; }
-        public Command backCommand { get; }
+        public Command Back_Command { get; }
         public Command MeasuringUnitUpCommand { get; }
         public Command MeasuringUnitDownCommand { get; }
 
@@ -313,7 +329,8 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
-            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(), false);
+            IsPageEnable = false;
+            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
 
         /// <summary>
@@ -356,9 +373,11 @@ namespace FibesApp.ViewModels.Menu
         /// TODO :To Define Back Button ...
         /// </summary>
         private async void OnbackAsync(object obj)
-        {
-            // await Navigation.PopToRootAsync();
-            App.Current.MainPage = new Views.Home.HomeView();
+        { 
+            App.AppMasterDetailPage = new MasterDetailPage();
+            App.AppMasterDetailPage.Master = new Views.Menu.AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
+            App.Current.MainPage = App.AppMasterDetailPage; 
         }
 
         #endregion

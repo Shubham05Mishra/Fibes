@@ -32,7 +32,7 @@ namespace FibesApp.ViewModels.Menu
         private async void OnHomeAsync(object obj)
         {
             App.AppMasterDetailPage.IsPresented = false;
-            App.AppMasterDetailPage.Detail = new Xamarin.Forms.NavigationPage(new HomeView());
+            App.AppMasterDetailPage.Detail = new HomeView();
             App.Current.MainPage = App.AppMasterDetailPage;
             App.AppMasterDetailPage.IsPresented = false; 
         }
