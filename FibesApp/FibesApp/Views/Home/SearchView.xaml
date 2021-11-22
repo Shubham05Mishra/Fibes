@@ -36,7 +36,7 @@
             </Grid>
             <!--Search bar section-->
             <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="25,0" >
-                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
+                <Frame Padding="0" IsClippedToBounds="True" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*" Margin="0,0,10,0" ColumnSpacing="0">
                        <!--Search Image--> 
                         <Image Grid.Column="0" Margin="10" Source="searchimage.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" />
@@ -73,7 +73,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}">
-                                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Frame Padding="0" IsClippedToBounds="True" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Image Source="demoimage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                 </Frame>
                             </Grid>

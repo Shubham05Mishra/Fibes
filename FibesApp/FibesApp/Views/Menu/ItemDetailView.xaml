@@ -94,7 +94,7 @@
                                     <!--Main Grid for List-->
                                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"
                                       Padding="15,0,0,0" >
-                                        <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Frame Padding="0" IsClippedToBounds="True" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                             <Image Source="{Binding ItemImage}" Aspect="AspectFill" HeightRequest="200"  WidthRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                         </Frame>
                                     </Grid>
@@ -110,17 +110,17 @@
                                     <Label Grid.Row="0" Text="Length" TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                                     <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="5" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto">
                                         <!--Unit Value Entry-->
-                                        <Frame Grid.Column="0" HasShadow="False"  Margin="0" Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
+                                        <Frame Grid.Column="0" IsClippedToBounds="True" HasShadow="False"  Margin="0" Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
                                             <local:CustomEntry Grid.Column="0" TranslationY="1" Keyboard="Numeric" MaxLength="2" TranslationX="2" HorizontalTextAlignment="Center" Text="{Binding UnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                                         </Frame>
                                         <!--Dot(.) Label between meter and cntimeter--> 
                                         <Label Grid.Column="1" Margin="0" Text="." TextColor="{StaticResource AppBlackColor}" FontSize="20" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
                                         <!--DecimalUnit Value Entry--> 
-                                        <Frame Grid.Column="2" HasShadow="False"   Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
+                                        <Frame Grid.Column="2" HasShadow="False"  IsClippedToBounds="True" Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
                                             <local:CustomEntry Grid.Column="0" Keyboard="Numeric" MaxLength="2" TranslationY="1"   Text="{Binding DecimalUnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" HorizontalTextAlignment="Center" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                                         </Frame>
                                         <!--Unit Label--> 
-                                        <Frame Grid.Column="3" Margin="5,0" HasShadow="False"  Padding="5,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="50" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
+                                        <Frame Grid.Column="3" Margin="5,0" IsClippedToBounds="True" HasShadow="False"  Padding="5,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="50" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
                                             <Label Grid.Column="0" Text="{Binding MeasuringUnit}" TranslationY="-2" FontSize="16" TextColor="{StaticResource AppBlackColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
                                         </Frame>
                                         <!--Unit Change Section--> 
@@ -162,7 +162,7 @@
                                     <DataTemplate>
                                         <!--Main Grid for List-->
                                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Padding="15,0,0,20" >
-                                            <Frame Padding="0" HasShadow="False" BorderColor="{StaticResource AppBackgroundColor}"  BackgroundColor="{StaticResource AppBackgroundColor}" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Frame Padding="0" IsClippedToBounds="True" HasShadow="False" BorderColor="{StaticResource AppBackgroundColor}"  BackgroundColor="{StaticResource AppBackgroundColor}" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                                 <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10" RowDefinitions="*,Auto,Auto" Margin="0,0,0,10">
                                                     <Image Grid.Row="0" Source="{Binding ItemImage}" Aspect="AspectFill" HeightRequest="200"  WidthRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                                     <Label Grid.Row="1"  Padding="10,0" Text="{Binding FabricName}"  TextColor="{StaticResource AppBlackColor}"/>

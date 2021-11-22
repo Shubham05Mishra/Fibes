@@ -77,10 +77,10 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
-            if (!ValidateSignIn())
-            {
-                return;
-            }
+            //if (!ValidateSignIn())
+            //{
+            //    return;
+            //}
             App.AppMasterDetailPage = new MasterDetailPage();
             App.AppMasterDetailPage.Master = new Views.Menu.AppMenuView();
             App.AppMasterDetailPage.Detail = new HomeView();
@@ -91,7 +91,8 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnForgotPasswordAsync(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             await Navigation.PushModalAsync(new Views.Accounts.ForgotPasswordView(),false);
         }
         #endregion

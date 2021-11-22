@@ -68,6 +68,12 @@ namespace FibesApp.Views.Home
                 }
             }
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            HomeVM.IsPageEnable = true;
+        }
         #endregion
 
     }

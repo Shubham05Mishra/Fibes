@@ -329,7 +329,8 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
 

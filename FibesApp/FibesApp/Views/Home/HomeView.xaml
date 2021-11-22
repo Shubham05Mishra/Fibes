@@ -27,11 +27,17 @@
                     </Image>
                 </Grid>
                 <Image Grid.Column="2" Source="logo.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Grid Grid.Column="3" WidthRequest="40" HeightRequest="40" Margin="0,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <!--<Frame Padding="0" HasShadow="False" IsClippedToBounds="True" BorderColor="Transparent"
+                       CornerRadius="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       Grid.Column="3" WidthRequest="42" HeightRequest="42">
+                                <Image Source="Profile.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            </Frame>-->
+                <Grid Grid.Column="3" WidthRequest="38" HeightRequest="38" Margin="0,0,5,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 
-                <ci:CircleImage WidthRequest="100"
-                            x:Name="ImgProfile"  Aspect="AspectFit"  HorizontalOptions="FillAndExpand"
-                            Source="Profile.png" BackgroundColor="Transparent" VerticalOptions="FillAndExpand"/>
+                <ci:CircleImage HeightRequest="40" WidthRequest="40" 
+                            x:Name="ImgProfile" HorizontalOptions="CenterAndExpand"
+                            Source="Profile.png" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ProfileCommand}"/>
                     </Grid.GestureRecognizers>
@@ -121,7 +127,7 @@
                     <DataTemplate>
                         <!--Main Grid for List-->
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"  >
-                            <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Frame Padding="0" HasShadow="False" IsClippedToBounds="True" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Image Source="{Binding ItemImage}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                             </Frame>
                         </Grid>
@@ -137,7 +143,7 @@
                     <DataTemplate>
                         <!--Main Grid for List-->
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="{Binding ItemHeight}">
-                            <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Frame Padding="0" HasShadow="False" IsClippedToBounds="True" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Image Source="{Binding ItemImage}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="40">

@@ -18,7 +18,7 @@ namespace FibesApp
         {
             InitializeComponent();
             MainPage = new LoginView();
-
+            AppMasterDetailPage.Disappearing += AppMasterDetailPage_Disappearing;
             MessagingCenter.Subscribe<string>("", "GoToHomePage", (sender) =>
             {
                 Device.BeginInvokeOnMainThread(() =>
@@ -33,6 +33,11 @@ namespace FibesApp
                     { }
                 });
             });
+        }
+
+        private void AppMasterDetailPage_Disappearing(object sender, EventArgs e)
+        {
+             
         }
 
         protected override void OnStart()

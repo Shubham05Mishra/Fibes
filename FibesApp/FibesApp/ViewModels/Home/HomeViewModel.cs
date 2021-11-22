@@ -363,7 +363,9 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void SearchAsync(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
+
             await Navigation.PushModalAsync(new Views.Home.SearchView(),false);
         }
 
@@ -417,6 +419,8 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private async void OnProfileAsync(object obj)
         {
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             await Navigation.PushModalAsync(new Views.Accounts.ProfileView(),false);
 
         }
