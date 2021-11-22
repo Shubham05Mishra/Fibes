@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FibesApp.Models;
 using FibesApp.ViewModels.Menu;
+using FibesApp.Views.Home;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
@@ -21,10 +22,12 @@ namespace FibesApp.Views.Menu
         public ItemDetailView()
         {
             InitializeComponent();
+           
             //To Change the color of Safearea in ios
             var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             ItemDetailVM = new ItemDetailViewModel(this.Navigation);
             this.BindingContext = ItemDetailVM;
+            
         }
         #endregion
 
@@ -34,6 +37,7 @@ namespace FibesApp.Views.Menu
         /// </summary>
         protected async override void OnAppearing()
         {
+            ItemDetailVM.IsPageEnable = true;
             base.OnAppearing();
             ItemDetailVM.OverViewAsync();
         }

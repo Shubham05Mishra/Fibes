@@ -16,8 +16,23 @@ namespace FibesApp
 
         public App()
         {
-            InitializeComponent(); 
-            MainPage = new NavigationPage (new LoginView());
+            InitializeComponent();
+            MainPage = new LoginView();
+
+            MessagingCenter.Subscribe<string>("", "GoToHomePage", (sender) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    try
+                    {
+                        App.AppMasterDetailPage.Master = new AppMenuView();
+                        App.AppMasterDetailPage.Detail = new HomeView();
+                        App.Current.MainPage = App.AppMasterDetailPage;
+                    }
+                    catch (Exception ex)
+                    { }
+                });
+            });
         }
 
         protected override void OnStart()

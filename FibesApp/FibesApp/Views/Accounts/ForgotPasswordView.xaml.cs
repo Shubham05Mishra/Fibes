@@ -26,11 +26,10 @@ namespace FibesApp.Views.Accounts
             var safeAreaInset = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
             ForgotPasswordVM = new ForgotPasswordViewModel(this.Navigation);
             this.BindingContext = ForgotPasswordVM;
-
         }
         #endregion
 
-        #region EventHandler
+        #region Event Handler
         /// <summary>
         /// TODO:To define the page on appearing event...
         /// </summary>

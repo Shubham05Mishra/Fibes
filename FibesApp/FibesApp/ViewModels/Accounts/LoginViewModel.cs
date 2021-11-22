@@ -81,9 +81,9 @@ namespace FibesApp.ViewModels.Accounts
             {
                 return;
             }
-            App.AppMasterDetailPage.Master = new AppMenuView();
-            App.AppMasterDetailPage.Detail = new NavigationPage(new HomeView());
-            IsPageEnable = false;
+            App.AppMasterDetailPage = new MasterDetailPage();
+            App.AppMasterDetailPage.Master = new Views.Menu.AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
             App.Current.MainPage = App.AppMasterDetailPage;
         }
         /// <summary>

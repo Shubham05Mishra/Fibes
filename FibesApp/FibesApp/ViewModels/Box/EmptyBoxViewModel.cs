@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using FibesApp.Views.Home;
 using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Box
@@ -28,20 +29,26 @@ namespace FibesApp.ViewModels.Box
 
         #region Methods
         /// <summary>
-        /// TODO:Open Home Page...
+        /// TODO: To Open Home Page...
         /// </summary>
         private void BackToHomeAsync(object obj)
         {
-            App.Current.MainPage = new Views.Home.HomeView();
+            App.AppMasterDetailPage = new MasterDetailPage();
+            App.AppMasterDetailPage.Master = new Views.Menu.AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
+            App.Current.MainPage = App.AppMasterDetailPage;
         }
 
         /// <summary>
-        /// TODO:Open Options of Page...
+        /// TODO:To Open Options of Page...
         /// </summary>
         private void OptionAsync(object obj)
         {
             
         }
+        #endregion
+
+        #region Validations
         #endregion
     }
 }

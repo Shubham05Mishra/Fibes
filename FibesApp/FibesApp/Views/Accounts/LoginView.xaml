@@ -15,9 +15,9 @@
                     <!--Welcome Fibes Label-->
                     <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}" FontSize="30"/>
                     <!--Email Section-->
-                    <local:CustomFloatingEntry Grid.Row="1" lblTextTitle="Email Address" EntryText="{Binding Email}" EntryKeyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <local:CustomFloatingEntry x:Name="EmailEntry" Grid.Row="1" lblTextTitle="Email Address" EntryText="{Binding Email}" EntryKeyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <!--Password Section-->
-                    <local:CustomFloatingEntry Grid.Row="2" lblTextTitle="Password" EntryText="{Binding Password}" EntryIsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <local:CustomFloatingEntry x:Name="PasswordEntry" Grid.Row="2" lblTextTitle="Password" EntryText="{Binding Password}" EntryIsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <!--Forgot Password Section-->
                     <Grid Grid.Row="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,-10,0" Padding="5">
                          <!--Forgot Password Label--> 

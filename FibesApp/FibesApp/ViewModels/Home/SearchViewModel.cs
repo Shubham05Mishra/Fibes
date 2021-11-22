@@ -206,5 +206,8 @@ namespace FibesApp.ViewModels.Home
             await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
         #endregion
+
+        #region Validations
+        #endregion
     }
 }

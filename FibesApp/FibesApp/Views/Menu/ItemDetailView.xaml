@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FibesApp.Views.Menu.ItemDetailView"
+             xmlns:local="clr-namespace:FibesApp.CustomControls"
              NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*"  RowSpacing="20">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*"  RowSpacing="20" IsEnabled="{Binding IsPageEnable}">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform ="iOS" Value="12,25,12,12"/>
-                    <On Platform="Android" Value="12"/>
+                    <On Platform="Android" Value="0"/>
                 </OnPlatform>
             </Grid.Margin>
             <!--Header Section-->
@@ -18,7 +19,7 @@
                 <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <Image Source="backbutton.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30"/>
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding backCommand}" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Command="{Binding Back_Command}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>
                 </Grid>
                 <!--Like Button Section-->
@@ -37,67 +38,146 @@
                 </Grid>
             </Grid>
             <!--Body Section-->
-            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="20,10,20,0" RowSpacing="10" VerticalOptions="FillAndExpand" RowDefinitions="50,40,*,50">
-                <!--Fabric Name-->
-                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Label Text="Fabric name" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
-                </Grid>
-                <!--Overview, Features Section-->
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" Padding="0" RowSpacing="0" RowDefinitions="40,3">
-                    <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" ColumnSpacing="33" 
-                      VerticalOptions="FillAndExpand" ColumnDefinitions="90,90,80" >
-                        <!--Overview Button-->
-                        <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Overview" FontSize="15" FontAttributes="{Binding OverviewFontAttribute}"
+            <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowDefinitions="Auto,Auto">
+                    <!--Fabric Product Section-->
+                    <Grid  Grid.Row="0" HorizontalOptions="FillAndExpand" Margin="0,10,0,0" RowSpacing="10" 
+                       VerticalOptions="FillAndExpand" RowDefinitions="50,40,500,Auto">
+                        <!--Fabric Name-->
+                        <Grid Grid.Row="0"  Margin="20,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Fabric name" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+                        </Grid>
+                        <!--Overview, Features Section-->
+                        <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,3">
+                            <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" ColumnSpacing="0" Margin="10,0,10,0"
+                      VerticalOptions="FillAndExpand" ColumnDefinitions="*,*,80">
+                                        <!--Overview Button-->
+                                <Grid Grid.Column="0" Margin="20,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Label Text="Overview" FontSize="15" FontAttributes="{Binding OverviewFontAttribute}"
                            TextColor="{Binding OverviewTextColor}" HorizontalOptions="StartAndExpand" 
                            HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OverviewCommand}"/>
-                            </Grid.GestureRecognizers>
-                        </Grid>
-                        <!--Features Button-->
-                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Features" FontSize="15" FontAttributes="{Binding FeaturesFontAttribute}"
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OverviewCommand}"/>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                                <!--Features Button-->
+                                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Label  Text="Features" FontSize="15" FontAttributes="{Binding FeaturesFontAttribute}"
                            TextColor="{Binding FeaturesTextColor}" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" 
                            HorizontalTextAlignment="Start" VerticalOptions="CenterAndExpand"/>
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding FeaturesCommand}"/>
-                            </Grid.GestureRecognizers>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding FeaturesCommand}"/>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Grid>
+                            <!--Button Indicator Section-->
+                            <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
+                      ColumnDefinitions="*,*,80" ColumnSpacing="0">
+                                <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
+                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="CenterAndExpand" WidthRequest="40" Margin="-5,0,0,0"
+                             VerticalOptions="FillAndExpand" />
+                                <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="40" Margin="-5,0,0,0"
+                             IsVisible="{Binding FeaturesVisility}" HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="FillAndExpand"/>
+                            </Grid>
+                        </Grid>
+                        <!--Overview List-->
+                        <CollectionView Grid.Row="2" ItemsSource="{Binding ItemsList}"
+                                    IsVisible="{Binding OverviewVisility}" HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="StartAndExpand">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal" Span="1" 
+                                             VerticalItemSpacing="15" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <!--Main Grid for List-->
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"
+                                      Padding="15,0,0,0" >
+                                        <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Image Source="{Binding ItemImage}" Aspect="AspectFill" HeightRequest="200"  WidthRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <!--Length and Price-->
+                        <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="15,20" RowSpacing="10" RowDefinitions="Auto,Auto,Auto" >
+                            <!--Label Length and Price-->
+                            <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="60*,40*">
+                                <!--Length-->
+                                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto">
+                                    <Label Grid.Row="0" Text="Length" TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                    <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="5" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto">
+                                        <!--Unit Value Entry-->
+                                        <Frame Grid.Column="0" HasShadow="False"  Margin="0" Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
+                                            <local:CustomEntry Grid.Column="0" TranslationY="1" Keyboard="Numeric" MaxLength="2" TranslationX="2" HorizontalTextAlignment="Center" Text="{Binding UnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                        </Frame>
+                                        <!--Dot(.) Label between meter and cntimeter--> 
+                                        <Label Grid.Column="1" Margin="0" Text="." TextColor="{StaticResource AppBlackColor}" FontSize="20" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
+                                        <!--DecimalUnit Value Entry--> 
+                                        <Frame Grid.Column="2" HasShadow="False"   Padding="4,0,4,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="40" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
+                                            <local:CustomEntry Grid.Column="0" Keyboard="Numeric" MaxLength="2" TranslationY="1"   Text="{Binding DecimalUnitValue}" Placeholder="00" PlaceholderColor="{StaticResource AppGrayColor}" FontSize="14" HorizontalTextAlignment="Center" TextColor="{StaticResource AppBlackColor}" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                        </Frame>
+                                        <!--Unit Label--> 
+                                        <Frame Grid.Column="3" Margin="5,0" HasShadow="False"  Padding="5,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30" WidthRequest="50" CornerRadius="8" BorderColor="{StaticResource AppPurpleColor}" >
+                                            <Label Grid.Column="0" Text="{Binding MeasuringUnit}" TranslationY="-2" FontSize="16" TextColor="{StaticResource AppBlackColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                                        </Frame>
+                                        <!--Unit Change Section--> 
+                                        <Grid Grid.Column="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto">
+                                            <ImageButton Grid.Row="0" Source="up.png" Command="{Binding MeasuringUnitUpCommand}" BackgroundColor="{StaticResource AppLightGrayColor}" HeightRequest="15" WidthRequest="20" Padding="3" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFit" />
+                                            <ImageButton Grid.Row="1" Source="down.png" Command="{Binding MeasuringUnitDownCommand}" BackgroundColor="{StaticResource AppLightGrayColor}" HeightRequest="15" WidthRequest="20" Padding="3" HorizontalOptions="FillAndExpand" VerticalOptions="End" Aspect="AspectFit" />
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto">
+                                    <Label Grid.Row="0"  Text="Price" TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                    <Label Grid.Row="1" Text="Kr 230.20" TextColor="{StaticResource AppBlueColor}" FontSize="23" FontAttributes="Bold" />
+                                </Grid>
+                            </Grid>
+                            <!--Button Add to Box-->
+                            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Button  Text="Add to box" Command="{Binding ResetCommand}" TextTransform="None" FontSize="16" BackgroundColor="{StaticResource AppPurpleColor}" TextColor="White"  CornerRadius="5"/>
+                            </Grid>
                         </Grid>
                     </Grid>
-                    <!--Button Indicator Section-->
-                    <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" 
-                      ColumnDefinitions="*,*,80" ColumnSpacing="0" >
-                        <BoxView Grid.Column="0" BackgroundColor="{StaticResource AppPurpleColor}" 
-                             IsVisible="{Binding OverviewVisility}" HorizontalOptions="StartAndExpand" WidthRequest="30" Margin="15,0,0,0" TranslationY="-5"
-                             VerticalOptions="FillAndExpand"/>
-                        <BoxView Grid.Column="1" BackgroundColor="{StaticResource AppPurpleColor}" WidthRequest="30" Margin="15,0,0,0" TranslationY="-5"
-                             IsVisible="{Binding FeaturesVisility}" HorizontalOptions="StartAndExpand"
-                             VerticalOptions="FillAndExpand"/>
-                    </Grid>
-                </Grid>
-                <!--Overview List-->
-                <CollectionView Grid.Row="2" ItemsSource="{Binding ItemsList}" IsVisible="{Binding OverviewVisility}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Horizontal" Span="1" VerticalItemSpacing="15" HorizontalItemSpacing="15" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <!--Main Grid for List-->
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}"  >
-                                <Frame Padding="0" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Image Source="{Binding ItemImage}" Aspect="AspectFill"   WidthRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                </Frame>
+                    <!--Similar Product Section-->
+                    <Grid Grid.Row="1"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,300" BackgroundColor="{StaticResource AppLightGrayColor}">
+                        <Grid Grid.Row="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,Auto" >
+                            <!--Label Similar Product-->
+                            <Label Grid.Column="0" Text="Similar Product"  Margin="20,20,0,0"  TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            <!--Label See All-->
+                            <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label  Text="See All"  Margin="20,20,15,0" FontSize="15" HorizontalOptions="EndAndExpand" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand"/>
                             </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-                <!--Length and Price-->
-                <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="7" ColumnDefinitions="*,*">
-                    <Label Grid.Column="0" Text="Length" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <Label Grid.Column="1" Text="Price" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                        <!--Similar Product List-->
+                        <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,10">
+                            <CollectionView  ItemsSource="{Binding SimilarProductList}"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Horizontal" Span="1" 
+                                             VerticalItemSpacing="15" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <!--Main Grid for List-->
+                                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Padding="15,0,0,20" >
+                                            <Frame Padding="0" HasShadow="False" BorderColor="{StaticResource AppBackgroundColor}"  BackgroundColor="{StaticResource AppBackgroundColor}" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10" RowDefinitions="*,Auto,Auto" Margin="0,0,0,10">
+                                                    <Image Grid.Row="0" Source="{Binding ItemImage}" Aspect="AspectFill" HeightRequest="200"  WidthRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                                    <Label Grid.Row="1"  Padding="10,0" Text="{Binding FabricName}"  TextColor="{StaticResource AppBlackColor}"/>
+                                                    <Label Grid.Row="2" Padding="10,0"   Text="{Binding FabricBrand}" TextColor="{StaticResource AppBlackColor}"/>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                    </Grid>
+
                 </Grid>
-            </Grid>
+            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -64,7 +64,6 @@ namespace FibesApp.ViewModels.Accounts
         {
             IsPageEnable = false;
             await Navigation.PopModalAsync();
-
         }
 
         /// <summary>
@@ -79,7 +78,11 @@ namespace FibesApp.ViewModels.Accounts
             var confirmed = await UserDialog.ConfirmAsync("Please check your email for password change.", "Success", "OK", "");
             if (confirmed)
             {
+<<<<<<< HEAD
                 await Navigation.PopModalAsync();
+=======
+                Navigation.PopModalAsync();
+>>>>>>> 1bfcbc498186a4bce270e2ea3d4fb6b6bf99126f
                 UserDialog.HideLoading();
             }
         }
@@ -103,7 +106,6 @@ namespace FibesApp.ViewModels.Accounts
                 return false;
             }
             return true;
-
         }
         #endregion
     }

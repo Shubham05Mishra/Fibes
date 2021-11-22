@@ -1,4 +1,6 @@
 ﻿using FibesApp.Models;
+using FibesApp.Views.Home;
+using FibesApp.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +9,7 @@ using Xamarin.Forms;
 
 namespace FibesApp.ViewModels.Menu
 {
-   public class ItemDetailViewModel : BaseViewModel
+    public class ItemDetailViewModel : BaseViewModel
     {
         //TODO : To Declare Local Variables Here 
         public double ScreenItemWidth;
@@ -22,18 +24,26 @@ namespace FibesApp.ViewModels.Menu
             FeaturesCommand = new Command(FeatureAsync);
             BoxCommand = new Command(OnBoxCommand);
             LikeCommand = new Command(OnLikeAsync);
-            backCommand = new Command(OnbackAsync);
+            Back_Command = new Command(OnbackAsync);
+            MeasuringUnitUpCommand = new Command(MeasuringUnitUpAsync);
+            MeasuringUnitDownCommand = new Command(MeasuringUnitDownAsync);
 
             #region Bind Static Lists
+
             ItemsList = new ObservableCollection<ItemDetailModel>()
             {
                 new ItemDetailModel()
-                { 
-                    ItemImage = "listItemImage.png",
+                {
+                    ItemImage = "collectionListItem.png",
                     ItemHeight = ScreenItemWidth,
                 },
                   new ItemDetailModel()
                 {
+                    ItemImage = "listItemImage.png",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
                     ItemImage = "itemImage.png",
                     ItemHeight = ScreenItemWidth,
                 },
@@ -44,12 +54,7 @@ namespace FibesApp.ViewModels.Menu
                 },
                  new ItemDetailModel()
                 {
-                    ItemImage = "listItemImage.png",
-                    ItemHeight = ScreenItemWidth,
-                },
-                 new ItemDetailModel()
-                {
-                    ItemImage = "itemImage.png",
+                    ItemImage = "collectionListItem.png",
                     ItemHeight = ScreenItemWidth,
                 },
                   new ItemDetailModel()
@@ -68,9 +73,68 @@ namespace FibesApp.ViewModels.Menu
                     ItemHeight = ScreenItemWidth,
                 },
             };
-        }
+            SimilarProductList = new ObservableCollection<ItemDetailModel>()
+            {
+                new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                    FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                  new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                 new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+                   new ItemDetailModel()
+                {
+                    ItemImage = "listItemImage.png",
+                    FabricName = "Fabric Name",
+                     FabricBrand = "Brand",
+                    ItemHeight = ScreenItemWidth,
+                },
+            };
 
-        #endregion
+            #endregion
+        }
         #endregion
 
         #region Properties
@@ -87,16 +151,16 @@ namespace FibesApp.ViewModels.Menu
                 }
             }
         }
-        private ObservableCollection<ItemDetailModel> _FeaturesItemsList;
-        public ObservableCollection<ItemDetailModel> FeaturesItemsList
+        private ObservableCollection<ItemDetailModel> _SimilarProductList;
+        public ObservableCollection<ItemDetailModel> SimilarProductList
         {
-            get { return _FeaturesItemsList; }
+            get { return _SimilarProductList; }
             set
             {
-                if (_FeaturesItemsList != value)
+                if (_SimilarProductList != value)
                 {
-                    _FeaturesItemsList = value;
-                    OnPropertyChanged("FeaturesItemsList");
+                    _SimilarProductList = value;
+                    OnPropertyChanged("SimilarProductList");
                 }
             }
         }
@@ -191,7 +255,35 @@ namespace FibesApp.ViewModels.Menu
                     OnPropertyChanged("LikeImage");
                 }
             }
-        }        
+        }
+
+        private string _MeasuringUnit = "mtr";
+        public string MeasuringUnit
+        {
+            get { return _MeasuringUnit; }
+            set
+            {
+                if (_MeasuringUnit != value)
+                {
+                    _MeasuringUnit = value;
+                    OnPropertyChanged("MeasuringUnit");
+                }
+            }
+        }
+
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -199,7 +291,9 @@ namespace FibesApp.ViewModels.Menu
         public Command FeaturesCommand { get; }
         public Command BoxCommand { get; }
         public Command LikeCommand { get; }
-        public Command backCommand { get; }
+        public Command Back_Command { get; }
+        public Command MeasuringUnitUpCommand { get; }
+        public Command MeasuringUnitDownCommand { get; }
 
         #endregion
 
@@ -235,7 +329,8 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private async void OnBoxCommand(object obj)
         {
-            await Navigation.PushAsync(new Views.Box.BoxDetailView(), false);
+            IsPageEnable = false;
+            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
 
         /// <summary>
@@ -243,10 +338,35 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private void OnLikeAsync(object obj)
         {
-            if(LikeImage == "heart.png")            
-                LikeImage = "likeHeart.png";            
-            else            
-                LikeImage = "heart.png";                     
+            if (LikeImage == "heart.png")
+                LikeImage = "likeHeart.png";
+            else
+                LikeImage = "heart.png";
+        }
+
+        private void MeasuringUnitDownAsync(object obj)
+        {
+           if(MeasuringUnit == "mtr")
+            {
+                MeasuringUnit = "cm";
+                return;
+            }
+           if(MeasuringUnit == "cm")
+            {
+                MeasuringUnit = "mm";
+            }
+        }
+
+        private void MeasuringUnitUpAsync(object obj)
+        {
+            if (MeasuringUnit == "cm")
+            {
+                MeasuringUnit = "mtr";
+            }
+            if (MeasuringUnit == "mm")
+            {
+                MeasuringUnit = "cm";
+            }
         }
 
         /// <summary>
@@ -254,9 +374,15 @@ namespace FibesApp.ViewModels.Menu
         /// </summary>
         private async void OnbackAsync(object obj)
         { 
-            await Navigation.PopToRootAsync();
+            App.AppMasterDetailPage = new MasterDetailPage();
+            App.AppMasterDetailPage.Master = new Views.Menu.AppMenuView();
+            App.AppMasterDetailPage.Detail = new HomeView();
+            App.Current.MainPage = App.AppMasterDetailPage; 
         }
 
+        #endregion
+
+        #region Validations
         #endregion
     }
 }
