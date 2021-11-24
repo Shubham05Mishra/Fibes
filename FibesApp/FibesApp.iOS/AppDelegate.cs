@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using ImageCircle.Forms.Plugin.iOS;
 using UIKit;
 
 namespace FibesApp.iOS
@@ -26,7 +27,7 @@ namespace FibesApp.iOS
 
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             global::Xamarin.Forms.Forms.Init();
-
+            ImageCircleRenderer.Init();
             #endregion
 
             LoadApplication(new App());

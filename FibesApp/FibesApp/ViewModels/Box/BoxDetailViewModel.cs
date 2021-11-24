@@ -17,7 +17,6 @@ namespace FibesApp.ViewModels.Box
             Navigation = Nav;
             ClearCommand = new Command(OnClearAsync);
             SubmitCommand = new Command(OnSubmitAsync);
-            
 
             #region Bind static List
             DetailItemsList = new ObservableCollection<BoxDetailModel>()
@@ -144,7 +143,8 @@ namespace FibesApp.ViewModels.Box
         /// <param name="obj"></param>
         private async void OnSubmitAsync(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             await Navigation.PushModalAsync(new Views.Box.SubmitBoxView(),false);
         }
 
@@ -154,11 +154,13 @@ namespace FibesApp.ViewModels.Box
         /// <param name="obj"></param>
         private async void OnClearAsync(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             await Navigation.PushModalAsync(new Views.Box.EmptyBoxView(),false);
         }
+        #endregion
 
-        
+        #region Validations
         #endregion
     }
 }

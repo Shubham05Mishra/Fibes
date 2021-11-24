@@ -41,7 +41,7 @@
                     <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="Auto,Auto" RowSpacing="20">
                         <Label Text="Your box is empty" TextColor="{StaticResource AppBlackColor}" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         <!--Back to Main Page Button-->
-                        <Button Grid.Row="1" Text="Back to main page" Command="{Binding BackToHomeCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" 
+                        <Button Grid.Row="1" Text="Back to main page" Padding="15,0" Command="{Binding BackToHomeCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" 
                                 FontSize="16" TextTransform="None" CornerRadius="10" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </Grid>

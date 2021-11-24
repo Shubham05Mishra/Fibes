@@ -28,7 +28,7 @@ namespace FibesApp.Views.Home
         }
         #endregion
 
-        #region Event Handeler
+        #region Event Handler
         /// <summary>
         /// TODO : To Define the Page On appearing Event...
         /// </summary>
@@ -67,6 +67,12 @@ namespace FibesApp.Views.Home
                     }
                 }
             }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            HomeVM.IsPageEnable = true;
         }
         #endregion
 

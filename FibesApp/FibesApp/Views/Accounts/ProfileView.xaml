@@ -30,7 +30,7 @@
                     <!--Profile Section-->
                     <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12" ColumnDefinitions="80,*" ColumnSpacing="25">
                         <!--Profile Image-->
-                        <Frame Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Padding="0" CornerRadius="40"> 
+                        <Frame Grid.Column="0" IsClippedToBounds="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Padding="0" CornerRadius="40"> 
                             <Image  Source="Profile.png"  Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </Frame>
                         <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="15" Margin="12" RowDefinitions="Auto,Auto">

@@ -62,9 +62,9 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnSignInAsync(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             await Navigation.PopModalAsync();
-
         }
 
         /// <summary>
@@ -76,10 +76,10 @@ namespace FibesApp.ViewModels.Accounts
             {
                 return; 
             }
-            var confirmed = await UserDialog.ConfirmAsync("Please check your email for password change.", "Success", "OK", "");
+            var confirmed = await UserDialog.ConfirmAsync("Please check your email for password reset.", "Success", "OK", "");
             if (confirmed)
             {
-                Navigation.PopModalAsync();
+                await Navigation.PopModalAsync();
                 UserDialog.HideLoading();
             }
         }
@@ -103,7 +103,6 @@ namespace FibesApp.ViewModels.Accounts
                 return false;
             }
             return true;
-
         }
         #endregion
     }

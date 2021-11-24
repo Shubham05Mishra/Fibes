@@ -47,14 +47,14 @@ namespace FibesApp.ViewModels
         #region Commands
         public Command BackCommand { get; set; }
         #endregion
-
+          
         #region Methods
         /// <summary>
         /// TODO : To Navigate To Back Page...
         /// </summary>
         public async void OnBacksAsync()
         {
-            await PopAsync();
+            await PopModalAsync();
         }
         public Acr.UserDialogs.IUserDialogs UserDialog
         {

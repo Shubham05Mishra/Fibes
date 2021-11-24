@@ -44,13 +44,17 @@ namespace FibesApp.ViewModels.Accounts
         /// </summary>
         private async void OnLogoutAsync(object obj)
         {
-            IsPageEnable = false;
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
             var confirmed = await UserDialog.ConfirmAsync(" Are you sure you want to Logout" ,"Alert", "Yes","No");
             if (confirmed)
             {
                 App.Current.MainPage = new Views.Accounts.LoginView();
             }
-        }        
+        }
+        #endregion
+
+        #region Validations
         #endregion
     }
 }
