@@ -63,7 +63,7 @@
                         </Grid>
                     </Frame>
                     <!--QRCode Scan Section--> 
-                    <Frame Grid.Column="2" CornerRadius="12" HasShadow="False" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource AppPurpleColor}" VerticalOptions="FillAndExpand" Padding="12">
+                    <Frame Grid.Column="2" CornerRadius="12" HasShadow="False" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource AppDarkBlueColor}" VerticalOptions="FillAndExpand" Padding="12">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Image Source="scan.png" Aspect="AspectFill" HeightRequest="40" HorizontalOptions="EndAndExpand" WidthRequest="40"/>
                         </Grid>

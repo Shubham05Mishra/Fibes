@@ -388,4 +388,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\collectionListItem.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg1%402x.png" />
+  </ItemGroup>
 </Project>
