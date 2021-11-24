@@ -17,7 +17,7 @@ namespace FibesApp
         public App()
         {
             InitializeComponent();
-            MainPage = new LoginView();
+            MainPage = new ProfileView();
             AppMasterDetailPage.Disappearing += AppMasterDetailPage_Disappearing;
             MessagingCenter.Subscribe<string>("", "GoToHomePage", (sender) =>
             {
