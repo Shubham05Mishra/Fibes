@@ -26,68 +26,65 @@
             </Grid>
             <!--Second Section-->
             <ScrollView IsClippedToBounds="True" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="100,Auto,*">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="120,Auto,*">
                     <!--Profile Section-->
-                    <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12" ColumnDefinitions="80,*" ColumnSpacing="25">
+                    <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12" ColumnDefinitions="100,*" ColumnSpacing="25">
                         <!--Profile Image-->
-                        <Frame Grid.Column="0" IsClippedToBounds="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Padding="0" CornerRadius="40"> 
-                            <Image  Source="Profile.png"  Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <Frame Grid.Column="0" IsClippedToBounds="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Padding="0" CornerRadius="45" HeightRequest="90" WidthRequest="90"> 
+                            <Image  Source="Profile.png"  Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Frame>
-                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="15" Margin="12" RowDefinitions="Auto,Auto">
+                        <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="15" Margin="0,18" RowDefinitions="Auto,Auto" >
                             <!--Name-->
-                            <Label Grid.Row="0" Text="Andrew Hirata" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Grid.Row="0" Text="Andrew Hirata" FontSize="16" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
                             <!--Email-->
-                            <Label Grid.Row="1" Text="hirata@gmail.com" TextColor="{StaticResource AppGrayColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Grid.Row="1" Text="hirata@gmail.com" FontSize="16" TextColor="{StaticResource AppGrayColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
                         </Grid>
                     </Grid>
                     <BoxView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                     <!--Body-->
-                    <Grid Grid.Row="2" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,25"  RowSpacing="20">
+                    <Grid Grid.Row="2" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,25"  RowSpacing="25">
                         <!--General-->
                         <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <Label  Text="General"  TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                        <Label  Text="General"  TextColor="{StaticResource AppGrayColor}" Margin="25,0" FontSize="18" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                         </Grid>
                         <!--Edit Profile-->
                         <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Edit Profile" TextColor="{StaticResource AppBlackColor}"  Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            <Label  Text="Edit Profile" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
                         <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                         <!--Notifications-->
                         <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Notifications" TextColor="{StaticResource AppBlackColor}"  Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            <Label  Text="Notifications" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
                         <BoxView Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                         <!--My Collection-->
                         <Grid Grid.Row="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="My Collection" TextColor="{StaticResource AppBlackColor}"  Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            <Label  Text="My Collection" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
                         <BoxView Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                         <!--Legal-->
                         <Grid Grid.Row="7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Legal"  TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            <Label Text="Language" FontSize="18" TextColor="{StaticResource AppBlackColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            <Label Text="Swedish" FontSize="18" TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         </Grid>
-                        <!--Privacy Policy-->
-                        <Grid Grid.Row="8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Privacy Policy" TextColor="{StaticResource AppBlackColor}"  Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                        </Grid>
-                        <BoxView Grid.Row="9" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
+                        <BoxView Grid.Row="8" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                         <!--Personal-->
-                        <Grid Grid.Row="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Personal"  TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                        <Grid Grid.Row="9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label  Text="Legal" FontSize="18" TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                         </Grid>
                         <!--Report a Bug-->
-                        <Grid Grid.Row="11" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Report a Bug" TextColor="{StaticResource AppBlackColor}"  Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        <Grid Grid.Row="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label  Text="Privacy Policy" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
-                        <BoxView Grid.Row="12" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
+                        <BoxView Grid.Row="11" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                         <!--Logout-->
-                        <Grid Grid.Row="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label  Text="Logout" TextColor="{StaticResource AppBlackColor}"  Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        <Grid Grid.Row="12" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label  Text="Logout" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding LogoutCommand}" />
                             </Grid.GestureRecognizers>
                         </Grid>
-                        <BoxView Grid.Row="14" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
+                        <BoxView Grid.Row="13" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
                     </Grid>
                 </Grid>
             </ScrollView>

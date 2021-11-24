@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace FibesApp.Droid
 {
-    [Activity(Theme = "@style/MainTheme.Splash", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/MainTheme.splash1", MainLauncher = true, NoHistory = true)]
     class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

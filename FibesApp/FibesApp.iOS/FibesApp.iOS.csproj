@@ -389,6 +389,33 @@
     <BundleResource Include="Resources\collectionListItem.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\splash1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash1%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg2%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg2%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ad%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ad%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\bg1%403x.png" />
   </ItemGroup>
   <ItemGroup>
