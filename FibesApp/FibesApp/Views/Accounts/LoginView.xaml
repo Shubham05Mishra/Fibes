@@ -8,7 +8,7 @@
         <!--Main Grid-->
         <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" IsEnabled="{Binding IsPageEnable}">
             <!--Background Image Section-->
-            <Image Source="bg1.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30"/>
+            <Image Source="bg2.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" WidthRequest="300" HeightRequest="600"/>
             <!--Login Detail Section Grid-->
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,Auto">
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,70" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">

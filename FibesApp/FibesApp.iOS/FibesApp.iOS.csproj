@@ -68,6 +68,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renders\CustomEntryLevelRenderer.cs" />
     <Compile Include="Renders\CustomEntryRenderer.cs" />
+    <Compile Include="Renders\CustomPickerRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

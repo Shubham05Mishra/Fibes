@@ -42,10 +42,11 @@
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowDefinitions="Auto,Auto">
                     <!--Fabric Product Section-->
                     <Grid  Grid.Row="0" HorizontalOptions="FillAndExpand" Margin="0,10,0,0" RowSpacing="10" 
-                       VerticalOptions="FillAndExpand" RowDefinitions="50,40,500,Auto">
+                       VerticalOptions="FillAndExpand" RowDefinitions="80,40,500,Auto">
                         <!--Fabric Name-->
-                        <Grid Grid.Row="0"  Margin="20,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Fabric name" FontSize="25" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" />
+                        <Grid Grid.Row="0"  Margin="20,0,0,0" HorizontalOptions="FillAndExpand" RowSpacing="0" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto">
+                            <Label Grid.Row="0" Text="DAVOS"  FontSize="30" FontAttributes="Bold"  TextColor="{StaticResource AppBlackColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            <Label Grid.Row="1" Text="Fibreguard"  FontSize="18" TextColor="{StaticResource AppGrayColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
                         <!--Overview, Features Section-->
                         <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" Margin="0" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,3">
@@ -101,6 +102,64 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
+                        <!--Features-->
+                        <Grid Grid.Row="2" IsVisible="{Binding FeaturesVisility}" HorizontalOptions="FillAndExpand" Padding="20,25" RowSpacing="15" VerticalOptions="CenterAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}"  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                            <!--Composition-->
+                            <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Composition" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15"  Text="{Binding Composition}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Width" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Width}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Weight" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Weight}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Durability" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Durability}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Flame resistance" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding FlameResistance}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Lightfastness" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Lightfastness}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Pilling" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Pilling}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Care" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Care}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Use" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" Text="{Binding Use}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Certificate" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Certificate}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                            <!--Composition-->
+                            <Grid Grid.Row="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                                <Label Grid.Column="0" FontSize="15" Text="Availability" TextColor="{StaticResource AppGrayColor}" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Column="1" FontSize="15" Text="{Binding Availability}" TextColor="{StaticResource AppBlackColor}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </Grid>
+                        </Grid>
                         <!--Length and Price-->
                         <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="15,20" RowSpacing="10" RowDefinitions="Auto,Auto,Auto" >
                             <!--Label Length and Price-->
@@ -136,8 +195,18 @@
                                 </Grid>
                             </Grid>
                             <!--Button Add to Box-->
-                            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Button  Text="Add to box" Command="{Binding ResetCommand}" TextTransform="None" FontSize="16" BackgroundColor="{StaticResource AppPurpleColor}" TextColor="White"  CornerRadius="5"/>
+                            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="60*,Auto">
+                                <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="20" RowDefinitions="Auto,Auto">
+                                    <Label Grid.Row="0"  Text="Colour name" TextColor="{StaticResource AppBlackColor}" FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                    <Frame Grid.Row="1"  IsClippedToBounds="True"  Padding="0" Margin="0,0,40,0"  HasShadow="False" BorderColor="{StaticResource AppLightGrayColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="50" WidthRequest="50"  >
+                                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                            <local:CustomPicker  Title="Colour Name"  Margin="12,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                                             ItemsSource="{Binding Colour}" ItemDisplayBinding="{Binding colourName}"/>
+                                            <Image  Source="down.png" Aspect="AspectFit" Margin="12"   HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                                <Button  Grid.Column="1" Text="Add to box" Command="{Binding AddToBoxCommand}"  TextTransform="None" Padding="5"  FontSize="16" BackgroundColor="{StaticResource AppDarkBlueColor}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" TextColor="White" HeightRequest="50" WidthRequest="100"  CornerRadius="5"/>
                             </Grid>
                         </Grid>
                     </Grid>

@@ -25,6 +25,7 @@ namespace FibesApp.ViewModels.Menu
             BoxCommand = new Command(OnBoxCommand);
             LikeCommand = new Command(OnLikeAsync);
             Back_Command = new Command(OnbackAsync);
+            AddToBoxCommand = new Command(OnAddToBoxAsync);
             MeasuringUnitUpCommand = new Command(MeasuringUnitUpAsync);
             MeasuringUnitDownCommand = new Command(MeasuringUnitDownAsync);
 
@@ -73,6 +74,34 @@ namespace FibesApp.ViewModels.Menu
                     ItemHeight = ScreenItemWidth,
                 },
             };
+            Colour = new ObservableCollection<ItemDetailModel>()
+            {
+                new ItemDetailModel()
+                {
+                    colourName = "red"
+                },
+                  new ItemDetailModel()
+                {
+                    colourName = "yellow"
+                },
+                 new ItemDetailModel()
+                {
+                    colourName = "blue"
+                },
+                 new ItemDetailModel()
+                {
+                    colourName = "pink"
+                },
+                 new ItemDetailModel()
+                {
+                   colourName = "olive green"
+                },
+                  new ItemDetailModel()
+                {
+                      colourName = "green"
+                },                
+            };
+
             SimilarProductList = new ObservableCollection<ItemDetailModel>()
             {
                 new ItemDetailModel()
@@ -135,9 +164,24 @@ namespace FibesApp.ViewModels.Menu
 
             #endregion
         }
+
+      
         #endregion
 
         #region Properties
+        private ObservableCollection<ItemDetailModel> _Colour;
+        public ObservableCollection<ItemDetailModel> Colour
+        {
+            get { return _Colour; }
+            set
+            {
+                if (_Colour != value)
+                {
+                    _Colour = value;
+                    OnPropertyChanged("Colour");
+                }
+            }
+        }
         private ObservableCollection<ItemDetailModel> _ItemsList;
         public ObservableCollection<ItemDetailModel> ItemsList
         {
@@ -270,7 +314,149 @@ namespace FibesApp.ViewModels.Menu
                 }
             }
         }
-
+        private string _Composition = "78% Polyster,22% Cotton";
+        public string Composition
+        {
+            get { return _Composition; }
+            set
+            {
+                if (_Composition != value)
+                {
+                    _Composition = value;
+                    OnPropertyChanged("Composition");
+                }
+            }
+        }
+        private string _Width = "145 cm";
+        public string Width
+        {
+            get { return _Width; }
+            set
+            {
+                if (_Width != value)
+                {
+                    _Width = value;
+                    OnPropertyChanged("Width");
+                }
+            }
+        }
+        private string _Weight = "380 g / m2";
+        public string Weight
+        {
+            get { return _Weight; }
+            set
+            {
+                if (_Weight != value)
+                {
+                    _Weight = value;
+                    OnPropertyChanged("Weight");
+                }
+            }
+        }
+        private string _Durability = "100,000";
+        public string Durability
+        {
+            get { return _Durability; }
+            set
+            {
+                if (_Durability != value)
+                {
+                    _Durability = value;
+                    OnPropertyChanged("Durability");
+                }
+            }
+        }
+        private string _FlameResistance = "EN 1021-1(cigarette test)";
+        public string FlameResistance
+        {
+            get { return _FlameResistance; }
+            set
+            {
+                if (_FlameResistance != value)
+                {
+                    _FlameResistance = value;
+                    OnPropertyChanged("FlameResistance");
+                }
+            }
+        }
+        private string _Lightfastness = "4-5 (scale 1-8)";
+        public string Lightfastness
+        {
+            get { return _Lightfastness; }
+            set
+            {
+                if (_Lightfastness != value)
+                {
+                    _Lightfastness = value;
+                    OnPropertyChanged("Lightfastness");
+                }
+            }
+        }
+        private string _Pilling = "5-6 (scale 1-5)";
+        public string Pilling
+        {
+            get { return _Pilling; }
+            set
+            {
+                if (_Pilling != value)
+                {
+                    _Pilling = value;
+                    OnPropertyChanged("Pilling");
+                }
+            }
+        }
+        private string _Care = "5-6 (scale 1-5)";
+        public string Care
+        {
+            get { return _Care; }
+            set
+            {
+                if (_Care != value)
+                {
+                    _Care = value;
+                    OnPropertyChanged("Care");
+                }
+            }
+        }
+        private string _Use = "5-6 (scale 1-5)";
+        public string Use
+        {
+            get { return _Use; }
+            set
+            {
+                if (_Use != value)
+                {
+                    _Use = value;
+                    OnPropertyChanged("Use");
+                }
+            }
+        }
+        private string _Certificate = "5-6 (scale 1-5)";
+        public string Certificate
+        {
+            get { return _Certificate; }
+            set
+            {
+                if (_Certificate != value)
+                {
+                    _Certificate = value;
+                    OnPropertyChanged("Certificate");
+                }
+            }
+        }
+        private string _Availability = "In Stock";
+        public string Availability
+        {
+            get { return _Availability; }
+            set
+            {
+                if (_Availability != value)
+                {
+                    _Availability = value;
+                    OnPropertyChanged("Availability");
+                }
+            }
+        }
         private bool _IsPageEnable = true;
         public bool IsPageEnable
         {
@@ -292,6 +478,7 @@ namespace FibesApp.ViewModels.Menu
         public Command BoxCommand { get; }
         public Command LikeCommand { get; }
         public Command Back_Command { get; }
+        public Command AddToBoxCommand { get; }
         public Command MeasuringUnitUpCommand { get; }
         public Command MeasuringUnitDownCommand { get; }
 
@@ -333,7 +520,15 @@ namespace FibesApp.ViewModels.Menu
             { IsPageEnable = false; }
             await Navigation.PushModalAsync(new Views.Box.BoxDetailView(),false);
         }
-
+        /// <summary>
+        /// TODO :To Define Add to Box Detail Page...
+        /// </summary>
+        private async void OnAddToBoxAsync(object obj)
+        {
+            if (Device.RuntimePlatform == Device.Android)
+            { IsPageEnable = false; }
+            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(), false);
+        }
         /// <summary>
         /// TODO :To Define Like Button ...
         /// </summary>
