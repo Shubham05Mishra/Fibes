@@ -23,8 +23,7 @@ namespace FibesApp.ViewModels.Home
             ScreenItemWidth = (appMainScreenWidth - 53) / 2;
             MyCollectionCommand = new Command(MyCollectionAsync);
             SearchCommand = new Command(SearchAsync);
-            BrowseCommand = new Command(BrowseAsync);
-            FilterCommand = new Command(FilterAsync);
+            BrowseCommand = new Command(BrowseAsync);            
             MenuCommand = new Command(MenuAync);
             ProfileCommand = new Command(OnProfileAsync);
             QRcodeCommand = new Command(QRCodeAsync);
@@ -38,12 +37,16 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {Id=2,
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Furniture",
+                    ProductCount = "327",
                 },
                  new ItemModel()
                 {
@@ -51,6 +54,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Outdoor",
+                    ProductCount = "32",
                 },
                   new ItemModel()
                 {
@@ -58,6 +63,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Public Environment",
+                    ProductCount = "12",
                 },
                    new ItemModel()
                 {
@@ -65,6 +72,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {
@@ -72,6 +81,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {
@@ -79,6 +90,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {
@@ -86,6 +99,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {
@@ -93,6 +108,8 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {
@@ -100,74 +117,94 @@ namespace FibesApp.ViewModels.Home
                     ItemImage = "collectionListItem.png",
                     IsLike = false,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
             };
             BrowseItemsList = new ObservableCollection<ItemModel>()
             {
                 new ItemModel()
                 {Id=1,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {Id=2,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Furniture",
+                    ProductCount = "327",
                 },
                   new ItemModel()
                 {Id=3,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Outdoor",
+                    ProductCount = "32",
                 },
                    new ItemModel()
                 {
                        Id=4,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Public Environment",
+                    ProductCount = "12",
                 },
                     new ItemModel()
                 {
                         Id=5,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                     IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {Id=6,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                  new ItemModel()
                 {Id=7,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                   new ItemModel()
                 {Id=8,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
                    new ItemModel()
                 {Id=9,
-                    ItemImage = "listItemImage.png",
+                    ItemImage = "collectionListItem.png",
                      IsLike = false,
                     IsNotLike = true,
                     ItemHeight = ScreenItemWidth,
+                    ProductName = "Curtain",
+                    ProductCount = "77",
                 },
             };
             #endregion
@@ -353,8 +390,7 @@ namespace FibesApp.ViewModels.Home
         public Command BrowseCommand { get; }
         public Command MenuCommand { get; }
         public Command ProfileCommand { get; }
-        public Command QRcodeCommand { get; }
-        public Command FilterCommand { get; }
+        public Command QRcodeCommand { get; }        
         #endregion
 
         #region Methods
@@ -378,7 +414,7 @@ namespace FibesApp.ViewModels.Home
             MyCollectionVisility = true;
             MyCollectionFontAttribute = FontAttributes.Bold;
             BrowseFontAttribute = FontAttributes.None;
-            MyCollectionTextColor = Common.AppColor.AppPurpleColor;
+            MyCollectionTextColor = Common.AppColor.AppDarkBlueColor;
             BrowseTextColor = Common.AppColor.AppGrayColor;
         }
 
@@ -392,7 +428,7 @@ namespace FibesApp.ViewModels.Home
             MyCollectionFontAttribute = FontAttributes.None;
             BrowseFontAttribute = FontAttributes.Bold;
             MyCollectionTextColor = Common.AppColor.AppGrayColor;
-            BrowseTextColor = Common.AppColor.AppPurpleColor;
+            BrowseTextColor = Common.AppColor.AppDarkBlueColor;
         }
 
         /// <summary>
@@ -404,15 +440,7 @@ namespace FibesApp.ViewModels.Home
             {
                 mdp.IsPresented = true;
             }
-        }
-
-        /// <summary>
-        /// TODO : It Shows Filter Items
-        /// </summary>
-        private void FilterAsync(object obj)
-        {
-            //throw new NotImplementedException();
-        }
+        }        
 
         /// <summary>
         /// TODO : Open Profile Page

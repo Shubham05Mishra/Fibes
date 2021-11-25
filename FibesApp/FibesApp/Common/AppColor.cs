@@ -16,5 +16,6 @@ namespace FibesApp.Common
         public static string AppBlueColor = "#5f33be";
         public static string AppSkyBlueColor = "#1F72C6";
         public static string AppLightGrayColor = "#F4F4F4";
+        public static string AppDarkBlueColor = "#6330C6";
     }
 }

@@ -415,4 +415,40 @@
   <ItemGroup>
     <BundleResource Include="Resources\Ad%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emptyBox%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emptyBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emptyBox%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transferDone1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transfer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transfer1%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transfer1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transferDone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transferDone1%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DownArrow%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DownArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DownArrow%402x.png" />
+  </ItemGroup>
 </Project>

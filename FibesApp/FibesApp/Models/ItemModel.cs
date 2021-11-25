@@ -10,6 +10,8 @@ namespace FibesApp.Models
         public int Id { get; set; } 
         public string ItemImage { get; set; }   
         public double ItemHeight { get; set; }
+        public string ProductName { get; set; }
+        public string ProductCount { get; set; }
 
         private bool _IsLike ;
         public bool IsLike

@@ -15,17 +15,13 @@ namespace FibesApp.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
-            //To Off dark mode
-            Window.AddFlags(WindowManagerFlags.Fullscreen);
-            Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
-           
-
+            base.OnCreate(savedInstanceState);                       
             #region Initialize Packages
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             UserDialogs.Init(this);
+            Rg.Plugins.Popup.Popup.Init(this);
             //QRCode Package
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             #endregion

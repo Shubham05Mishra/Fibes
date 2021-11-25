@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:FibesApp.CustomControls"
              x:Class="FibesApp.Views.Box.BoxDetailView"
              NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowDefinitions="60,*,130" IsEnabled="{Binding IsPageEnable}">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  RowDefinitions="60,50,*,130" IsEnabled="{Binding IsPageEnable}">
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
@@ -32,29 +33,39 @@
                     </Grid.GestureRecognizers>
                 </Grid>
             </Grid>
+            <!--Search bar section-->
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="25,0" >
+                <Frame Padding="0" IsClippedToBounds="True" HasShadow="False" BorderColor="LightGray" CornerRadius="13">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="Auto,*" Margin="0,0,10,0" ColumnSpacing="0">
+                        <!--Search Image-->
+                        <Image Grid.Column="0" Margin="10" Source="searchimage.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" />
+                        <!--Search Entry Section-->
+                        <local:CustomEntry x:Name="SearchString" Grid.Column="1" Placeholder="Search"  PlaceholderColor="LightGray" TextChanged="Searchbar" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+            </Grid>
             <!--Second Section-->
-            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0">
+            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,5">
                 <!--ListView Section-->
                 <ListView HasUnevenRows="True" ItemsSource="{Binding DetailItemsList}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="12" Padding="0,8" ColumnDefinitions="25,*,Auto">
-                                    <!--CheckBox-->
-                                    <CheckBox Grid.Column="0" IsChecked="True" Color="{StaticResource AppDarkBlueColor}" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" TranslationY="-8" ></CheckBox>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="12" Padding="0,8" ColumnDefinitions="*,Auto" Margin="10,0,0,0">
                                     <!--Product-->
-                                    <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto,Auto,40" >
+                                    <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto,Auto,40" >
                                         <!--Product Name-->
-                                        <Label Grid.Row="0" Text="{Binding ProName}" TextColor="{StaticResource AppBlackColor}"/>
+                                        <Label Grid.Row="0" Text="{Binding ProName}" TextColor="{StaticResource AppBlackColor}" FontSize="20"/>
                                         <!--Product Brand-->
                                         <Label Grid.Row="1" Text="{Binding ProBrand}" TextColor="{StaticResource AppGrayColor}"/>
                                         <!--Product Status-->
                                         <Label Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                            <Label.FormattedText>
+                                            <Label.FormattedText >
                                                 <FormattedString>
                                                     <FormattedString.Spans>
                                                         <Span Text="{Binding ProType}" TextColor="{StaticResource AppBlackColor}"/>
-                                                        <Span Text="{Binding ProStatus}" TextColor="{StaticResource AppGrayColor}"/>
+                                                        <Span Text="    "/>
+                                                        <Span Text="{Binding ProStatus}" TextColor="{StaticResource AppPurpleColor}"/>
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
@@ -66,7 +77,16 @@
                                                 <Grid HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" ColumnDefinitions="45*,Auto,45*">
                                                     <Button Grid.Column="0" Text="-" FontSize="22" Padding="0" TextColor="{StaticResource AppBlackColor}" Clicked="ItemDecrementCommand" IsEnabled="True"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource AppLightGrayColor}" />
                                                     <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                                                        <Label x:Name="ItemCount" Text="{Binding ItemCount}" FontSize="13" TextColor="{StaticResource AppBlackColor}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" />
+                                                        <Label x:Name="ItemCount" FontSize="13" TextColor="{StaticResource AppBlackColor}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" >
+                                                            <Label.FormattedText >
+                                                                <FormattedString>
+                                                                    <FormattedString.Spans>
+                                                                        <Span Text="{Binding ItemCount}" TextColor="{StaticResource AppBlackColor}"/>
+                                                                        <Span Text=" mt" TextColor="{StaticResource AppBlackColor}"/>
+                                                                    </FormattedString.Spans>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
                                                         <Grid.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{Binding QuantityCommand}"/>
                                                         </Grid.GestureRecognizers>
@@ -79,7 +99,7 @@
                                         </Grid>
                                     </Grid>
                                     <!--Product Image-->
-                                    <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Image Source="{Binding ProItemImage}" Aspect="AspectFit" HeightRequest="130" WidthRequest="130"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"/>
                                     </Grid>
                                 </Grid>
@@ -89,14 +109,14 @@
                 </ListView>
             </Grid>
             <!--Clear and Submit button Section-->
-            <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,45,20,30" ColumnSpacing="15" ColumnDefinitions="*,*">
+            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,45,20,30" ColumnSpacing="15" ColumnDefinitions="*,*">
                 <!--Clear button-->
                 <Grid Grid.Column="0"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" >
-                    <Button  Text="Clear Box" BorderColor="{StaticResource AppPurpleColor}" Command="{Binding ClearCommand}" TextColor="{StaticResource AppPurpleColor}" BorderWidth="1" HeightRequest="50" WidthRequest="50" BackgroundColor="{StaticResource  AppBackgroundColor}" CornerRadius="12"/>
+                    <Button  Text="Clear Box" BorderColor="{StaticResource AppDarkBlueColor}" Command="{Binding ClearCommand}" TextColor="{StaticResource AppDarkBlueColor}" BorderWidth="1" HeightRequest="50" WidthRequest="50" BackgroundColor="{StaticResource  AppBackgroundColor}" CornerRadius="12"/>
                 </Grid>
                 <!--Submit Button-->
                 <Grid Grid.Column="1"  HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" >
-                    <Button  Text="Submit Box" BorderColor="{StaticResource AppPurpleColor}" Command="{Binding SubmitCommand}" TextColor="{StaticResource AppBackgroundColor}" BorderWidth="1" HeightRequest="50" WidthRequest="50" BackgroundColor="{StaticResource  AppPurpleColor}" CornerRadius="12"/>
+                    <Button  Text="Submit Box" BorderColor="{StaticResource AppDarkBlueColor}" Command="{Binding SubmitCommand}" TextColor="{StaticResource AppBackgroundColor}" BorderWidth="1" HeightRequest="50" WidthRequest="50" BackgroundColor="{StaticResource  AppDarkBlueColor}" CornerRadius="12"/>
                 </Grid>
             </Grid>
         </Grid>

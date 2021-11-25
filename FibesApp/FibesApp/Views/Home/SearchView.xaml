@@ -64,7 +64,7 @@
                 <Label Grid.Row="1" Text="No Result Found" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="{Binding IsEmptyListVisible}"/>
             </Grid>
             <!--Popular Product List Section-->
-            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,*" RowSpacing="0" Margin="25,0,25,20" >
+            <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,*" RowSpacing="0" Margin="25,0,25,20">
                 <Label Grid.Row="0" Text="Popular Product" FontAttributes="Bold" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" />
                 <CollectionView Grid.Row="1" ItemsSource="{Binding PopularProductList}" >
                     <CollectionView.ItemsLayout>
@@ -72,10 +72,12 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="{Binding ItemHeight}">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="220" WidthRequest="200" RowDefinitions="Auto,15,15">
                                 <Frame Padding="0" IsClippedToBounds="True" HasShadow="False" BorderColor="LightGray" CornerRadius="13" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                    <Image Source="demoimage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Image Source="demoimage.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="170"/>
                                 </Frame>
+                                <Label Grid.Row="1" Text="{Binding BrandName}" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                                <Label Grid.Row="2" Text="{Binding ProductName}" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

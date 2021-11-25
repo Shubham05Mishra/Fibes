@@ -1,6 +1,8 @@
-﻿using FibesApp.Views.Accounts;
+﻿using FibesApp.Models;
+using FibesApp.Views.Accounts;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
@@ -14,7 +16,41 @@ namespace FibesApp.ViewModels.Accounts
         public ProfileViewModel(INavigation nav)
         {
             Navigation = nav;
-            LogoutCommand = new Command(OnLogoutAsync);            
+            LogoutCommand = new Command(OnLogoutAsync);
+
+            #region Bind Static List
+            Languages = new ObservableCollection<LanguageModel>()
+            {
+                new LanguageModel()
+                {
+                    LanguageName = "English"
+                },
+                new LanguageModel()
+                {
+                    LanguageName = "Hindi"
+                },
+                new LanguageModel()
+                {
+                    LanguageName = "German"
+                },
+                new LanguageModel()
+                {
+                    LanguageName = "French"
+                },
+                new LanguageModel()
+                {
+                    LanguageName = "Spanish"
+                },
+                new LanguageModel()
+                {
+                    LanguageName = "Chinese"
+                },
+                new LanguageModel()
+                {
+                    LanguageName = "Urdu"
+                },
+            };
+            #endregion
         }
         #endregion
 
@@ -29,6 +65,33 @@ namespace FibesApp.ViewModels.Accounts
                 {
                     _IsPageEnable = value;
                     OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
+        private ObservableCollection<LanguageModel> _Languages;
+        public ObservableCollection<LanguageModel> Languages
+        {
+            get { return _Languages; }
+            set
+            {
+                if (_Languages != value)
+                {
+                    _Languages = value;
+                    OnPropertyChanged("Languages");
+                }
+            }
+        }
+
+        private LanguageModel _SelectedLanguage;
+        public LanguageModel SelectedLanguage
+        {
+            get { return _SelectedLanguage; }
+            set
+            {
+                if (_SelectedLanguage != value)
+                {
+                    _SelectedLanguage = value;
+                    OnPropertyChanged("SelectedLanguage");
                 }
             }
         }

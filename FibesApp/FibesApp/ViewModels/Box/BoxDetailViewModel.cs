@@ -25,73 +25,73 @@ namespace FibesApp.ViewModels.Box
                  {
                     Id = 1,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock",
+                   ProStatus="Instock",
                 },
                 new BoxDetailModel()
                  {
                     Id = 2,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock",
+                   ProStatus="Instock",
                 },
                 new BoxDetailModel()
                  {
                     Id = 3,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock",
+                   ProStatus="Instock",
                 },
                 new BoxDetailModel()
                  {
                     Id = 4,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock",
+                   ProStatus="Instock",
                 },
                 new BoxDetailModel()
                  {
                     Id = 5,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock",
+                   ProStatus="Instock",
                 },
                 new BoxDetailModel()
                  {
                     Id = 6,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock"
+                   ProStatus="Instock"
                 },
                 new BoxDetailModel()
                  {
                     Id = 7,
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock"
+                   ProStatus="Instock"
                 },
                 new BoxDetailModel()
                  {
                     Id = 8, 
                     ProItemImage = "itemImage.png",
-                   ProName = "Product",
+                   ProName = "Product name",
                    ProBrand = "Brand",
                    ProType = "Kr 120 ",
-                   ProStatus="In Stock"
+                   ProStatus="Instock"
                 },
 
             };

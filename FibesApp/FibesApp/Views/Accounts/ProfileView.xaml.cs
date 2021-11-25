@@ -35,6 +35,16 @@ namespace FibesApp.Views.Accounts
         {                       
             base.OnAppearing();
             ProfileVM.IsPageEnable = true;
+            //ProfileVM.SelectedLanguage.LanguageName = "English";
+        }
+        /// <summary>
+        /// TODO : To define the picker for language selection...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Languages(object sender, EventArgs e)
+        {
+            SelectLanguage.Focus();
         }
         #endregion
     }
