@@ -8,7 +8,7 @@
         <!--Main Grid-->
         <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" IsEnabled="{Binding IsPageEnable}">
             <!--Background Image Section-->
-            <Image Source="bg.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Image Source="bg1.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="30"/>
             <!--Login Detail Section Grid-->
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,Auto">
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,70" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
@@ -19,7 +19,7 @@
                     <!--Password Section-->
                     <local:CustomFloatingEntry x:Name="PasswordEntry" Grid.Row="2" lblTextTitle="Password" EntryText="{Binding Password}" EntryIsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <!--Forgot Password Section-->
-                    <Grid Grid.Row="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,-10,0" Padding="5">
+                    <Grid Grid.Row="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"  Padding="5">
                          <!--Forgot Password Label--> 
                         <Label Text="Forgot Password?" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         <Grid.GestureRecognizers>
@@ -27,7 +27,7 @@
                         </Grid.GestureRecognizers>
                     </Grid>
                     <!--Sign In Button-->
-                    <Button Grid.Row="4" Text="Sign in" Command="{Binding SignInCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" FontSize="16" TextTransform="None" CornerRadius="5"/>
+                    <Button Grid.Row="4" Text="Sign in" Command="{Binding SignInCommand}" TextColor="White" BackgroundColor="{StaticResource AppDarkBlueColor}" FontSize="16" TextTransform="None" CornerRadius="5"/>
                 </Grid>
             </Grid>
         </Grid>
