@@ -4,11 +4,10 @@ using System.Text;
 
 namespace FibesApp.Models
 {
-    public class PopularProductItemModel
+    public class FurnitureItemModel
     {
         public string GetImages { get; set; }
         public double ItemHeight { get; set; }
-        public string BrandName { get; set; }
-        public string ProductName { get; set; }
+        public string ProType { get; set; }
     }
 }

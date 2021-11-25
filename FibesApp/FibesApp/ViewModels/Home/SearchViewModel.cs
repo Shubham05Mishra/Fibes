@@ -46,61 +46,85 @@ namespace FibesApp.ViewModels.Home
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     },
                     new PopularProductItemModel()
                     {
                         GetImages = "demoimage.png",
+                        BrandName = "Brand name",
+                        ProductName = "Product",
                         ItemHeight = ScreenItemWidth
                     }
             };

@@ -33,16 +33,15 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,-7,0,0">
-                <!--Background Image-->
-                <Image Source="bg.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0.08"/>
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="30*,Auto,20*,20*">
+                <!--Background Image-->                
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="10*,Auto,20*,20*">
                     <!--Panda Image-->
-                    <Image Grid.Row="1" Source="pandaicon.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="350" WidthRequest="350"/>
+                    <Image Grid.Row="1" Source="emptyBox.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="450" WidthRequest="350"/>
                     <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="Auto,Auto" RowSpacing="20">
                         <Label Text="Your box is empty" TextColor="{StaticResource AppBlackColor}" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         <!--Back to Main Page Button-->
-                        <Button Grid.Row="1" Text="Back to main page" Padding="15,0" Command="{Binding BackToHomeCommand}" TextColor="White" BackgroundColor="{StaticResource AppPurpleColor}" 
-                                FontSize="16" TextTransform="None" CornerRadius="10" HorizontalOptions="CenterAndExpand"/>
+                        <Button Grid.Row="1" Text="Back to main page" Padding="15,0" Command="{Binding BackToHomeCommand}" TextColor="White" BackgroundColor="{StaticResource AppDarkBlueColor}" 
+                                FontSize="16" TextTransform="None" CornerRadius="10" HorizontalOptions="CenterAndExpand" WidthRequest="220"/>
                     </Grid>
                 </Grid>
             </Grid>

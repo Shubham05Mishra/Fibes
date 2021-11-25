@@ -84,5 +84,10 @@ namespace FibesApp.Views.Box
             }
         }
         #endregion
+
+        private void Searchbar(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

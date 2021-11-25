@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:local="clr-namespace:FibesApp.CustomControls"
+             x:Class="FibesApp.Views.PopUp.FilterItemView">
+    <!--Main Grid-->
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*">
+        <!--Arrow Image-->
+        <Image Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="DownArrow.png" Aspect="Fill"/>
+        <!--Frame for round corner-->
+        <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="30" BackgroundColor="{StaticResource AppBackgroundColor}">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" RowSpacing="5">
+                <!--Filter Label-->
+                <Label Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Filters" TextColor="{StaticResource AppBlackColor}" FontSize="20"/>
+                <!--Scroll View-->
+                <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,10,50,40,50,40,Auto,*">
+                        <!--My Collection Section-->
+                        <Label Grid.Row="0" Text="My collection" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold"/>
+                        <Label Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="{Binding TotalItemsInCollection}" TextColor="{StaticResource AppGrayColor}"/>
+                                        <Span Text=" products" TextColor="{StaticResource AppGrayColor}"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Switch Grid.Row="0" x:Name="CollectionSwitch" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand" OnColor="{StaticResource AppDarkBlueColor}" ThumbColor="{StaticResource AppBackgroundColor}"/>
+                        <!--All Products Section-->
+                        <Label Grid.Row="2" Text="All products" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold"/>
+                        <Label Grid.Row="2" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="{Binding TotalItemsInProducts}" TextColor="{StaticResource AppGrayColor}"/>
+                                        <Span Text=" products" TextColor="{StaticResource AppGrayColor}"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Switch Grid.Row="2" x:Name="ProductSwitch" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand" OnColor="{StaticResource AppDarkBlueColor}" ThumbColor="{StaticResource AppBackgroundColor}"/>
+                        <!--Price Range-->
+                        <Label Grid.Row="3" Text="Price Range" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
+                        <Grid Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
+                            <!--Frame for Min price-->
+                            <Frame Grid.Column="0" BorderColor="LightGray" Padding="0" CornerRadius="8" HasShadow="False">
+                                <local:CustomEntry Placeholder="Min Price" PlaceholderColor="LightGray" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Margin="15,0,0,0" Keyboard="Numeric" MaxLength="5"/>
+                            </Frame>
+                            <!--Frame for Max price-->
+                            <Frame Grid.Column="1" BorderColor="LightGray" Padding="0" CornerRadius="8" HasShadow="False">
+                                <local:CustomEntry Placeholder="Max Price" PlaceholderColor="LightGray" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Margin="15,0,0,0" Keyboard="Numeric" MaxLength="5"/>
+                            </Frame>
+                        </Grid>
+                        <!--Price Range-->
+                        <Label Grid.Row="5" Text="Sort By" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
+                        <CollectionView Grid.Row="6" ItemsSource="{Binding PopularProductList}" >
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="3" VerticalItemSpacing="15" HorizontalItemSpacing="15"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="220" WidthRequest="200">
+                                        <Button />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </ScrollView>
+            </Grid>
+        </Frame>
+    </Grid>
+</pages:PopupPage>

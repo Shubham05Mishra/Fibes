@@ -62,17 +62,22 @@
                             <Label  Text="My Collection" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
                         <BoxView Grid.Row="6" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
-                        <!--Legal-->
+                        <!--Language-->
                         <Grid Grid.Row="7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Label Text="Language" FontSize="18" TextColor="{StaticResource AppBlackColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                            <Label Text="Swedish" FontSize="18" TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                            <Label Text="Language" FontSize="18" TextColor="{StaticResource AppBlackColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Languages"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Picker x:Name="SelectLanguage" Title="Language" ItemsSource="{Binding Languages}" ItemDisplayBinding="{Binding LanguageName}" SelectedItem="{Binding SelectedLanguage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false"/>
+                            <Label Text="{Binding SelectedLanguage.LanguageName}" FontSize="18" TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         </Grid>
                         <BoxView Grid.Row="8" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" BackgroundColor="{StaticResource AppLightGrayColor}"/>
-                        <!--Personal-->
+                        <!--Legal-->
                         <Grid Grid.Row="9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label  Text="Legal" FontSize="18" TextColor="{StaticResource AppGrayColor}" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                         </Grid>
-                        <!--Report a Bug-->
+                        <!--Privacy Policy-->
                         <Grid Grid.Row="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label  Text="Privacy Policy" TextColor="{StaticResource AppBlackColor}" FontSize="18" Margin="25,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </Grid>
