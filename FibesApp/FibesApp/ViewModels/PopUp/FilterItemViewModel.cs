@@ -1,4 +1,5 @@
 ﻿using FibesApp.Models;
+using FibesApp.ViewModels.Home;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,9 @@ using Xamarin.Forms;
 namespace FibesApp.ViewModels.PopUp
 {
     public class FilterItemViewModel : BaseViewModel
-    {        
+    {
+        public FurnitureViewModel FunitureVM;
+
         #region Constructor
         public FilterItemViewModel(INavigation nav)
         {
@@ -19,99 +22,123 @@ namespace FibesApp.ViewModels.PopUp
             #region Bind Static Lists
             SortList = new ObservableCollection<SortItemModel>()
             {
-                 new SortItemModel()
+                new SortItemModel()
                 {
+                   Id=1,
                    SortButtonText = "Popularity",
+                   BtnTextColor = Common.AppColor.AppBlackColor,
+                   BtnBackgroundColor = Common.AppColor.AppBackgroundColor
                 },
-                  new SortItemModel()
-                {
-                   SortButtonText = "Newest",
-                },
-                   new SortItemModel()
-                {
-                   SortButtonText = "Oldest",
-                },
-                    new SortItemModel()
-                {
-                   SortButtonText = "High Price",
-                },
-                     new SortItemModel()
-                {
-                   SortButtonText = "Low Pricr",
+                new SortItemModel()
+                {   
+                    Id=2,
+                    SortButtonText = "Newest",                   
                 },
                 new SortItemModel()
                 {
-                   SortButtonText = "Review",
+                    Id=3,
+                    SortButtonText = "Oldest",
+                },
+                new SortItemModel()
+                {
+                    Id=4,
+                    SortButtonText = "High Price",
+                },
+                new SortItemModel()
+                {
+                    Id=5,
+                    SortButtonText = "Low Price",
+                },
+                new SortItemModel()
+                {
+                    Id=6,
+                    SortButtonText = "Review",
                 },
             };
             CompositionList = new ObservableCollection<SortItemModel>()
             {
-                 new SortItemModel()
+                new SortItemModel()
                 {
-                   CompositionButtonText = "Polyster",
-                },
-                  new SortItemModel()
-                {
-                   CompositionButtonText = "Nylon",
-                },
-                   new SortItemModel()
-                {
-                   CompositionButtonText = "Cotton",
-                },
-                    new SortItemModel()
-                {
-                   CompositionButtonText = "Synthetic",
-                },
-                     new SortItemModel()
-                {
-                   CompositionButtonText = "Velvet",
+                    Id=1,
+                    CompositionButtonText = "Polyster",
                 },
                 new SortItemModel()
                 {
-                   CompositionButtonText = "Wool",
+                    Id=2,
+                    CompositionButtonText = "Nylon",
                 },
                 new SortItemModel()
                 {
-                   CompositionButtonText = "shiffon",
+                    Id=3,
+                    CompositionButtonText = "Cotton",
                 },
                 new SortItemModel()
                 {
-                   CompositionButtonText = "Silk",
+                    Id=4,
+                    CompositionButtonText = "Synthetic",
+                },
+                new SortItemModel()
+                {
+                    Id=5,
+                    CompositionButtonText = "Velvet",
+                },
+                new SortItemModel()
+                {
+                    Id=6,
+                    CompositionButtonText = "Wool",
+                },
+                new SortItemModel()
+                {
+                    Id=7,
+                    CompositionButtonText = "shiffon",
+                },
+                new SortItemModel()
+                {
+                    Id=8,
+                    CompositionButtonText = "Silk",
                 },
             };
             BrandList = new ObservableCollection<SortItemModel>()
             {
-                 new SortItemModel()
+                new SortItemModel()
                 {
-                   BrandName = "Brand A",
-                },
-                  new SortItemModel()
-                {
-                   BrandName = "Brand B",
-                },
-                   new SortItemModel()
-                {
-                   BrandName = "Brand C",
-                },
-                    new SortItemModel()
-                {
-                   BrandName = "Brand D",
-                },
-                     new SortItemModel()
-                {
-                   BrandName = "Brand E",
+                    Id=1,
+                    BrandName = "Brand A",
                 },
                 new SortItemModel()
                 {
-                   BrandName = "Brand F",
+                    Id=2,
+                    BrandName = "Brand B",
                 },
                 new SortItemModel()
                 {
-                   BrandName = "Brand G",
+                    Id=3,
+                    BrandName = "Brand C",
                 },
                 new SortItemModel()
                 {
-                   BrandName = "Brand H",
+                    Id=4,
+                    BrandName = "Brand D",
+                },
+                new SortItemModel()
+                {
+                    Id=5,
+                    BrandName = "Brand E",
+                },
+                new SortItemModel()
+                {
+                    Id=6,
+                    BrandName = "Brand F",
+                },
+                new SortItemModel()
+                {
+                    Id=7,
+                    BrandName = "Brand G",
+                },
+                new SortItemModel()
+                {
+                    Id=8,
+                    BrandName = "Brand H",
                 },
             };
             #endregion
@@ -188,14 +215,16 @@ namespace FibesApp.ViewModels.PopUp
                 }
             }
         }
+        #endregion
 
+        #region Commands
         public Command DownArrowCommand { get; }
         #endregion
-        #region Commands
-        #endregion
+
         #region Methods
         private async void OnDownAsync(object obj)
         {
+            await FunitureVM.UpdatePageEnableMode(true);
             await PopupNavigation.PopAsync(true);
         }
         #endregion

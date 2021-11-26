@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using FibesApp.Models;
 using FibesApp.Views.PopUp;
 using Rg.Plugins.Popup.Extensions;
@@ -101,7 +102,7 @@ namespace FibesApp.ViewModels.Home
                     }
             };
             #endregion
-        }        
+        }
         #endregion
 
         #region Properties
@@ -118,6 +119,19 @@ namespace FibesApp.ViewModels.Home
                 }
             }
         }
+        private bool _IsPageEnable = true;
+        public bool IsPageEnable
+        {
+            get { return _IsPageEnable; }
+            set
+            {
+                if (_IsPageEnable != value)
+                {
+                    _IsPageEnable = value;
+                    OnPropertyChanged("IsPageEnable");
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -126,6 +140,15 @@ namespace FibesApp.ViewModels.Home
         #endregion
 
         #region Methods
+
+        public async Task UpdatePageEnableMode(bool isEnable)
+        {
+            if (isEnable)
+                IsPageEnable = true;
+            else
+                IsPageEnable = false;
+        }
+
         /// <summary>
         /// TODO : To Bind the LatestSearch List...
         /// </summary>
@@ -138,14 +161,15 @@ namespace FibesApp.ViewModels.Home
         /// </summary>
         private void OnBoxCommand(object obj)
         {
-            
+
         }
         /// <summary>
         /// TODO : To Open Filter Page...
         /// </summary>
         private void OnFilterCommand(object obj)
         {
-            Navigation.PushPopupAsync(new FilterItemView());
+            IsPageEnable = false;
+            Navigation.PushPopupAsync(new FilterItemView(this));
         }
         #endregion
     }

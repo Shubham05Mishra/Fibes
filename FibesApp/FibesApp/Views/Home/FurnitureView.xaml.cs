@@ -35,6 +35,7 @@ namespace FibesApp.Views.Home
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            //FurnitureVM.IsPageEnable = true;
             FurnitureVM.GetFurnitureItem();
         }
         #endregion

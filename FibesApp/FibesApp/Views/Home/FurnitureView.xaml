@@ -6,7 +6,7 @@
              BackgroundColor="{StaticResource AppBackgroundColor}">
     <ContentPage.Content>
         <!--Main Grid-->
-        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,50,Auto" RowSpacing="10" IsEnabled="{Binding IsPageEnable}">
+        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,50,Auto" RowSpacing="10" >
             <Grid.Margin>
                 <!--Platform Specific code for Top Margin for iOS-->
                 <OnPlatform x:TypeArguments="Thickness">
@@ -46,7 +46,7 @@
                         <local:CustomEntry x:Name="SearchString" Grid.Column="1" Placeholder="Search"  PlaceholderColor="LightGray"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
-                <!--Filter Button-->                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">                    <Grid.GestureRecognizers>                        <TapGestureRecognizer Command="{Binding FilterCommand}"/>                    </Grid.GestureRecognizers>                    <Image Source="filter.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFit" Margin="0,0,2,0"/>                </Grid>
+                <!--Filter Button-->                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsEnabled="{Binding IsPageEnable}">                    <Grid.GestureRecognizers>                        <TapGestureRecognizer Command="{Binding FilterCommand}" />                    </Grid.GestureRecognizers>                    <Image Source="filter.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFit" Margin="0,0,2,0"/>                </Grid>
             </Grid>
             <!--Furniture Item List Section-->
             <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="25,13,25,20" >
