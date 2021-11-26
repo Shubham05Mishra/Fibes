@@ -7,7 +7,12 @@
     <!--Main Grid-->
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*">
         <!--Arrow Image-->
-        <Image Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="DownArrow.png" Aspect="Fill"/>
+        <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="DownArrow.png" Aspect="Fill"/>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding DownArrowCommand}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
         <!--Frame for round corner-->
         <Frame Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="30" BackgroundColor="{StaticResource AppBackgroundColor}">
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="60,*" RowSpacing="5">
@@ -15,7 +20,7 @@
                 <Label Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Filters" TextColor="{StaticResource AppBlackColor}" FontSize="20"/>
                 <!--Scroll View-->
                 <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,10,50,40,50,40,Auto,*">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="50,10,50,40,50,40,100,40,100,40,200">
                         <!--My Collection Section-->
                         <Label Grid.Row="0" Text="My collection" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold"/>
                         <Label Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontSize="16">
@@ -41,7 +46,7 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                        <Switch Grid.Row="2" x:Name="ProductSwitch" VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand" OnColor="{StaticResource AppDarkBlueColor}" ThumbColor="{StaticResource AppBackgroundColor}"/>
+                        <Switch Grid.Row="2" x:Name="ProductSwitch"  VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand" OnColor="{StaticResource AppDarkBlueColor}" ThumbColor="{StaticResource AppBackgroundColor}"/>
                         <!--Price Range-->
                         <Label Grid.Row="3" Text="Price Range" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
                         <Grid Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ColumnDefinitions="*,*" ColumnSpacing="15">
@@ -54,7 +59,7 @@
                                 <local:CustomEntry Placeholder="Max Price" PlaceholderColor="LightGray" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" FontSize="16" Margin="15,0,0,0" Keyboard="Numeric" MaxLength="5"/>
                             </Frame>
                         </Grid>
-                        <!--Price Range-->
+                        <!--Sort By-->
                         <Label Grid.Row="5" Text="Sort By" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
                         <CollectionView Grid.Row="6" ItemsSource="{Binding PopularProductList}" >
                             <CollectionView.ItemsLayout>
@@ -62,12 +67,40 @@
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="220" WidthRequest="200">
-                                        <Button />
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="40" WidthRequest="100">
+                                        <Button Text="{Binding SortButtonText}"  BorderWidth="1"  BorderColor="{StaticResource AppDarkBlueColor}" CornerRadius="8" TextTransform="None"  BackgroundColor="{StaticResource AppBackgroundColor}" HeightRequest="50"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                                     </Grid>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
+                        <!--Composition-->
+                        <Label Grid.Row="7" Text="Composition" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
+                        <CollectionView Grid.Row="8" ItemsSource="{Binding CompositionList}" >
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="4" VerticalItemSpacing="15" HorizontalItemSpacing="15"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="30" WidthRequest="120" Padding="0">
+                                        <Button Text="{Binding CompositionButtonText}"  BorderWidth="1"  BorderColor="{StaticResource AppDarkBlueColor}" CornerRadius="8" Padding="0" FontSize="12" TextTransform="None"  BackgroundColor="{StaticResource AppBackgroundColor}" HeightRequest="30"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <!--Composition-->
+                        <Label Grid.Row="9" Text="Brands" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
+                        <ListView Grid.Row="10" HasUnevenRows="False"  ItemsSource="{Binding BrandList}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="50"  Padding="0" ColumnDefinitions="Auto,*">
+                                            <CheckBox Grid.Column="0" Color="{StaticResource AppDarkBlueColor}"/>
+                                            <Label Grid.Column="1" Text="{Binding BrandName}"  Padding="0" FontSize="15"  BackgroundColor="{StaticResource AppBackgroundColor}" HeightRequest="50"  VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
                 </ScrollView>
             </Grid>
