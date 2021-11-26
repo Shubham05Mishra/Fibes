@@ -17,7 +17,7 @@ namespace FibesApp.ViewModels.PopUp
             DownArrowCommand = new Command(OnDownAsync);
 
             #region Bind Static Lists
-            PopularProductList = new ObservableCollection<SortItemModel>()
+            SortList = new ObservableCollection<SortItemModel>()
             {
                  new SortItemModel()
                 {
@@ -134,16 +134,16 @@ namespace FibesApp.ViewModels.PopUp
                 }
             }
         }
-        private ObservableCollection<SortItemModel> _PopularProductList;
-        public ObservableCollection<SortItemModel> PopularProductList
+        private ObservableCollection<SortItemModel> _SortList;
+        public ObservableCollection<SortItemModel> SortList
         {
-            get { return _PopularProductList; }
+            get { return _SortList; }
             set
             {
-                if (_PopularProductList != value)
+                if (_SortList != value)
                 {
-                    _PopularProductList = value;
-                    OnPropertyChanged("PopularProductList");
+                    _SortList = value;
+                    OnPropertyChanged("SortList");
                 }
             }
         }
