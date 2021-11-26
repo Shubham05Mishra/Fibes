@@ -29,9 +29,8 @@ namespace FibesApp.iOS
             global::Xamarin.Forms.Forms.Init();
             ImageCircleRenderer.Init();
             #endregion
-
             LoadApplication(new App());
-
+            Xamarin.IQKeyboardManager.SharedManager.Enable = true;
             return base.FinishedLaunching(app, options);
         }
     }

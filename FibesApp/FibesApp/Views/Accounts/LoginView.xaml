@@ -1,33 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FibesApp.CustomControls"
-             x:Class="FibesApp.Views.Accounts.LoginView"
-             NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource AppBackgroundColor}">
+<ContentPage
+    x:Class="FibesApp.Views.Accounts.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FibesApp.CustomControls"
+    BackgroundColor="{StaticResource AppBackgroundColor}"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <!--Main Grid-->
-        <Grid x:Name="BgStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" IsEnabled="{Binding IsPageEnable}">
-            <!--Background Image Section-->
-            <Image Source="bg2.png" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" WidthRequest="300" HeightRequest="600"/>
-            <!--Login Detail Section Grid-->
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" RowDefinitions="*,Auto">
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="35,35,35,70" RowDefinitions="Auto,50,50,Auto,50" RowSpacing="30" BackgroundColor="{StaticResource AppBackgroundColor}">
-                    <!--Welcome Fibes Label-->
-                    <Label Grid.Row="0" Text="Welcome to Fibes!" TextColor="{StaticResource AppBlackColor}" FontSize="30"/>
-                    <!--Email Section-->
-                    <local:CustomFloatingEntry x:Name="EmailEntry" Grid.Row="1" lblTextTitle="Email Address" EntryText="{Binding Email}" EntryKeyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <!--Password Section-->
-                    <local:CustomFloatingEntry x:Name="PasswordEntry" Grid.Row="2" lblTextTitle="Password" EntryText="{Binding Password}" EntryIsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                    <!--Forgot Password Section-->
-                    <Grid Grid.Row="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"  Padding="5">
-                         <!--Forgot Password Label--> 
-                        <Label Text="Forgot Password?" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <!--  Main Grid  -->
+        <Grid
+            x:Name="BgStack"
+            HorizontalOptions="FillAndExpand"
+            IsEnabled="{Binding IsPageEnable}"
+            RowSpacing="0"
+            VerticalOptions="FillAndExpand">
+            <!--  Background Image Section  -->
+            <Image
+                Aspect="Fill"
+                HeightRequest="600"
+                HorizontalOptions="FillAndExpand"
+                Source="bg2.png"
+                VerticalOptions="StartAndExpand"
+                WidthRequest="300" />
+            <!--  Login Detail Section Grid  -->
+            <Grid
+                HorizontalOptions="FillAndExpand"
+                RowDefinitions="*,Auto"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                <Grid
+                    Grid.Row="1"
+                    Padding="35,35,35,70"
+                    BackgroundColor="{StaticResource AppBackgroundColor}"
+                    HorizontalOptions="FillAndExpand"
+                    RowDefinitions="Auto,50,50,Auto,50"
+                    RowSpacing="30"
+                    VerticalOptions="FillAndExpand">
+                    <!--  Welcome Fibes Label  -->
+                    <Label
+                        Grid.Row="0"
+                        FontSize="30"
+                        Text="Welcome to Fibes!"
+                        TextColor="{StaticResource AppBlackColor}" />
+                    <!--  Email Section  -->
+                    <local:CustomFloatingEntry
+                        x:Name="EmailEntry"
+                        Grid.Row="1"
+                        EntryKeyboard="Email"
+                        EntryText="{Binding Email}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        lblTextTitle="Email Address" />
+                    <!--  Password Section  -->
+                    <local:CustomFloatingEntry
+                        x:Name="PasswordEntry"
+                        Grid.Row="2"
+                        EntryIsPassword="True"
+                        EntryText="{Binding Password}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        lblTextTitle="Password" />
+                    <!--  Forgot Password Section  -->
+                    <Grid
+                        Grid.Row="3"
+                        Padding="5"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <!--  Forgot Password Label  -->
+                        <Label
+                            HorizontalOptions="FillAndExpand"
+                            Text="Forgot Password?"
+                            TextColor="{StaticResource AppBlackColor}"
+                            VerticalOptions="FillAndExpand" />
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
                         </Grid.GestureRecognizers>
                     </Grid>
-                    <!--Sign In Button-->
-                    <Button Grid.Row="4" Text="Sign in" Command="{Binding SignInCommand}" TextColor="White" BackgroundColor="{StaticResource AppDarkBlueColor}" FontSize="16" TextTransform="None" CornerRadius="5"/>
+                    <!--  Sign In Button  -->
+                    <Button
+                        Grid.Row="4"
+                        BackgroundColor="{StaticResource AppDarkBlueColor}"
+                        Command="{Binding SignInCommand}"
+                        CornerRadius="5"
+                        FontSize="16"
+                        Text="SIGN IN"
+                        TextColor="White"
+                        TextTransform="None" />
                 </Grid>
             </Grid>
         </Grid>

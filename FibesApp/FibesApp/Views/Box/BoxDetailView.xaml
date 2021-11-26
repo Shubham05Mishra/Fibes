@@ -26,8 +26,8 @@
                 <!--Box Title-->
                 <Label Grid.Column="1" Text="Box" FontSize="20" TextColor="{StaticResource AppBlackColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <!--OptionButton-->
-                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Image  Source="optionicon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+                <Grid Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+                    <Image   Source="more.png" Aspect="AspectFit" Margin="10" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OptionCommand}" NumberOfTapsRequired="1"/>
                     </Grid.GestureRecognizers>

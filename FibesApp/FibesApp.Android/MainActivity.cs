@@ -7,6 +7,7 @@ using Android.OS;
 using Acr.UserDialogs;
 using AndroidX.AppCompat.App;
 using Android.Views;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace FibesApp.Droid
 {
@@ -25,8 +26,9 @@ namespace FibesApp.Droid
             //QRCode Package
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             #endregion
-
+          
             LoadApplication(new App());
+            Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
