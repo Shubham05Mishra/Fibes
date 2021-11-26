@@ -61,7 +61,7 @@
                         </Grid>
                         <!--Sort By-->
                         <Label Grid.Row="5" Text="Sort By" TextColor="{StaticResource AppBlackColor}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"/>
-                        <CollectionView Grid.Row="6" ItemsSource="{Binding PopularProductList}" >
+                        <CollectionView Grid.Row="6" ItemsSource="{Binding SortList}" >
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical" Span="3" VerticalItemSpacing="15" HorizontalItemSpacing="15"/>
                             </CollectionView.ItemsLayout>
