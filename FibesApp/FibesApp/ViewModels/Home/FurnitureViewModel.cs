@@ -136,9 +136,9 @@ namespace FibesApp.ViewModels.Home
         /// <summary>
         /// TODO : Open Box Detail Page...
         /// </summary>
-        private void OnBoxCommand(object obj)
-        {
-            
+        private async void OnBoxCommand(object obj)
+        {           
+            await Navigation.PushModalAsync(new Views.Box.BoxDetailView(), false);
         }
         /// <summary>
         /// TODO : To Open Filter Page...
