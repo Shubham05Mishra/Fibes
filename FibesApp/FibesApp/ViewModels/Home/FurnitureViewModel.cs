@@ -22,6 +22,7 @@ namespace FibesApp.ViewModels.Home
             //var appMainPageScreenWidth = App.Current.MainPage.Width;
             //ScreenItemWidth = (appMainPageScreenWidth - 65) / 2;
             BoxCommand = new Command(OnBoxCommand);
+            FilterCommand = new Command(OnFilterCommand);
 
             #region Bind Static List
             FurnitureItemList = new ObservableCollection<FurnitureItemModel>()
@@ -100,7 +101,7 @@ namespace FibesApp.ViewModels.Home
                     }
             };
             #endregion
-        }
+        }        
         #endregion
 
         #region Properties
@@ -121,6 +122,7 @@ namespace FibesApp.ViewModels.Home
 
         #region Commands
         public Command BoxCommand { get; }
+        public Command FilterCommand { get; }
         #endregion
 
         #region Methods
@@ -135,6 +137,13 @@ namespace FibesApp.ViewModels.Home
         /// TODO : Open Box Detail Page...
         /// </summary>
         private void OnBoxCommand(object obj)
+        {
+            
+        }
+        /// <summary>
+        /// TODO : To Open Filter Page...
+        /// </summary>
+        private void OnFilterCommand(object obj)
         {
             Navigation.PushPopupAsync(new FilterItemView());
         }
